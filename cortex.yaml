@@ -1,0 +1,21 @@
+openapi: 3.0.0
+info:
+  title: Rapid7-Labs
+  description: Rapid7 Labs operates as the division of Rapid7 focused on threat research. It is renowned for providing comprehensive threat intelligence, research and analytics. Created by Anna Širokova via the GitHub Connector
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/Rapid7-Labs
+  x-cortex-tag: Rapid7-Labs
+  x-cortex-type: service
+  x-cortex-domain-parents:
+    - tag: octo-and-labs
+  x-cortex-owners:
+    - type: group
+      name: rapid7/rapid7-labs # Must be of form <org>/<team>
+      provider: GITHUB
+  x-cortex-groups:
+    - target:not-deployed
+    - strategy:on-prem
+    - exposure:opensource
+    
