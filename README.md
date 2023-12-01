@@ -20,7 +20,7 @@ This repository contains a curated collection of Sigma & Yara rules and Indicato
 
 ## Getting Started
 
-To get started with the Yara rules in this repository, follow these steps:
+To get started with the Yara & Sigma rules in this repository, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
