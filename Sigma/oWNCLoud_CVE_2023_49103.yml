@@ -1,0 +1,27 @@
+title: CVE-2023-49103 Potential Exploitation Attempt - OwnCLoud
+id: 5a7aa665-f924-4e78-a937-92117e6f1605
+status: experimental
+description: Detects potential exploitation attempt of CVE-2023-49103 against OwnCloud
+references:
+    - https://nvd.nist.gov/vuln/detail/CVE-2023-49103
+    - https://attackerkb.com/topics/G9urDj4Cg2/cve-2023-49103
+    - https://github.com/creacitysec/CVE-2023-49103/blob/main/exploit.py#L42C48-L42C56
+    
+author: Christiaan Beek @Rapid7 Labs
+date: 2023/11/28
+tags:
+    - detection.emerging_threats
+    - attack.initial_access
+    - attack.t1190
+    - cve.2023.49103
+logsource:
+    category: proxy
+detection:
+    selection:
+        cs-method: 'GET'
+        cs-uri|contains: '/apps/graphapi/vendor/microsoft/microsoft-graph/tests/GetPhpInfo.php'
+        sc-status: 200
+    condition: selection
+falsepositives:
+    - Vulnerability scanners
+level: medium
