@@ -6,7 +6,7 @@ This repository contains a curated collection of Sigma & Yara rules and Indicato
 
 
 ## About Rapid7 Labs
-[Rapid7 Labs](https://www.rapid7.com/blog/tag/research/) dedicated to providing cutting-edge cybersecurity research and solutions. Our team focuses on developing innovative tools and resources to tackle evolving digital threats.
+[Rapid7 Labs](https://www.rapid7.com/blog/tag/research/) operates as the division of Rapid7 focused on threat research. It is renowned for providing comprehensive threat intelligence, research and analytics. 
 
 
 ## Table of Contents
@@ -48,7 +48,7 @@ We welcome contributions from community to enhance and expand the Yara rule set.
 
 ## License
 
-This repository is licensed under the [MIT License](LICENSE). By contributing to this project, you agree to the terms and conditions outlined in the license.
+This repository is licensed under the [MIT License](LICENSE.md). By contributing to this project, you agree to the terms and conditions outlined in the license.
 
 ---
 
