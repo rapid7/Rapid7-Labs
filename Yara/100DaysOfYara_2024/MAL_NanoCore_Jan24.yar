@@ -5,7 +5,7 @@ rule MAL_NanoCore_Jan24 {
         date = "2024-01-11"
         reference = "https://bazaar.abuse.ch/sample/6ff9daa15f841bf3600d5a9174ab11b921ca8e8f1c9017a1c18afeb514c0f72e/"
         artifact = "Windows.System.VAD"
-        arguments = "MappingNameRegex='^$,ProtectionRegex=xrw|-rw,"
+        arguments = "MappingNameRegex='^$,ProtectionRegex=xrw|-rw"
         hash = "6ff9daa15f841bf3600d5a9174ab11b921ca8e8f1c9017a1c18afeb514c0f72e"
     strings:
         $x1 = "NanoCore Client.exe" fullword ascii
