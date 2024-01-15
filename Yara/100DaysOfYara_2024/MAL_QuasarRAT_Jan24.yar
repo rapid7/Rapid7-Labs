@@ -6,7 +6,7 @@ rule MAL_QuasarRAT_Jan24 {
         reference = "https://malpedia.caad.fkie.fraunhofer.de/details/win.quasar_rat"
         artifact = "Windows.Detection.Yara.Process"
         hash1 = "eb249d8b90aa5fa4627166c0a495f1cdb2a66bf59469a5fb7790a7aad13673fd"
-        hash1 = "3ad07a1878c8b77f9fc0143d8f88c240d8d0b986d015d4c0cd881ad9c0d572e"
+        hash2 = "3ad07a1878c8b77f9fc0143d8f88c240d8d0b986d015d4c0cd881ad9c0d572e"
         
    strings:
         $x1 = "Client.exe" wide fullword
