@@ -244,7 +244,7 @@ private rule SUS_Application_References_Jan24 {
 rule MAL_AgentTesla_Jan24
 {
     meta:
-        description = "Detects unique strings observed in AgentTesla payload in process memory"
+        description = "Detects unique strings observed in AgentTesla payload in process memory using private rule references"
         author = "Matt Green - @mgreen27"
         date = "2024-01-18"
         artifact = "Windows.Detection.Yara.Process"
@@ -262,8 +262,8 @@ rule MAL_AgentTesla_Jan24
         $s05 = "Content-Disposition: form-data; name=" wide // comms
         
         $s06 = "Berkelet DB" wide fullword // db
-        $s07 = " 1.85 (Hash, version 2, native byte-order)" wide fullword // Berkelet - target
-        $s08 = "SQLite format 3" wide fullword // target db?
+        $s07 = " 1.85 (Hash, version 2, native byte-order)" wide fullword // Berkelet
+        $s08 = "SQLite format 3" wide fullword // target db
         
         $s09 = ":Zone.Identifier" wide
         $s10 = "SELECT * FROM Win32_Processor" wide	// local discovery
