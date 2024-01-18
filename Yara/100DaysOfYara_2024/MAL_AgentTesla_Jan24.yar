@@ -261,9 +261,9 @@ rule MAL_AgentTesla_Jan24
         $s04 = "multipart/form-data; boundary=" wide	// comms
         $s05 = "Content-Disposition: form-data; name=" wide // comms
         
-        $s06 = "Berkelet DB" wide fullword // db
-        $s07 = " 1.85 (Hash, version 2, native byte-order)" wide fullword // Berkelet
-        $s08 = "SQLite format 3" wide fullword // target db
+        $s06 = "Berkelet DB" wide fullword // db access
+        $s07 = " 1.85 (Hash, version 2, native byte-order)" wide fullword // Berkelet db access
+        $s08 = "SQLite format 3" wide fullword // db access
         
         $s09 = ":Zone.Identifier" wide
         $s10 = "SELECT * FROM Win32_Processor" wide	// local discovery
