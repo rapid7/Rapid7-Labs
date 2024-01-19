@@ -272,7 +272,7 @@ rule MAL_AgentTesla_Jan24
         $s13 = "Win32_BaseBoard" wide	// local discovery
 
     condition:
-        any of ($dotnet*) and 5 of ($s*) and 
+        4 of ($dotnet*) and 5 of ($s*) and 
         3 of ( 
                 SUS_Exceptions_Jan24, 
                 SUS_Windows_Vault_Guids_Jan24, 
