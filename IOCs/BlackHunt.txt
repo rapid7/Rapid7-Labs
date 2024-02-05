@@ -1,0 +1,243 @@
+IOCs
+
+| Attribute       	| Value                                                            	| Description                        	|
+|-----------------	|------------------------------------------------------------------	|------------------------------------	|
+| mutex           	| BLACK_HUNT                                                       	| Mutex used by the ransomware       	|
+| mutex           	| BaseNamedObjects\BlackKeys                                       	| Mutex used by the ransomware       	|
+| sha256          	| C25F7B30D224D999CE337A13224C1CDE9FFB3F415D7113548DE9914A1BB3F123 	| #BlackHunt_Update.hta file         	|
+| primary email   	| Teikobest@gmail.com                                              	| Primary contact email for ransom   	|
+| secondary email 	| Loxoclash@gmail.com                                              	| Secondary contact email for ransom 	|
+| Tor address     	| http://sdif9821kjsdvcjlksaf2kjhlksvvnktyoiasuc921f               	|                                    	|
+| sha256          	| 74df3452a6b9dcdba658af7a9cf5afb09cce51534f9bc63079827bf73075243b 	| Black Hunt ransomware              	|
+| sha256          	| 35619594724871138875db462eda6cf24f2a462e1f812ff27d79131576cd73ab 	| Black Hunt ransomware              	|
+| sha256          	| 32877793a1e0d72235e9e785e1f55592c32c9f08b73729815b8103b09a54065f 	| Black Hunt ransomware              	|
+| sha256          	| 7eea62dcae4e2e5091dd89959529ae047071415a890dda507db4c53b6dcab28b 	| Black Hunt ransomware              	|
+| sha256          	| 13a5c3b72f81554e04b56d960d3a503a4b08ec77abb43756932a68b98dac1479 	| Black Hunt ransomware              	|
+
+
+
+
+Hardcoded list of services and processes to be stopped or terminated by ransomware.
+
+SQLAgentSQLEXPRESS
+SQLWriter
+SQLBrowser
+MSSQLSERVER
+MSSQL
+SQLSERVERAGENT
+VMVSS
+MSSQLVIM_SQLEXP
+MSSQLFDLauncher
+SQLTELEMETRY
+MsDtsServer130
+MSSQLVEEAMSQL2012
+MSSQLPROGID
+SQLAgentOPTIMA
+MSSQLOPTIMA
+ReportServerSQLEXP
+RESS
+postgresql-x64-9.4
+MSDTC
+vmicvss
+HostControllerService
+MSComplianceAudit
+MSExchangeADTopology
+MSExchangeAntispamUpdate
+MSExchangeCompliance
+MSExchangeDagMgmt
+MSExchangeDelivery
+MSExchangeDiagnostics
+MSExchangeEdgeSync
+MSExchangeFastSearch
+MSExchangeFrontEndTransport
+MSExchangeHM
+MSExchangeHMRecovery
+MSExchangeImap4
+MSExchangeIMAP4BE
+MSExchangeIS
+MSExchangeMailboxAssistants
+MSExchangeMailboxReplication
+MSExchangeNotificationsBroker
+MSExchangePop3
+MSExchangePOP3BE
+MSExchangeRepl
+MSExchangeRPC
+MSExchangeServiceHost
+MSExchangeSubmission
+MSExchangeThrottling
+MSExchangeTransport
+MSExchangeTransportLogSearch
+MSExchangeUM
+MSExchangeUMCR
+SearchExchangeTracing
+wsbexchange
+IISADMIN
+Tomcat8_CLOUDERP
+Tomcat8_DESARROLLO221
+MSDTC
+SQLSERVERAGENT
+MSSQLSERVER
+System Event Notification
+COM+ Event System
+Microsoft Software Shadow Copy Provider
+Volume Shadow Copy
+swprv
+vds
+vss
+sql
+svc$
+memtas
+mepocs
+sophos
+veeam
+backup
+GxVss
+GxBlr
+GxFWD
+GxCVD
+GxCIMgr
+DefWatch
+ccEvtMgr
+ccSetMgr
+SavRoam
+RTVscan
+QBFCService
+QBIDPService
+Intuit.QuickBooks.FCS
+QBCFMonitorService
+YooBackup
+YooIT
+zhudongfangyu
+sophos
+stc_raw_agent
+VSNAPVSS
+VeeamTransportSvc
+VeeamDeploymentService
+VeeamNFSSvc
+veeam
+PDVFSService
+BackupExecVSSProvider
+BackupExecAgentAccelerator
+BackupExecAgentBrowser
+BackupExecDiveciMediaService
+BackupExecJobEngine
+BackupExecManagementService
+BackupExecRPCService
+AcrSch2Svc
+AcronisAgent
+CASAD2DWebSvc
+CAARCUpdateSvc
+ProcessHacker
+Procexp64
+Procexp
+WireShark
+dumpcap
+Sysmon
+Sysmon64
+procexp64a
+procmon
+procmon64
+procmon64a
+OLLYDBG
+x64dbg
+x86dbg
+idaq
+idaq64
+WinDbgFrameClass
+Zeta Debugger
+Rock Debugger
+ObsidianGUI
+攀ⴀ一伀
+lordpe
+Die.exe
+xntsv
+xocalc
+xvlk
+NFD.exe
+O
+攀ⴀ一伀
+攀ⴀ一伀
+immunitydebugger
+ghidra
+x32dbg
+
+
+
+
+BalckHunt searches for these extensions and configuration files and excludes them from encryption.
+
+.exe
+.dll
+.BlackHunt
+.Black
+.lOV
+.msi
+.bat
+.RecycleBin
+autorun.inf
+boot.ini
+bootfont.bin
+bootsect.bak
+bootmgr
+bootmgr.efi
+bootmgfw.efi
+desktop.ini
+iconcache.db
+ntldr
+ntuser.dat
+ntuser.dat.log
+ntuser.ini
+thumbs.db
+pagefile.sys
+win.ini
+UsrClass.dat
+hiberfil.sys
+DumpStack.log.tmp
+Config.Msi
+
+
+Registry Modified by BlackHunt Ransomware
+
+| Registry Modification                                                                                                     | Description                                                      |
+|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run` {2C5F9FCC-F266-43F6-BFD7-838DAE269E11} REG_SZ C:\ProgramData\#BlackHunt_ReadMe.hta | Adds a startup entry to run a file at system startup             |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender` DisableAntiSpyware REG_DWORD 1                          | Disables Windows Defender anti-spyware protection                |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Real-Time Protection` DisableRealtimeMonitoring REG_DWORD 1| Disables Windows Defender real-time monitoring                   |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Spynet` SubmitSamplesConsent REG_DWORD 2                | Sets the consent level for submitting samples to Microsoft       |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Threats` Threats_ThreatSeverityDefaultAction REG_DWORD 1  | Sets default actions for threats detected by Windows Defender    |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Threats\ThreatSeverityDefaultAction` Low, Medium, High, Severe REG_DWORD 6 | Sets default actions for threats of different severities     |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\UX Configuration` Notification_Suppress REG_DWORD 1       | Suppresses Windows Defender notifications                        |
+| `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer` NoClose, StartMenuLogOff REG_DWORD 1        | Disables the ability to close the Start Menu and log off         |
+| `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System` DisableChangePassword, DisableLockWorkstation, NoLogoff, DisableTaskMgr REG_DWORD 1 | Disables various system functionalities such as changing password, locking workstation, logging off, and task manager |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\SystemRestore` DisableConfig, DisableSR REG_DWORD 1              | Disables System Restore configuration and functionality          |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WinRE` DisableSetup REG_DWORD 1                                    | Disables Windows Recovery Environment setup                      |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Backup\Client` DisableBackupLauncher, DisableRestoreUI, DisableSystemBackupUI, DisableBackupUI REG_DWORD 1 | Disables various backup client functionalities                   |
+| `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer` NoRun REG_DWORD 1                           | Disables the ability to run programs                              |
+
+
+
+
+MITRE ATT&CK Techniques
+
+| Tactic                                	| Technique                                                                         	| **Details                                                                                                                                   	|
+|---------------------------------------	|-----------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------------------------------------------	|
+| Execution                             	| Native API (T1106)                                                                	| The ransomware may execute its malicious activities by interacting with system APIs.                                                        	|
+|                                       	|                                                                                   	|                                                                                                                                             	|
+| Persistence                           	| Scheduled Task/Job: Scheduled Task (T1053.005 )                                   	| Black Hunt sets persistence by creating scheduled tasks to execute the malware upon system startup using the command                        	|
+| Persistence                           	| Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder (T1547.001) 	| Modifies the Windows Registry to establish persistence, ensuring it runs automatically upon system startup.                                 	|
+| Privilege Escalation                  	| Abuse Elevation Control Mechanism: Bypass User Account Control  (T1548.002 )      	| Black Hunt grants itself elevated privileges without user intervention by modifying registry values: EnableLUA and EnableLinkedConnections. 	|
+| Defense Evasion, Privilege Escalation 	| Access Token Manipulation (T1134)                                                 	| Black Hunt manipulate access tokens, granting itself privileges to perform various actions on the system                                    	|
+| Defense Evasion                       	| Modify Registry   (T1112)                                                         	| Modifies registry keys to disable security features, alter system configurations, and establish persistence.                                	|
+| Defense Evasion                       	| Impair Defenses: Disable or Modify Tools (T1562.001)                              	| Black Hunt  disables security tools to avoid possible detection of their malware/tools and activities                                       	|
+| Defense Evasion                       	| File Deletion  ( T1070.004   )                                                    	| Black Hunt empties the Windows Recycle Bin to permanently delete files and prevent recovery attempts.                                       	|
+| Defense Evasion                       	| Indicator Removal on Host: Clear Windows Event Logs (T1070.001)                   	| The ransomware clears Windows Event Logs to erase evidence.                                                                                 	|
+| Defense Evasion                       	| Impair Defenses: Safe Mode Boot  (T1562.009)                                      	| Black Hunt  disable endpoint defenses                                                                                                       	|
+| Defense Evasion                       	| Hide Artifacts: Hidden Window (T1564.003)                                         	| Black Hunt uses a hidden window to conceal malicious activity from the plain sight of users.                                                	|
+| Discovery                             	| Network Service Discovery (T1046)                                                 	| Black Hunt lists services running on the local network                                                                                      	|
+| Discovery                             	| System Location Discovery: System Language Discovery (T1614.001)                  	| Black Hunt gather information about the system language of a host in order to infer the geographical location of that host                  	|
+| Discovery                             	| Network Share Discovery (T1135)                                                   	| Black Hunt enumerates shared network drives and folders to access other systems                                                             	|
+| Discovery                             	|  File and Directory Discovery (T1083)                                             	| Black Hunt enumerates files and directories to identify whether certain objects should be encrypted                                         	|
+| Discovery                             	| Process Discovery (T1057)                                                         	| Black Hunt  performs process discovery/enumeration to terminate processes that could interfere with the encryption process.                 	|
+| Impact                                	| Inhibit System Recovery  (T1490)                                                  	| Deletes backups, volume shadow copies, and disables automatic repair and recovery features.                                                 	|
+| Impact                                	| Data Encrypted for Impact (T1486)                                                 	| Black Hunt is capable for encrypting victim’s files                                                                                         	|
+| Impact                                	| Service Stop  (T1489)                                                             	| Stops certain services, such as those related to backup, security software, and others                                                      	|
