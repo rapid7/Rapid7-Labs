@@ -7,7 +7,7 @@ IOCs
 | sha256          	| C25F7B30D224D999CE337A13224C1CDE9FFB3F415D7113548DE9914A1BB3F123 	| #BlackHunt_Update.hta file         	|
 | primary email   	| Teikobest@gmail.com                                              	| Primary contact email for ransom   	|
 | secondary email 	| Loxoclash@gmail.com                                              	| Secondary contact email for ransom 	|
-| Tor address     	| http://sdif9821kjsdvcjlksaf2kjhlksvvnktyoiasuc921f               	|                                    	|
+| Tor address     	| http://sdif9821kjsdvcjlksaf2kjhlksvvnktyoiasuc921f.onion          |                                    	|
 | sha256          	| 74df3452a6b9dcdba658af7a9cf5afb09cce51534f9bc63079827bf73075243b 	| Black Hunt ransomware              	|
 | sha256          	| 35619594724871138875db462eda6cf24f2a462e1f812ff27d79131576cd73ab 	| Black Hunt ransomware              	|
 | sha256          	| 32877793a1e0d72235e9e785e1f55592c32c9f08b73729815b8103b09a54065f 	| Black Hunt ransomware              	|
