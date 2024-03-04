@@ -1,0 +1,24 @@
+title: CVE-2024-27198 Jetbrains TeamCity authentication bypass 
+id: 12345678-90ab-cdef-1234-567890abcdef
+status: experimental
+description: Detects suspicious HTTP(S) GET or POST requests based on specific regular expressions that detect possible authentication bypass attempts towards a Jetbrains TeamCity server
+references:
+- https://www.rapid7.com/blog/post/2024/03/04/etr-cve-2024-27198-and-cve-2024-27199-jetbrains-teamcity-multiple-authentication-bypass-vulnerabilities-fixed/
+author: Christiaan Beek @ Rapid7 labs
+date: 2024-03-04
+logsource:
+  category: web
+  product: any
+detection:
+  selection1:
+    http_method:
+      - GET
+      - POST
+  selection2:
+    url|re: ';\S*\.jsp\?\S*jsp='
+  selection3:
+    url|re: '/\S*\?\S*jsp=\S*;\.jsp'
+  condition: selection1 and (selection2 or selection3)
+falsepositives:
+  - Legitimate requests that accidentally match the regular expressions.
+level: medium
