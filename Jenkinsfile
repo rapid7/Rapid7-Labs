@@ -25,6 +25,7 @@ pipeline {
 			git add Vql/release/Rapid7LabsVQL.zip
 			git commit -m "Automatic build Rapid7LabsVQL.zip"
 			git push
+
                 '''
             }
         }
