@@ -18,11 +18,11 @@ pipeline {
              		apt-get -y install zip
 
     	 		echo "build VQL release file for Velociraptor import"
-			mkdir -p vql/release
-			zip -r vql/release/Rapid7LabsVQL.zip vql/**/*.yaml
+			mkdir -p Vql/release
+			zip -r Vql/release/Rapid7LabsVQL.zip Vql/**/*.yaml 2> /dev/null
 
 			echo "commit release back to project"
-			git add vql/release/Rapid7LabsVQL.zip
+			git add Vql/release/Rapid7LabsVQL.zip
 			git commit -m "Automatic build Rapid7LabsVQL.zip"
 			git push
                 '''

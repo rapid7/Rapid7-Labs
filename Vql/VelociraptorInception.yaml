@@ -1,0 +1,105 @@
+name: Generic.Detection.VelociraptorInception
+author: Matt Green - @mgreen27
+description: |
+   Velociraptor Inception is an artifact that can be used to hunt for 
+   unauthorised instances of Velociraptor running on a machine.
+   
+   NOTE: This artifact is written for 0.7.2 and may work unexpectantly on older 
+   versions.
+   
+   Features include:   
+   
+   1. Cross OS check for Velociraptor strings in running processes (excludes 
+   running process).
+   
+   2. Windows specific hunt to search for Velociraptor application events 
+   (new in 0.7.2).
+   
+   3. Windows specific hunt to search for Velociraptor event log source registry
+   key (new in 0.7.2).
+   
+aliases:
+  - Windows.Detection.VelociraptorInception
+  
+type: CLIENT
+
+parameters:
+  - name: ProcessRegex
+    default: .
+    type: regex
+  - name: PidRegex
+    default: .
+    type: regex
+  - name: YaraRule
+    type: yara
+    default: |
+        rule velociraptor_strings {
+            meta:
+                description = "Detects unique strings in Velociraptor binaries"
+            strings:
+                $s1 = "www.velocidex.com/golang/velociraptor/" wide ascii
+                $s2 = "proto.VelociraptorUser, error" wide ascii
+                $s3 = "Welcome to the Velociraptor multi-frontend configuration generator" wide ascii
+                $s4 = "Go build ID:" wide ascii 
+            condition:
+                3 of them
+        }
+  - name: RegistryGlob
+    description: Glob to Veloiciraptor application log key.
+    default: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\Velociraptor
+
+sources:
+  - name: ProcessYara
+    description: Find all running Velociraptor processes with yara.  
+    query: |
+      SELECT * FROM switch(
+            windows = { 
+                SELECT *, 
+                    authenticode(filename=ExePath) as ExeAuthenticode,
+                    hash(path=ExePath) as ExeHash
+                FROM Artifact.Windows.Detection.Yara.Process(
+                                ProcessRegex=ProcessRegex,
+                                PidRegex=PidRegex,
+                                YaraRule=YaraRule )
+            },
+            linux = {
+                SELECT *
+                FROM Artifact.Linux.Detection.Yara.Process(
+                                ProcessRegex=ProcessRegex,
+                                PidRegex=PidRegex,
+                                YaraRule=YaraRule )
+            },
+            macos = {
+                SELECT * 
+                FROM Artifact.MacOS.Detection.Yara.Process(
+                                ProcessRegex=ProcessRegex,
+                                PidRegex=PidRegex,
+                                YaraRule=YaraRule )
+            }
+        )
+
+
+  - name: EventLogs
+    description: Finds Velociraptor Application Event Log entries.
+    query: |
+      SELECT EventTime,Computer,Channel,Provider,EventID,EventRecordID,
+        EventData.Data[0] as EventData,OSPath
+      FROM Artifact.Windows.EventLogs.EvtxHunter(
+            EvtxGlob='''%SystemRoot%\System32\Winevt\Logs\Application.evtx''',
+            IdRegex='^1000$',
+            IocRegex='velociraptor' )
+            
+  - name: Registry
+    description: Finds Velociraptor EventLog source key. Good indicator of first time Velociraptor 0.7.2+ was run.
+    query: |
+      SELECT
+        Key.FileInfo.Mtime as Mtime,
+        Key.FileInfo.FullPath as KeyPath,
+        CustomSource,
+        EventMessageFile,
+        TypesSupported
+      FROM read_reg_key(globs=RegistryGlob)
+        
+column_types:
+  - name: HitContext
+    type: preview_upload
