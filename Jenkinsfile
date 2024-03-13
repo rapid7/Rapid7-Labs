@@ -19,7 +19,7 @@ pipeline {
 
     	 		echo "build VQL release file for Velociraptor import"
 			mkdir -p Vql/release
-			zip -r Vql/release/Rapid7LabsVQL.zip Vql/**/*.yaml
+			zip -r Vql/release/Rapid7LabsVQL.zip Vql/**/*.yaml 2> /dev/null
 
 			echo "commit release back to project"
 			git add Vql/release/Rapid7LabsVQL.zip
