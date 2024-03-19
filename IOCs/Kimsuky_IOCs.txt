@@ -1,0 +1,153 @@
+
+
+██████╗  █████╗ ██████╗ ██╗██████╗ ███████╗    ██╗      █████╗ ██████╗ ███████╗    
+██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗╚════██║    ██║     ██╔══██╗██╔══██╗██╔════╝    
+██████╔╝███████║██████╔╝██║██║  ██║    ██╔╝    ██║     ███████║██████╔╝███████╗    
+██╔══██╗██╔══██║██╔═══╝ ██║██║  ██║   ██╔╝     ██║     ██╔══██║██╔══██╗╚════██║    
+██║  ██║██║  ██║██║     ██║██████╔╝   ██║      ███████╗██║  ██║██████╔╝███████║    
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝      ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝    
+                                                                                   
+
+Indicators of compromise:
+=========================
+
+Nuclear Lure CHM file
+MD5: 364d4fdf430477222fe854b3cd5b6d40
+SHA1: b5224224fdbabdea53a91a96e9f816c6f9a8708c
+SHA256: c62677543eeb50e0def44fc75009a7748cdbedd0a3ccf62f50d7f219f6a5aa05
+
+C2:
+00701111.000webhostapp.com/wp-extra
+00701111.000webhostapp.com
+
+VBS script:
+MD5: 71db2ae9c36403cec1fd38864d64f239
+SHA1: 5c7b2705155023e6e438399d895d30bf924e0547
+SHA256: e8000ddfddbe120b5f2fb3677abbad901615d1abd01a0de204fade5d2dd5ad0d
+
+C2:
+hxxp://gosiweb.gosiclass[.]com/m/gnu/convert/html/com/list.php?query=6
+
+CHM file
+
+MD5: 35b05779e9538cec363ca37ab38e287
+SHA1: d4fa57f9c9e35222a8cacddc79055c1d76907fb9
+SHA256: da79eea1198a1a10e2ffd50fd949521632d8f252fb1aadb57a45218482b9fd89
+
+CHM file content:
+1295049.bat	
+MD5: 9b90da17af5ac50f7cbea9a0dcab5e95	
+SHA1: 421e41df6eea17720583938afb9254051f9800b4	
+SHA256: 0da96b1d368d024fdafbf7decd5ff1bbd05c7f981736b526b0e2e2150df4c35f	
+
+2034923.bat	
+MD5: d2a9dee8b59e97fc8a853833473a243d	
+SHA1: a77527035bea78e0a95e81d4557fe5020d96f739	
+SHA256: 5349a0f1050b6369222fa26e92475c71a42c6d8c6d4d97017edf79a88640b823	
+
+3059602.bat	
+MD5: fe0fefe55775f03c0b8feaeb6a0ad525	
+SHA1: 3f3f4b15efc6be2d204ca369d58dc6bd411cff30		
+SHA256: 525ba2dc6248db68aff43bff03f04faf6f33f477b21585476559fb15595ce342	
+
+4959032.bat	
+MD5:df9dcd99ce845e3c8fec0a246f129e0a	
+SHA256:95ee9ce89975aa326be807ce6e6490fd93937622377d55591d55ec8471950ac4	
+
+5923924.bat	
+MD5: 4bc56c3e1129215d813e78a70d2696c2	
+SHA1: eaaee3dc4c2da5a78f9e3dc206da49b3a83925d5	
+SHA256: bf5a68117d99d33339e0408b15cf480379fb6e66cf73a7aea858531855ae4428	
+
+9583423.bat	
+MD5: 0179c9475fa0c1d942edc0f55cbb191c	
+SHA1: 291bf83c9efa7035f6bd66a5a1ba9848b91ff355	
+SHA256: b9aa566824a0cef05e2fd8a589fc73f3bc865f6ec3e9e1b19cb5436a553d2f66	
+
+emlmanager.vbs	
+MD5: 5f06662b150104efe2a348b97471f7ef	
+SHA1: a96f0685c14e6b495e047043183e86fe935e8942
+SHA256: adcc3ab54605bd0b4c0587e48247b1d6bc595211da2557df934cd8ab8f4c3a07	
+
+index.html	
+MD5: ed275f0721f12ad7497d5443ad8f743f	
+SHA1: e0884263fea0eae8932f9043934dfd96020ba394		
+SHA256: f0d278f05217885b27aba756585c543a7dde05b651dbaceacd78b4657abaa5a1
+
+C2:
+hxxps://niscarea[.]com/in.php
+
+
+MITRE ATT&CK Enterprise Techniques:
+===================================
+
+-  T1005, Name: Data from Local System
+-  T1012, Name: Query Registry
+-  T1016, Name: System Network Configuration Discovery
+-  T1021.001, Name: Remote Desktop Protocol
+-  T1027, Name: Obfuscated Files or Information
+-  T1033, Name: System Owner/User Discovery
+-  T1036.005, Name: Match Legitimate Name or Location
+-  T1041, Name: Exfiltration Over C2 Channel
+-  T1047, Name: Windows Management Instrumentation
+-  T1053.005, Name: Scheduled Task
+-  T1055, Name: Process Injection
+-  T1057, Name: Process Discovery
+-  T1059.003, Name: Windows Command Shell
+-  T1068, Name: Exploitation for Privilege Escalation
+-  T1070.004, Name: File Deletion
+-  T1074.001, Name: Local Data Staging
+-  T1082, Name: System Information Discovery
+-  T1083, Name: File and Directory Discovery
+-  T1090, Name: Proxy
+-  T1105, Name: Ingress Tool Transfer
+-  T1110, Name: Brute Force
+-  T1112, Name: Modify Registry
+-  T1140, Name: Deobfuscate/Decode Files or Information
+-  T1204.002, Name: Malicious File
+-  T1518.001, Name: Security Software Discovery
+-  T1543.003, Name: Windows Service
+-  T1547.001, Name: Registry Run Keys / Startup Folder
+-  T1548.002, Name: Bypass User Account Control
+-  T1562.001, Name: Disable or Modify Tools
+-  T1564.001, Name: Hidden Files and Directories
+-  T1566.001, Name: Spearphishing Attachment
+-  T1569.002, Name: Service Execution
+
+SIGMA RULES Suggestions:
+========================
+// Based on the MITRE ATT&CK techniques observed, the following public SIGMA rules 
+   rules could be useful in detecting similar events:
+
+- proc_creation_win_findstr_sysmon_discovery_via_default_altitude.yml
+- proc_creation_win_susp_service_tamper.yml
+- proc_creation_win_reg_query_registry.yml
+- win_system_defender_disabled.yml
+- registry_set_disallowrun_execution.yml
+- proc_creation_win_sc_create_service.yml
+- proc_creation_win_findstr_security_keyword_lookup.yml
+- proc_creation_win_cmd_del_execution.yml
+- proc_creation_win_hostname_execution.yml
+- proc_creation_win_dsim_remove.yml
+- registry_set_disable_uac_registry.yml
+- file_event_win_office_macro_files_downloaded.yml
+- proc_creation_win_reg_lsa_disable_restricted_admin.yml
+- proc_creation_win_susp_cli_obfuscation_unicode.yml
+- proc_creation_win_powershell_disable_defender_av_security_monitoring.yml
+- proc_creation_win_systeminfo_execution.yml
+- proc_creation_win_tasklist_basic_execution.yml
+- file_event_win_office_macro_files_from_susp_process.yml
+- proc_creation_win_reg_susp_paths.yml
+- registry_set_hidden_extention.yml
+- registry_set_creation_service_uncommon_folder.yml
+- proc_creation_win_cmd_rmdir_execution.yml
+- file_event_win_office_macro_files_created.yml
+- file_event_win_powershell_startup_shortcuts.yml
+- registry_set_set_nopolicies_user.yml
+- win_defender_malware_and_pua_scan_disabled.yml
+- proc_creation_win_powershell_base64_mppreference.yml
+- proc_creation_win_powershell_create_service.yml
+
+
+
+
