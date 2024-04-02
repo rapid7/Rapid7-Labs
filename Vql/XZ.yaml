@@ -1,0 +1,56 @@
+name: Generic.Detection.XZ
+author: Matt Green - @mgreen27
+description: |
+   This artifact checks for backdoored versions of XZ Utils (liblzma) - aligning 
+   to CVE-2024-3094.
+   
+   On Friday, March 29, after investigating anomalous behavior in his Debian sid 
+   environment, developer Andres Freund contacted an open-source security mailing 
+   list to share that he had discovered an upstream backdoor in widely used 
+   command line tool XZ Utils (liblzma). The backdoor, added by an open-source 
+   committer who had been working on the tool for several years, affects XZ 
+   Utils versions 5.6.0 and 5.6.1.
+   
+   Features include:   
+   
+   1. Cross OS check for XZ Utils (liblzma) installed packages.
+   
+   2. MacOS search for Brew installs by path.
+
+reference:
+    - https://www.rapid7.com/blog/post/2024/04/01/etr-backdoored-xz-utils-cve-2024-3094/
+
+type: CLIENT
+
+parameters:
+  - name: PackageRegex
+    default: liblzma|xz
+    type: regex
+  - name: VersionRegex
+    default: 5.6
+    type: regex
+    
+
+sources:
+  - query: |
+      SELECT * FROM switch(
+            rhel = { 
+                SELECT * FROM Artifact.Linux.RHEL.Packages(preconditions=true)
+                WHERE Package=~PackageRegex AND Version=~VersionRegex
+            },
+            debian = {
+                SELECT * FROM Artifact.Linux.Debian.Packages(preconditions=true)
+                WHERE Package=~PackageRegex AND Version=~VersionRegex
+            },
+            macos = {
+                SELECT * FROM Artifact.MacOS.System.Packages(preconditions=true)
+                WHERE Name=~PackageRegex AND Version=~VersionRegex
+            }
+        )
+
+
+  - name: MacOSBrew
+    description: Finds Velociraptor Application Event Log entries.
+    query: |
+      SELECT * FROM Artifact.MacOS.Search.FileFinder(preconditions=true, 
+                SearchFilesGlob='/usr/local/Cellar/xz/5.6.*/bin/xz')

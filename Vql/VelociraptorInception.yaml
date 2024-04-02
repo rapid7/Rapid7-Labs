@@ -57,21 +57,21 @@ sources:
                 SELECT *, 
                     authenticode(filename=ExePath) as ExeAuthenticode,
                     hash(path=ExePath) as ExeHash
-                FROM Artifact.Windows.Detection.Yara.Process(
+                FROM Artifact.Windows.Detection.Yara.Process(preconditions=true,
                                 ProcessRegex=ProcessRegex,
                                 PidRegex=PidRegex,
                                 YaraRule=YaraRule )
             },
             linux = {
                 SELECT *
-                FROM Artifact.Linux.Detection.Yara.Process(
+                FROM Artifact.Linux.Detection.Yara.Process(preconditions=true,
                                 ProcessRegex=ProcessRegex,
                                 PidRegex=PidRegex,
                                 YaraRule=YaraRule )
             },
             macos = {
                 SELECT * 
-                FROM Artifact.MacOS.Detection.Yara.Process(
+                FROM Artifact.MacOS.Detection.Yara.Process(preconditions=true,
                                 ProcessRegex=ProcessRegex,
                                 PidRegex=PidRegex,
                                 YaraRule=YaraRule )
@@ -84,7 +84,7 @@ sources:
     query: |
       SELECT EventTime,Computer,Channel,Provider,EventID,EventRecordID,
         EventData.Data[0] as EventData,OSPath
-      FROM Artifact.Windows.EventLogs.EvtxHunter(
+      FROM Artifact.Windows.EventLogs.EvtxHunter(preconditions=true,
             EvtxGlob='''%SystemRoot%\System32\Winevt\Logs\Application.evtx''',
             IdRegex='^1000$',
             IocRegex='velociraptor' )
