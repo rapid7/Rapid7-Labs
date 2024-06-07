@@ -82,7 +82,7 @@ ce97a3e7a8c964a3300ebc940fdbed335c55f008afafc5cfc3f6661b5a5a4446 (unused)
 SCR payload - Job Description (LM HR Division II).pdf .scr
 cca1705d7a85fe45dce9faec5790d498427b3fa8e546d7d7b57f18a925fdfa5d
 
-Incoded powershell in example - download payload from google drive
+Encoded powershell in example - download payload from google drive
 b791f43b980372eeb36106240ab8fa80e5741b589ec751e5ff39e7854bf08357
 
 IPs:
