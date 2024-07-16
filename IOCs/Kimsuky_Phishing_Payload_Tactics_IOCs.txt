@@ -1,0 +1,225 @@
+██████╗  █████╗ ██████╗ ██╗██████╗ ███████╗    ██╗      █████╗ ██████╗ ███████╗    
+██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗╚════██║    ██║     ██╔══██╗██╔══██╗██╔════╝    
+██████╔╝███████║██████╔╝██║██║  ██║    ██╔╝    ██║     ███████║██████╔╝███████╗    
+██╔══██╗██╔══██║██╔═══╝ ██║██║  ██║   ██╔╝     ██║     ██╔══██║██╔══██╗╚════██║    
+██║  ██║██║  ██║██║     ██║██████╔╝   ██║      ███████╗██║  ██║██████╔╝███████║    
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝      ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝    
+                                                                                   
+
+Public VT collection:
+=========================
+https://www.virustotal.com/gui/collection/ccc153d38291a7fb15dc71a3e901ba1bc8c3e16afe87c2d83354266ca49819e3
+
+
+Indicators of compromise:
+=========================
+
+MailSending.exe - phishing mail tool
+bb9c0396a61fa16d8c482a4a17e520fae908aa826e54243da6473494fa5f2305
+
+Example Email
+d3dffebefaa925840d9d08449fa40c9eb8efe66462861be6090692200d21c95d
+
+202404주중대사관 정책간담회.rar (202404 Embassy in China policy meeting.rar - password:china202404)
+e9a73243f0fbd158ad0113753c3b289b042c233bfb15c9784fa827f689e53234
+
+
+Dropbox payloads LNK (EmbedExeLnk version 3+)
+202404_주중한국대사관 한중 북중·안보현안 1.5트랙 비공개 정책간담회 대면회의 계획(안).hwp.lnk
+(202404_Plan (draft) for 1.5 track closed-door policy meeting face-to-face meeting between Korea, China, North Korea, and China on security issues at the Embassy of the Republic of Korea in China.)
+fe156159a26f8b7c140db61dd8b136e1c8103a800748fe9b70a3a3fdf179d3c3
+
+d912f49d24792aa7197509f76e2097ac3858cde23199e1b40f2516948d39c589
+89cad9a57985cc0ab3b7403a943ad0aa7b167dc7a3c38557417fedea67a77b87
+1617587ccdf5b0344089559ecf8fe7d39f6e07a6a64f74f2b44bfa2c8cb67983
+1b75f70c226c9ada8e79c3fdd987277b0199928800c51e5a1e55ff01246701db
+f262588c48d2902992ffd275d2be6362fe7f02e2f00a44ab8c75ac1a2827c6e9
+befa4094eb7ceb31be76ec98b11353b296b57476fe1b69db916e02bc8efce7d7
+a53caf4805a1b9c0b7fca4e2e3e21fb070bd0807a5e8cfb75c60c38c3c6bab05
+89cad9a57985cc0ab3b7403a943ad0aa7b167dc7a3c38557417fedea67a77b87
+0a5151c9878b592a202c07e7c02ed46bbd4135341b3d416600a03da529976b54
+a30f649b85bbec3809dbb6f485c518178236319ebf3b8ba9ec07d6dcb2ac289b
+
+Version 2 EmbedExeLnk LNK
+8ad91023d327366fa85bc9a03adb38c23f406b309cfc8e4f7256ed075be3d48d
+e1f7cb002b25f60f71d551df45eef5f8f05194ce181795ccb799176443e08d51
+1426269940ef6036941ccfbf68b0b65259bc72918f30481465a11d8b97250f07
+
+Version 1 EmbedExeLnk LNK
+6bab11d9561482777757f16c069ebef3f1cd6885dbef55306ffde30037a41d48
+1ec4d60738a671f00089a86eeba6cb13750bce589e84fd177707718a4cc7d8f1
+
+NZZ_Interview_Kohei Yamamoto.msc - MSC payload
+433655572c0f319e576a451d069a29966f9d6b409207a649f286ab34d1c8cfeb
+
+202405-Interview/Interview by Reuters(SeanKing).msc - MSC payload
+58ed2920063d16078decd59bcf02229022dc15d4f3a4c96fca6d2b8752322ec9
+
+ttt.hta - html VBScript ( Reconshark derivative example)
+0538e16bef5fc9f4ab0ed0b370601ae3bc5d184e75d3be678c98e6a60bf533b9
+b3ab0b19478336a8c17ee9fd28ab6463df206b23f69c7e3b5eacc3efb11a0a95
+
+embedded VBscript
+1dab495667c3ff647fe1da89608e97a967484e259a152182b1d2b2a524862229
+
+javascript loader - Safety Manager JD (General Dynamics HR Division II).jse
+24a42a912c6ad98ab3910cb1e031edbdf9ed6f452371d5696006c9cf24319147
+
+Reflected .NET XenoRAT payload
+2b35ef3080dcc13e2d907f681443f3fc3eda832ae66b0458ca5c97050f849306
+
+Job Description (LM HR Division II).zip
+faca8b6f046dad8f0e27a75fa2dc5477d3ccf44adced64481ef1b0dd968b4b0e
+
+DLL payloads:
+3314b6ea393e180c20db52448ab6980343bc3ed623f7af91df60189fec637744
+ce97a3e7a8c964a3300ebc940fdbed335c55f008afafc5cfc3f6661b5a5a4446 (unused)
+5b3cc9cced1ef0cb0bba5549cc2ac09c49ae10554d2409ea16bc5e118d278c15
+
+SCR payload - Job Description (LM HR Division II).pdf .scr
+cca1705d7a85fe45dce9faec5790d498427b3fa8e546d7d7b57f18a925fdfa5d
+
+Encoded powershell in example - download payload from google drive
+b791f43b980372eeb36106240ab8fa80e5741b589ec751e5ff39e7854bf08357
+
+IPs:
+108.181.51.101
+141.164.37.141
+152.32.139.83
+159.100.29.38
+27.255.75.153
+27.255.75.158
+27.255.81.111
+27.255.81.113
+27.255.81.73
+27.255.81.77
+5.9.123.217
+61.97.251.248
+
+domains: 
+00701111.000webhostapp.com
+accoouts.online
+accounts.login.idm.uberlingen.com
+accounts.ukr.net.userscheck.info
+accountsmil.mysnu.info
+akites.site
+alal.online
+alert.wiki
+app.userscheck.info
+apphelloworld.crabdance.com
+blog.userscheck.info
+brandwizer.co.in
+centes.info
+chat.userscheck.info
+corn.city
+daurn.in.net
+dev.userscheck.info
+dll.r-e.kr
+dnmil.mysnu.info
+documentstoreservice.store
+documentview.site
+download-attachments.mooo.com
+download.uberlingen.com
+ecloud.uberlingen.n-e.kr
+emv1.akites.site
+emv1.linkedlri.cloud
+en.uberlingen.com
+erro.live
+forums.app.userscheck.info
+fr.userscheck.info
+home-id.me
+i.ua.userscheck.info
+imagedownload.ignorelist.com
+indeed-main.info
+kgrnail.cloud
+kmr.o-r.kr
+koreaair.shop
+linkedlri.cloud
+linkedlri.info
+logingmail.homes
+mail.alert.wiki
+makeoversalon.net.in
+messge.info
+meta.ua.userscheck.info
+micbns.documentview.site
+moneysupersmarket.info
+mybox.website
+mysnu.info
+naver.koreaair.shop
+navkatok.eu
+nehelp.es
+net.userscheck.info
+nexons.shop
+nid.navkatok.eu
+nislo.life
+octopurs.energy
+olpop.store
+online.viewers.r-e.kr
+orientedworld.com
+passport.meta.ua.userscheck.info
+passports.i.ua.userscheck.info
+phpmyadmin.userscheck.info
+relogin.pro
+rememberesapp.info
+revoults.online
+saramin.site
+share.dihl-defence.o-r.kr
+support.userscheck.info
+taxsevices.online
+tradingsveiw.com
+trandingveiws.com
+ua.userscheck.info
+ukr.net.userscheck.info
+up-api1-kage.mysnu.info
+userscheck.info
+wetax-check.site
+wetax-check.space
+wetax.online
+www.alert.wiki
+www.centes.info
+www.corn.city
+www.documentview.site
+www.gdiver.store
+www.gdiver.website
+www.indeed-main.info
+www.kgrnail.cloud
+www.koreaair.shop
+www.linkedlri.cloud
+www.linkedlri.info
+www.micbns.documentview.site
+www.mybox.website
+www.nexons.shop
+www.octopurs.energy
+www.rememberesapp.info
+www.revoults.online
+www.taxsevices.online
+www.userscheck.info
+www.wetax-check.site
+
+example urls:  
+http://www.isujeil.co.kr/pg/adm/img/upload1/list.php
+https://www.isujeil.co.kr/pg/adm/img/upload1/list.php?query=1
+http://imagedownload.ignorelist.com/index.php
+http://imagedownload.ignorelist.com/index.php
+http://kyungdaek.com/js/sub/aos/dull/down1/lib.php
+http://kyungdaek.com/js/sub/aos/dull/down1/r_enc.bin
+http://kyungdaek.com/js/sub/aos/dull/down1/list.php
+http://kyungdaek.com/js/sub/aos/dull/down1/123.hwp
+http://ek.com/js/sub/aos/dull/down1/r_enc.bin
+http://ek.com/js/sub/aos/dull/down1/show.php
+http://www.ek.com/js/sub/aos/dull/down1/r_enc.bin
+http://meatalk.com/pg/adm/tdr/upi/down0/lib.php
+http://meatalk.com/pg/adm/tdr/upi/down0/r_enc.bin
+http://meatalk.com/pg/adm/tdr/upi/down0/list.php
+http://meatalk.com/pg/adm/tdr/upi/down0/show.php
+https://orientedworld.com/wp-content/plugins/health-check/pages/gorgon1/ttt.hta
+https://orientedworld.com/wp-content/plugins/health-check/pages/gorgon1/r.php
+https://orientedworld.com/wp-content/plugins/health-check/pages/gorgon1/d.php?na=battmp
+https://brandwizer.co.in/green_pad/wp-content/plugins/custom-post-type-maker/essay/r.php
+http://vwellpain.com/js/sub/up/down1/r_enc.bin
+http://siloamclinic.com/js/slick/up/down1/r_enc.bin
+http://siloamclinic.com/js/slick/up/down0/show.php
+http://siloamclinic.com/js/slick/up/down0/lib.php
+http://siloamclinic.com/js/slick/up/down0/list.php
+http://122.155.191.33/temp/down1/123.hwp
+http://122.155.191.33/temp/clientx64.bin
