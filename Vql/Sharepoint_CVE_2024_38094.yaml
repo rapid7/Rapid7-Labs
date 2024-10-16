@@ -1,0 +1,52 @@
+name: Windows.Detection.Sharepoint_CVE_2024_38094
+author: Rapid7 IR Team
+description: |
+  This artifact detects evidence of exploitation of Sharepoint RCE CVE-2024-38094.
+  
+  The artifact checks inetpub logs for a malicious strings related to exploitation should 
+  return full line of any hit (IP address and http code).
+    
+type: CLIENT
+
+parameters:
+   - name: TargetGlob
+     default: C:\inetpub\logs\LogFiles\**\*
+   - name: YaraRule
+     default: |
+        rule exploit_CVE_2024_38094 {
+          meta:
+            description = "detects evidence of exploitation of CVE-2024-38094 sharepoint RCE vulnerability on a web sharepoint server running windows OS"
+            author = "Rapid7 IR team"
+            date = "2024/08/05"
+          strings:
+            // download of bdcm file within inetpub logs
+            $bdcmstrings_1 = "GetFolderByServerRelativeUrl('/BusinessDataMetadataCatalog/')" nocase ascii
+            $bdcmstrings_2 = "BDCMetadata.bdcm" nocase ascii
+            // POC strings
+            $pocstrings_1 = "/_api/web/Folders" nocase ascii
+            // enumeration prior to bdcm download
+            $enumstrings_1 = "/_api/web/siteusers" nocase ascii
+            $enumstrings_2 = "/_vti_bin/client.svc/web/siteusers" nocase ascii
+            $enumstrings_3 = "/_vti_bin/client.svc/web/currentuser" nocase ascii
+            $enumstrings_4 = "/_vti_bin/client.svc/web/GetFolderByServerRelativeUrl('/')/Folders" nocase ascii
+          condition:
+            any of ($bdcmstrings*) or (3 of ($enumstrings*) and ($pocstrings_1))
+        }
+   - name: UploadHits
+     type: bool
+     description: upload any logs with hits.
+
+sources:
+  - precondition:
+      SELECT OS From info() where OS = 'windows'
+
+    query: |
+      SELECT * FROM Artifact.Generic.Detection.Yara.Glob(
+                        PathGlob=TargetGlob,
+                        YaraRule=YaraRule,
+                        NumberOfHits=999999,
+                        UploadHits=UploadHits )
+                           
+column_types:
+  - name: HitContext
+    type: preview_upload
