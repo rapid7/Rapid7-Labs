@@ -2,10 +2,18 @@ name: Windows.Detection.Sharepoint_CVE_2024_38094
 author: Rapid7 IR Team
 description: |
   This artifact detects evidence of exploitation of Sharepoint RCE CVE-2024-38094.
+
+  This artifact will scan logs contained in the inetpub directory for strings related to the POC code found on Github https://github.com/testanull/MS-SharePoint-July-Patch-RCE-PoC/blob/main/poc_specific.py for CVE-2024-38094: Microsoft SharePoint Remote Code Execution Vulnerability.
+
+  Additional analysis information:
   
-  The artifact checks inetpub logs for a malicious strings related to exploitation should 
-  return full line of any hit (IP address and http code).
-    
+  - The bdcm upload functionality observed within the POC code enables the ability to upload payloads to the Sharepoint system
+  - Hits returned will show the external IP address and Http status code associated with the malicious string activity
+
+reference:
+   - https://www.rapid7.com/blog/post/2024/07/09/patch-tuesday-july-2024/
+   - https://www.rapid7.com/db/vulnerabilities/microsoft-sharepoint-cve-2024-38094/
+
 type: CLIENT
 
 parameters:
@@ -46,7 +54,7 @@ sources:
                         YaraRule=YaraRule,
                         NumberOfHits=999999,
                         UploadHits=UploadHits )
-                           
+
 column_types:
   - name: HitContext
     type: preview_upload
