@@ -27,18 +27,18 @@ parameters:
             author = "Rapid7 IR team"
             date = "2024/08/05"
           strings:
+            
             // download of bdcm file within inetpub logs
-            $bdcmstrings_1 = "GetFolderByServerRelativeUrl('/BusinessDataMetadataCatalog/')" nocase ascii
-            $bdcmstrings_2 = "BDCMetadata.bdcm" nocase ascii
+            $bdcmstrings_1 = /\r\n.{10,250}BDCMetadata\.bdcm.{10,500}\r/ nocase ascii
             // POC strings
             $pocstrings_1 = "/_api/web/Folders" nocase ascii
             // enumeration prior to bdcm download
             $enumstrings_1 = "/_api/web/siteusers" nocase ascii
             $enumstrings_2 = "/_vti_bin/client.svc/web/siteusers" nocase ascii
-            $enumstrings_3 = "/_vti_bin/client.svc/web/currentuser" nocase ascii
-            $enumstrings_4 = "/_vti_bin/client.svc/web/GetFolderByServerRelativeUrl('/')/Folders" nocase ascii
+            $enumstrings_3 = /\r\n.{10,250}\/_vti_bin\/client\.svc\/web\/currentuser.{10,500}\r/ nocase ascii
+            $enumstrings_4 = /\r\n.{10,250}\/_vti_bin\/client\.svc\/web\/GetFolderByServerRelativeUrl\(\'\/\'\)\/Folders.{10,500}\r/ nocase ascii
           condition:
-            any of ($bdcmstrings*) or (3 of ($enumstrings*) and ($pocstrings_1))
+            ($bdcmstrings_1) or (3 of ($enumstrings*) and ($pocstrings_1))
         }
    - name: UploadHits
      type: bool
