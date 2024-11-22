@@ -1,12 +1,11 @@
 import "pe"
 
-rule blacklava
-{
+rule blacklava {
 	meta:
 		author = "Tyler McGraw"
 		company = "Rapid7"
 		created = "2024-07-28"
-                why = "This rule detects a packer used by Black Basta ransomware operators to load malware."
+		why = "This rule detects a packer used by Black Basta ransomware operators to load malware."
 	strings:
 		//$d1 = { ac [0-8] e9 }
 		$d2 = { 02 c3 [0-8] e9 }
