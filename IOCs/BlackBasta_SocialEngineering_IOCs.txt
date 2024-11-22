@@ -37,7 +37,7 @@ dropmeafile[.]com | Used for exfiltration.
 
 # Host-Based Indicators
 f.txt  146494EB276FC4539BFFA6896B958E29A417A5959A5C10D100CAF48514B66864  92AF977EF07F42607F23FD94E8A790139F910EE1  PowerShell script that initiates a .NET module loading chain withe several obfuscated layers.
-spam_defender.exe	67c8bc21bbdcc59f7fd2b0a6f0f6c98f0076a0142e94cb3f158155e0ca9ac71a	9c5235035a40786be22dc11128109ac9d31a1036  Unknown payload. 
+spam_defender.exe	67c8bc21bbdcc59f7fd2b0a6f0f6c98f0076a0142e94cb3f158155e0ca9ac71a	9c5235035a40786be22dc11128109ac9d31a1036  Likely DarkGate loader.
 spam_defender.zip	ebbe6a9e1188e2ee1651b5c68b6b508fb52b9e8896dbbeb0f4e126961ba94982	b8af3493aa43dc4371f25b8eff349bd774ec179b  Encrypted with an unknown password. 
 EventCloud.dll	97DAF5E1B2519A655397173FB5AF346F9435FB4ACF097D10AD4FFDE464D21C09	8840AE4BF610BDD0A2D65A246C397AF3F3B3CABA  Custom credential harvester. 
 test.vbs	5E9FBAE0B94F6E36717BBD2C997981BA438D7EFD800E76924F73452A69C04051	5A95B69C11018420B17B469771C8EC07458FDA23  Script used to initiate DarkGate infection. 
