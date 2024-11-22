@@ -6,7 +6,7 @@ rule blacklava
 		author = "Tyler McGraw"
 		company = "Rapid7"
 		created = "2024-07-28"
-    why = "This rule detects a packer used by Black Basta ransomware operators to load malware."
+                why = "This rule detects a packer used by Black Basta ransomware operators to load malware."
 	strings:
 		//$d1 = { ac [0-8] e9 }
 		$d2 = { 02 c3 [0-8] e9 }
@@ -38,7 +38,7 @@ rule blacklava
 		$e7 = { 81 c4 9c fc ff ff [0-8] e9 }
 		$p1 = { e9 00 00 00 00 }
 	condition:
-      pe.is_pe and pe.is_32bit()
+                pe.is_pe and pe.is_32bit()
 			and
 		for any i in (0..pe.number_of_sections-1) : ( 
 			pe.sections[i].name == ".text" 
