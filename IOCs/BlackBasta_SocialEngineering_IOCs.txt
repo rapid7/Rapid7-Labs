@@ -1,4 +1,57 @@
+# Tenants observed sending malicious chat requests
+
+Note: Where present, names have been replaced with 'firstlast' due to the threat actors tendency to impersonate real staff.
+
+admin[@]youadmin.onmicrosoft[.]com | Tenant ID: 14788031-e469-4cb5-81aa-420f44168373
+administracion[@]delparqueflats[.]com | Tenant ID: 9ca3a673-a16c-4df2-b5fa-9863b1ddb8cb
+firstlast[@]bilipow.onmicrosoft[.]com | Tenant ID: 81284fb0-a916-45ae-9d49-0116eb26c364
+firstlast[@]brandonsupport.onmicrosoft[.]com | Tenant ID: ff35f67e-abaa-410b-9077-fcd65454d424
+firstlast[@]cofincafe[.]com | Tenant ID: a965c056-88bb-491f-8058-ee9796eca655
+firstlast[@]cofincafe[.]com | Tenant ID: a965c056-88bb-491f-8058-ee9796eca655
+firstlast[@]cofincafe[.]com | Tenant ID: a965c056-88bb-491f-8058-ee9796eca655
+firstlast[@]cybersecurityadmin.onmicrosoft[.]com | Tenant ID: c911ff83-211f-4a8c-ab45-76b1250c9bb5
+firstlast[@]cybershieldassist.onmicrosoft[.]com | Tenant ID: b481da45-bc06-473a-9e77-88eada048622
+firstlast[@]databreachsupport.onmicrosoft[.]com | Tenant ID: 47369b5d-6cb7-4bc5-8c8f-4584a820267c
+firstlast[@]endpointshield.onmicrosoft[.]com | Tenant ID: f09e9050-adf8-44b6-80ac-1d2a20c2ae88
+firstlast[@]eps.udg.edu | Tenant ID: 21423657-e2ce-4d8f-b5da-535ffc0d57cc
+firstlast[@]filtrocorp[.]com | Tenant ID: f06ee961-84e9-4475-9405-87c26b1beb10
+firstlast[@]helpadministrator.onmicrosoft[.]com | Tenant ID: 0d9b2061-095f-4fb5-9aaf-595adb50b1d7
+firstlast[@]itsecurityassistance.onmicrosoft[.]com | Tenant ID: 5bfb20a1-489b-4479-9b3a-ce51ab9f0654
+firstlast[@]itusaacademy[.]com | Tenant ID: 23a709dd-3925-4505-af7f-fbc6725e78bb
+firstlast[@]malwareremovalassistance.onmicrosoft[.]com | Tenant ID: 87163aaf-5f58-4588-9e9b-f97bf7149574
+firstlast[@]networksecuritymonitoring.onmicrosoft[.]com | Tenant ID: 58d1d5db-589b-4fd2-91cb-b3f9d2b3cc48
+firstlast[@]pereirabrito[.]com.br | Tenant ID: 135f3a0d-e454-4d80-95d9-62d310e92e2a
+firstlast[@]safesoc.onmicrosoft[.]com | Tenant ID: be5b9529-1af4-47c1-9a73-062a9f252a20
+firstlast[@]securitypatching.onmicrosoft[.]com | Tenant ID: ecece6e8-6500-4da2-8e96-3ce201498a14
+firstlast[@]servicedeskadmin.onmicrosoft[.]com | Tenant ID: 0406392c-8a3b-4296-9bed-7420c9dd0ed0
+firstlast[@]spamprotectionmanager.onmicrosoft[.]com | Tenant ID: ed87417e-2717-42e3-aad7-6da18399e540
+firstlast[@]spamprotections.onmicrosoft[.]com | Tenant ID: c28d8b4b-80d9-4d05-bfac-783d658bdfbd
+firstlast[@]supporthelper.onmicrosoft[.]com | Tenant ID: c3b6e42e-b2c4-46cf-b5b5-35dc27d7295e
+firstlast[@]supporthelpspam.onmicrosoft[.]com | Tenant ID: 1c5c833b-ea5c-4d7e-ac9d-4775c0cddf7f
+firstlast[@]supportteamsservice.onmicrosoft[.]com | Tenant ID: a3ee745f-32b7-410d-aa50-a3e5186987b1
+help__desk[@]llladminllll.onmicrosoft[.]com | Tenant ID: 46a89617-b830-4fad-96c2-15277bc99322
+help_assist[@]llladminllll.onmicrosoft[.]com | Tenant ID: 46a89617-b830-4fad-96c2-15277bc99322
+help_desk[@]hegss.onmicrosoft[.]com | Tenant ID: 2d7d3603-91e3-4d36-8d2b-0c0d9cd76424
+help_desk[@]llladminhlpll.onmicrosoft[.]com | Tenant ID: 05ba8a57-ce24-4c0d-b300-d275d96e84ee
+help_desk[@]llladminllll.onmicrosoft[.]com | Tenant ID: 46a89617-b830-4fad-96c2-15277bc99322
+helpdesk01[@]1helpyou.onmicrosoft[.]com | Tenant ID: ee7dac3e-e065-40a8-8e59-1e36e028b391
+helpdesk1[@]truehalp.onmicrosoft[.]com | Tenant ID: 5545a6c0-8b89-40c5-947b-1ca999520933
+helpdesk[@]1helpyou.onmicrosoft[.]com | Tenant ID: ee7dac3e-e065-40a8-8e59-1e36e028b391
+helpdesk[@]adminsteams.onmicrosoft[.]com | Tenant ID: b94e2439-e1c4-49dc-bb60-a762b8c76f3c
+helpdesk[@]asssistingyou.onmicrosoft[.]com | Tenant ID: b8a61033-4239-48ec-8151-19e3b2af257c
+helpdesk[@]hegss.onmicrosoft[.]com | Tenant ID: 2d7d3603-91e3-4d36-8d2b-0c0d9cd76424
+helpdesk[@]llladminhlpll.onmicrosoft[.]com | Tenant ID: 05ba8a57-ce24-4c0d-b300-d275d96e84ee
+helpdesk[@]truehalp.onmicrosoft[.]com | Tenant ID: 5545a6c0-8b89-40c5-947b-1ca999520933
+helpdesk_01[@]asssistingyou.onmicrosoft[.]com | Tenant ID: b8a61033-4239-48ec-8151-19e3b2af257c
+helpdesk_1[@]asssistingyou.onmicrosoft[.]com | Tenant ID: b8a61033-4239-48ec-8151-19e3b2af257c
+helpdesk_1[@]suporting.onmicrosoft[.]com | Tenant ID: 51b333e5-5f4a-450c-ad62-8a21ddac9077
+helpdesk_1[@]youadmin.onmicrosoft[.]com | Tenant ID: 14788031-e469-4cb5-81aa-420f44168373
+helpdeskmanager[@]hprsynergyengineering.onmicrosoft[.]com | Tenant ID: 463a34e7-31fb-460b-b1aa-51d12b05dd95
+quickassist[@]1helpyou.onmicrosoft[.]com | Tenant ID: ee7dac3e-e065-40a8-8e59-1e36e028b391
+technicalsupport[@]bevananda[.]com | Tenant ID: a90727c6-b50d-47e6-b87c-d46a1404f8a9
+
 # Network-Based Indicators
+
 185.130.47[.]96 | C2 IP for update.exe 
 sslip[.]io | C2 IP proxy. 
 65.87.7[.]151 | Payload host. 
@@ -36,6 +89,7 @@ binusianorg-my[.]sharepoint[.]com | Sharepoint instance hosting malware payloads
 dropmeafile[.]com | Used for exfiltration. 
 
 # Host-Based Indicators
+
 f.txt  146494EB276FC4539BFFA6896B958E29A417A5959A5C10D100CAF48514B66864  92AF977EF07F42607F23FD94E8A790139F910EE1  PowerShell script that initiates a .NET module loading chain withe several obfuscated layers.
 spam_defender.exe	67c8bc21bbdcc59f7fd2b0a6f0f6c98f0076a0142e94cb3f158155e0ca9ac71a	9c5235035a40786be22dc11128109ac9d31a1036  Likely DarkGate loader.
 spam_defender.zip	ebbe6a9e1188e2ee1651b5c68b6b508fb52b9e8896dbbeb0f4e126961ba94982	b8af3493aa43dc4371f25b8eff349bd774ec179b  Encrypted with an unknown password. 
