@@ -1,6 +1,6 @@
 # Tenants observed sending malicious chat requests
 
-Note: Where present, names have been replaced with 'firstlast' due to the threat actors tendency to impersonate real staff.
+Note: Where present, names have been replaced with 'firstlast' due to the tendency for threat actors to impersonate real staff.
 
 admin[@]youadmin.onmicrosoft[.]com | Tenant ID: 14788031-e469-4cb5-81aa-420f44168373
 administracion[@]delparqueflats[.]com | Tenant ID: 9ca3a673-a16c-4df2-b5fa-9863b1ddb8cb
@@ -63,7 +63,12 @@ sslip[.]io | C2 IP proxy.
 dns[.]winsdesignater[.]com | Cobalt Strike C2 domain. 
 212.232.22[.]140 | SystemBC C2 IP. 
 crystallakehotels[.]com | SystemBC C2 domain. 
+8.209.111[.]227 | SystemBC C2 IP.
+summerrain[.]cloud | SystemBC C2 domain.
+8.211.34[.]166 | SystemBC C2 IP.
+mailh[.]org | SystemBC C2 domain.
 109.172.88[.]38 | C2 IP. 
+109.172.87[.]135 | C2 IP.
 188.130.206[.]243 | C2 IP. 
 46.8.232[.]106 | C2 IP. 
 46.8.236[.]61 | C2 IP. 
@@ -120,6 +125,15 @@ AntispamUpdate.exe	42ffc3eb728ccc83cf4f115c6a3e32c01ef80869b9f2c4f2d62a7a88c7bf4
 SkyTel.exe	57d8296dd901491d37e7c79d0fe95188f3b7c94affc71c8e732daea8369cfa4f	e600cf9e713f3d5c0bb691c2bdecffd946ff2b35  Cobalt Strike beacon loader. Custom packer. 
 <redacted>_c1.exe	729f08249b9f55f17fe7762d6c41c619127e0a7798194b7ff18f06003ff3d041	0c951a4a4c8a3827832f2d2379f02271e17ff16b  Black Basta ransomware. Custom packer. 
 AVKTray.exe	95a6c06ac691bec0ac2140b6590c96488feb8bc6c3ca501d1fe8ee7cbf9d0f8b	a6d653d2887f0ce4029a94616464ad74c4f770fe  Black Basta ransomware. Custom packer. 
+ProtectUpdateB.dll 71e08a89ecdfac3bb490bec6c4115cfd71de744897fd8b7dd7383646e911858e 0cb59b74d87ac56f1aa3269eecee3ad6d01d7915 Beacon. Custom packer.
+javaw.exe 0482dc9c6ed46e247682e1d4ae5c5a037ef0b66f3b22af9ae25ac072028dd7a2 f8dac4e8b5a11e91640b0277113ad1770e7fc3ef SystemBC malware loader. Custom packer.
+javaw.exe 38ee04ee9d3b3912013d54483d8f822eebd0367408b369bc09f46cb339a54313 966a90baf892a8d1cff1e6ba464e4c29a09b3a3c SystemBC malware loader. Custom packer.
+<redacted>_c1.dll 474ba7f2fb18b7b55fc077513cda6f6d36fb79e58065c556724ea049a392e327 0fbed8d60e2d940882e01a2bf11003f6bd59f883 Black Basta ransomware. Custom packer.
+amdvlk32.dll 2a8a49d9c25d786a5108a53d0b3281677b299540f54580a7b49aa8de78ec0ee1 bccf867716709ce0167cc72f16d4a14f159e459f DarkGate malware. Custom packer.
+<redacted>_c1.exe ec669387150865b59bbf98b41a770235ba4fd632aab33433c2d493460ef52479 22f10e42683501fb2ea6962e44eefd64848aefe7 Black Basta ransomware. Custom packer.
+safesrv.exe 4f30d975121d44705a79c4f5c8aeba80d8c97c8ef10c86fee011b99f12b173b4 0fdb26c6202acb33eea938da1a492504035ff8c1 DarkGate malware. Custom packer.
+
+
 
 # Zbot Strings
 
