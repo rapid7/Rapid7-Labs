@@ -5,7 +5,7 @@ rule blacklava
 	meta:
 		author = "Tyler McGraw"
 		company = "Rapid7"
-		date_created = "2024-11-22"
+		date_created = "2024-07-28"
 		version = "2"
 		desc = "Detects a packer used by Black Basta ransomware operators to load malware."
 	strings:
