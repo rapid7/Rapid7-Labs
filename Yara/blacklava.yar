@@ -35,6 +35,7 @@ rule blacklava
 		$e3 = { c7 45 ( f2 | f4 | f6 ) ?? ?? 0? 00 [0-8] e9 [3] ( 00 | ff ) }
 		$n = { 8b 45 f4 [0-4] e9 [3] ( 00 | ff ) }
 		$p1 = { e9 00 00 00 00 }
+		$j = { ( 0f 84 | 0f 85 | 31 c0 | 33 c0 ) [0-8] e9 [1] ( ~0? ?? 00 | ~f? ~ff ff ) }
 
 	condition:
         pe.is_pe and pe.is_32bit()
@@ -42,7 +43,7 @@ rule blacklava
 	for any i in (0..pe.number_of_sections-1) : ( 
 		pe.sections[i].name == ".text"
 		and
-		#dc5 >= 3
+		#dc5 >= 3 and #j >= 10
 		and
 		($oe1a or $oe1b)
 		and
