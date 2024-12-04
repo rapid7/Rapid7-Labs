@@ -1,0 +1,466 @@
+# Tenants observed sending malicious chat requests
+
+Note: Where present, names have been replaced with 'firstlast' due to the tendency for threat actors to impersonate real staff.
+
+admin[@]youadmin.onmicrosoft[.]com | Tenant ID: 14788031-e469-4cb5-81aa-420f44168373
+administracion[@]delparqueflats[.]com | Tenant ID: 9ca3a673-a16c-4df2-b5fa-9863b1ddb8cb
+firstlast[@]bilipow.onmicrosoft[.]com | Tenant ID: 81284fb0-a916-45ae-9d49-0116eb26c364
+firstlast[@]brandonsupport.onmicrosoft[.]com | Tenant ID: ff35f67e-abaa-410b-9077-fcd65454d424
+firstlast[@]cofincafe[.]com | Tenant ID: a965c056-88bb-491f-8058-ee9796eca655
+firstlast[@]cofincafe[.]com | Tenant ID: a965c056-88bb-491f-8058-ee9796eca655
+firstlast[@]cofincafe[.]com | Tenant ID: a965c056-88bb-491f-8058-ee9796eca655
+firstlast[@]cybersecurityadmin.onmicrosoft[.]com | Tenant ID: c911ff83-211f-4a8c-ab45-76b1250c9bb5
+firstlast[@]cybershieldassist.onmicrosoft[.]com | Tenant ID: b481da45-bc06-473a-9e77-88eada048622
+firstlast[@]databreachsupport.onmicrosoft[.]com | Tenant ID: 47369b5d-6cb7-4bc5-8c8f-4584a820267c
+firstlast[@]endpointshield.onmicrosoft[.]com | Tenant ID: f09e9050-adf8-44b6-80ac-1d2a20c2ae88
+firstlast[@]eps.udg.edu | Tenant ID: 21423657-e2ce-4d8f-b5da-535ffc0d57cc
+firstlast[@]filtrocorp[.]com | Tenant ID: f06ee961-84e9-4475-9405-87c26b1beb10
+firstlast[@]helpadministrator.onmicrosoft[.]com | Tenant ID: 0d9b2061-095f-4fb5-9aaf-595adb50b1d7
+firstlast[@]itsecurityassistance.onmicrosoft[.]com | Tenant ID: 5bfb20a1-489b-4479-9b3a-ce51ab9f0654
+firstlast[@]itusaacademy[.]com | Tenant ID: 23a709dd-3925-4505-af7f-fbc6725e78bb
+firstlast[@]malwareremovalassistance.onmicrosoft[.]com | Tenant ID: 87163aaf-5f58-4588-9e9b-f97bf7149574
+firstlast[@]networksecuritymonitoring.onmicrosoft[.]com | Tenant ID: 58d1d5db-589b-4fd2-91cb-b3f9d2b3cc48
+firstlast[@]pereirabrito[.]com.br | Tenant ID: 135f3a0d-e454-4d80-95d9-62d310e92e2a
+firstlast[@]safesoc.onmicrosoft[.]com | Tenant ID: be5b9529-1af4-47c1-9a73-062a9f252a20
+firstlast[@]securitypatching.onmicrosoft[.]com | Tenant ID: ecece6e8-6500-4da2-8e96-3ce201498a14
+firstlast[@]servicedeskadmin.onmicrosoft[.]com | Tenant ID: 0406392c-8a3b-4296-9bed-7420c9dd0ed0
+firstlast[@]spamprotectionmanager.onmicrosoft[.]com | Tenant ID: ed87417e-2717-42e3-aad7-6da18399e540
+firstlast[@]spamprotections.onmicrosoft[.]com | Tenant ID: c28d8b4b-80d9-4d05-bfac-783d658bdfbd
+firstlast[@]supporthelper.onmicrosoft[.]com | Tenant ID: c3b6e42e-b2c4-46cf-b5b5-35dc27d7295e
+firstlast[@]supporthelpspam.onmicrosoft[.]com | Tenant ID: 1c5c833b-ea5c-4d7e-ac9d-4775c0cddf7f
+firstlast[@]supportteamsservice.onmicrosoft[.]com | Tenant ID: a3ee745f-32b7-410d-aa50-a3e5186987b1
+help__desk[@]llladminllll.onmicrosoft[.]com | Tenant ID: 46a89617-b830-4fad-96c2-15277bc99322
+help_assist[@]llladminllll.onmicrosoft[.]com | Tenant ID: 46a89617-b830-4fad-96c2-15277bc99322
+help_desk[@]hegss.onmicrosoft[.]com | Tenant ID: 2d7d3603-91e3-4d36-8d2b-0c0d9cd76424
+help_desk[@]llladminhlpll.onmicrosoft[.]com | Tenant ID: 05ba8a57-ce24-4c0d-b300-d275d96e84ee
+help_desk[@]llladminllll.onmicrosoft[.]com | Tenant ID: 46a89617-b830-4fad-96c2-15277bc99322
+helpdesk01[@]1helpyou.onmicrosoft[.]com | Tenant ID: ee7dac3e-e065-40a8-8e59-1e36e028b391
+helpdesk1[@]truehalp.onmicrosoft[.]com | Tenant ID: 5545a6c0-8b89-40c5-947b-1ca999520933
+helpdesk[@]1helpyou.onmicrosoft[.]com | Tenant ID: ee7dac3e-e065-40a8-8e59-1e36e028b391
+helpdesk[@]adminsteams.onmicrosoft[.]com | Tenant ID: b94e2439-e1c4-49dc-bb60-a762b8c76f3c
+helpdesk[@]asssistingyou.onmicrosoft[.]com | Tenant ID: b8a61033-4239-48ec-8151-19e3b2af257c
+helpdesk[@]hegss.onmicrosoft[.]com | Tenant ID: 2d7d3603-91e3-4d36-8d2b-0c0d9cd76424
+helpdesk[@]llladminhlpll.onmicrosoft[.]com | Tenant ID: 05ba8a57-ce24-4c0d-b300-d275d96e84ee
+helpdesk[@]truehalp.onmicrosoft[.]com | Tenant ID: 5545a6c0-8b89-40c5-947b-1ca999520933
+helpdesk_01[@]asssistingyou.onmicrosoft[.]com | Tenant ID: b8a61033-4239-48ec-8151-19e3b2af257c
+helpdesk_1[@]asssistingyou.onmicrosoft[.]com | Tenant ID: b8a61033-4239-48ec-8151-19e3b2af257c
+helpdesk_1[@]suporting.onmicrosoft[.]com | Tenant ID: 51b333e5-5f4a-450c-ad62-8a21ddac9077
+helpdesk_1[@]youadmin.onmicrosoft[.]com | Tenant ID: 14788031-e469-4cb5-81aa-420f44168373
+helpdeskmanager[@]hprsynergyengineering.onmicrosoft[.]com | Tenant ID: 463a34e7-31fb-460b-b1aa-51d12b05dd95
+quickassist[@]1helpyou.onmicrosoft[.]com | Tenant ID: ee7dac3e-e065-40a8-8e59-1e36e028b391
+technicalsupport[@]bevananda[.]com | Tenant ID: a90727c6-b50d-47e6-b87c-d46a1404f8a9
+
+# Network-Based Indicators
+
+185.130.47[.]96 | C2 IP for update.exe 
+sslip[.]io | C2 IP proxy. 
+65.87.7[.]151 | Payload host. 
+66.78.40[.]86 | Payload host. 
+184.174.97[.]32 | C2 IP for MailRelay-Engine.jar 
+*.doc[.]docu-duplicator[.]com | Cobalt Strike C2 domain. 
+*.doc1[.]docu-duplicator[.]com | Cobalt Strike C2 domain. 
+*.doc2[.]docu-duplicator[.]com | Cobalt Strike C2 domain. 
+dns[.]winsdesignater[.]com | Cobalt Strike C2 domain. 
+212.232.22[.]140 | SystemBC C2 IP. 
+crystallakehotels[.]com | SystemBC C2 domain. 
+8.209.111[.]227 | SystemBC C2 IP.
+summerrain[.]cloud | SystemBC C2 domain.
+8.211.34[.]166 | SystemBC C2 IP.
+mailh[.]org | SystemBC C2 domain.
+109.172.88[.]38 | C2 IP. 
+109.172.87[.]135 | C2 IP.
+188.130.206[.]243 | C2 IP. 
+46.8.232[.]106 | C2 IP. 
+46.8.236[.]61 | C2 IP. 
+91.212.166[.]91 | C2 IP. 
+93.185.159[.]253 | C2 IP. 
+94.103.85[.]114 | C2 IP. 
+193.29.13[.]60 | Anydesk C2 IP. 
+88.214.25[.]32 | Anydesk C2 IP. 
+147.28.163[.]206 | ScreenConnect C2 IP. 
+file[.]io | Used to host/distribute payloads. 
+bigdealcenter[.]world | Zbot C2 domain. 
+45.61.152[.]154 | Zbot C2 IP. 
+185.229.66[.]224 | Zbot C2 IP. 
+brownswer[.]com | DNS server used by Zbot malware.
+172.81.60[.]122 | C2 IP, likely SystemBC. 
+145.223.116[.]66 | C2 IP, likely SystemBC. 
+blazingradiancesolar[.]com | Host of AutoHotKey script. 
+posetoposeschool[.]com | Host of AutoHotKey script. 
+185.238.169[.]17 | Payload host. 
+179.60.149[.]194 | DarkGate C2 IP. 
+arifgrouporg-my[.]sharepoint[.]com | Sharepoint instance hosting malware payloads. Potentially compromised. 
+binusianorg-my[.]sharepoint[.]com | Sharepoint instance hosting malware payloads. Potentially compromised. 
+dropmeafile[.]com | Used for exfiltration. 
+
+# Host-Based Indicators
+
+f.txt  146494EB276FC4539BFFA6896B958E29A417A5959A5C10D100CAF48514B66864  92AF977EF07F42607F23FD94E8A790139F910EE1  PowerShell script that initiates a .NET module loading chain withe several obfuscated layers.
+spam_defender.exe	67c8bc21bbdcc59f7fd2b0a6f0f6c98f0076a0142e94cb3f158155e0ca9ac71a	9c5235035a40786be22dc11128109ac9d31a1036  Likely DarkGate loader.
+spam_defender.zip	ebbe6a9e1188e2ee1651b5c68b6b508fb52b9e8896dbbeb0f4e126961ba94982	b8af3493aa43dc4371f25b8eff349bd774ec179b  Encrypted with an unknown password. 
+EventCloud.dll	97DAF5E1B2519A655397173FB5AF346F9435FB4ACF097D10AD4FFDE464D21C09	8840AE4BF610BDD0A2D65A246C397AF3F3B3CABA  Custom credential harvester. 
+test.vbs	5E9FBAE0B94F6E36717BBD2C997981BA438D7EFD800E76924F73452A69C04051	5A95B69C11018420B17B469771C8EC07458FDA23  Script used to initiate DarkGate infection. 
+SafeStore.dll	3B7E06F1CCAA207DC331AFD6F91E284FEC4B826C3C427DFFD0432FDC48D55176	850C30EF8456EA5EE9DBEECC27959A39DD3FB57D  Custom credential harvester. Custom packer. 
+SafeFilter.exe	EF28A572CDA7319047FBC918D60F71C124A038CD18A02000C7AB413677C5C161	577EFD1534DD2C4133EA2E4B16A21672D257AF72  DarkGate malware. Custom packer. 
+171124_V15.zip	9a21ec5a25dfe7ca51d4a843a96bfb6e650dc999d3b6d4bd771571359b3bea0a	13b3722483559259c14f69e213aeeb194c7b5718  Payload archive containing DarkGate malware and credential harvesting DLL. 
+update.exe	1896ab744e436ca52a1c6c64a4608dbb8e5597e35d13be1f3c56bc65eb44e532	516f29bbd64a2661e8770cc76903bfae5aa39f23  Fake Sysmon Monitor executable, signed with a likely stolen certificate. Executed with command line arguments: “43534c0e89b110819c73bf8951899015 --update” 
+update.exe	14aad4fcc77e5fd7e7782c9c5714d1a4187e60e75a765b71d5d41b920bbae31a	1a404996f1d52d2e2674aa6409d54b8232242d23  Fake Sysmon Monitor executable, signed with a likely stolen certificate. 
+171024_V1US.zip	a04da51938bb298ff91acd1561f5a32a (MD5 only)	Payload archive. 
+SyncSuite.exe	DB34E255AA4D9F4E54461571469B9DD53E49FEED3D238B6CFB49082DE0AFB1E4	640640d6651c4ac2f66ed8312084849ad9f0124e  Zbot malware. 
+OmniScript.dll	49405370A33ABBF131C5D550CEBE00780CC3FD3CBE888220686582AE88F16AF7	ab1271b4316eb4a5d6ea03b4c24d56cef1e8524a  Zbot malware. 
+FortiService.dll	c4942f989530f09b499978721d282998eaa77be31a4361ac6250f1df721decb9	Unable to acquire for analysis, likely malware. 
+PixelSignal.dll	22c5858ff8c7815c34b4386c3b4c83f2b8bb23502d153f5d8fb9f55bd784e764	f09804b59a3aac7c1dd47c7e027182fb54f9a277  Zbot malware. 
+HexaPort.dll	a9f2c4bc268765fc6d72d8e00363d2440cf1dcbd1ef7ee08978959fc118922c9	f1d299336aac1a1314b36064ffa9ae12ebdb3e4c  Zbot malware. 
+ProtectConnectEU.dll	717aed4c123a3cde0695818f7038c1092d9dcd7c910ac5ddba96d5e348e1337f	6e16e05923be2363b81b235c934b8996a58d3bdf  Likely SystemBC malware. 
+ProtectConnectEU.dll	1656c55c8516bd650fe59b71a5886ecf508deb927ed3c8465cf0ad5923c35958	8af2eab50e77706cec0f1416a51c171088d26ed6  Likely SystemBC malware. 
+ProtectConnectUS.dll	fb444e7bb7c8f48207ceeba8bad9c2b9ae9c726ac28916c5be5390ba67c2c77c	52222a8938928d70aa515798c5ba97a2f9932176  Likely SystemBC malware. 
+MailRelay-Engine.zip	2f5301125627331f56db76046d177493d8b0a814cdd9cafad3981aad97383163	73ceb983d71b42521b13cd9d81657a0857ae3b50  Java malware payload archive, contains an LNK and two .jar payloads. 
+identity.jar	C675130390B4EE16EA72DEA30807939B1306D373C5B7FFE0CF1D2AFAFFC402B6	EC446276A337FEE3C51DE2DBD8DF7EBEB3B5EA88  Credential harvester, contained within MailRelay-Engine.zip. 
+MailRelay-Engine.jar	D90AFA08E38C15BB3E48187E436645B42D4D856E219242CB6C33085C4C1611DB	69FA757349161207E6D07EC3743486285657D013  Java beacon, MailRelay-Engine.zip. Remote command execution via PowerShell. 
+jli.dll	C50271CC3E26651A5B5384894490C7153C56B86435E61B5CA206F8E9C5C5542F	F2786D1E79C5D1F1876BD171D64A56436465B175  Cobalt Strike beacon loader, loads from readme.txt. 
+readme.txt	EE79F4E87E0B393C952B478C9A30F35802C09F93E899ECF6B40D8D6625188031	276C38A5A59BEAB93ABCD33919CBBAA572558AD2  Contains encrypted Cobalt Strike beacon. 
+AntispamConnectUS.exe	c69ab262ac3f73277c4b9a777a408f57feb618e2e00bc2e66e8d97274083c742	752b86b58860377d0ed1f9570b1ed1324d3c4f2e  SystemBC malware loader. Custom packer. 
+AntispamConnectEU.exe	5fef7a5db4b1c216c9fc37d55143e5b635e8833d82f95004bb4fb47060fdf447	7b872d6799506ecb1a6a69b0b16cf53a70a337be  SystemBC malware loader. Custom packer. 
+AntispamUpdate.exe	42ffc3eb728ccc83cf4f115c6a3e32c01ef80869b9f2c4f2d62a7a88c7bf4bc2	10a3f269d12c41849a052d44ce6855539db91a0b  Beacon. Custom packer. 
+SkyTel.exe	57d8296dd901491d37e7c79d0fe95188f3b7c94affc71c8e732daea8369cfa4f	e600cf9e713f3d5c0bb691c2bdecffd946ff2b35  Cobalt Strike beacon loader. Custom packer. 
+<redacted>_c1.exe	729f08249b9f55f17fe7762d6c41c619127e0a7798194b7ff18f06003ff3d041	0c951a4a4c8a3827832f2d2379f02271e17ff16b  Black Basta ransomware. Custom packer. 
+AVKTray.exe	95a6c06ac691bec0ac2140b6590c96488feb8bc6c3ca501d1fe8ee7cbf9d0f8b	a6d653d2887f0ce4029a94616464ad74c4f770fe  Black Basta ransomware. Custom packer. 
+ProtectUpdateB.dll 71e08a89ecdfac3bb490bec6c4115cfd71de744897fd8b7dd7383646e911858e 0cb59b74d87ac56f1aa3269eecee3ad6d01d7915 Beacon. Custom packer.
+javaw.exe 0482dc9c6ed46e247682e1d4ae5c5a037ef0b66f3b22af9ae25ac072028dd7a2 f8dac4e8b5a11e91640b0277113ad1770e7fc3ef SystemBC malware loader. Custom packer.
+javaw.exe 38ee04ee9d3b3912013d54483d8f822eebd0367408b369bc09f46cb339a54313 966a90baf892a8d1cff1e6ba464e4c29a09b3a3c SystemBC malware loader. Custom packer.
+<redacted>_c1.dll 474ba7f2fb18b7b55fc077513cda6f6d36fb79e58065c556724ea049a392e327 0fbed8d60e2d940882e01a2bf11003f6bd59f883 Black Basta ransomware. Custom packer.
+amdvlk32.dll 2a8a49d9c25d786a5108a53d0b3281677b299540f54580a7b49aa8de78ec0ee1 bccf867716709ce0167cc72f16d4a14f159e459f DarkGate malware. Custom packer.
+<redacted>_c1.exe ec669387150865b59bbf98b41a770235ba4fd632aab33433c2d493460ef52479 22f10e42683501fb2ea6962e44eefd64848aefe7 Black Basta ransomware. Custom packer.
+safesrv.exe 4f30d975121d44705a79c4f5c8aeba80d8c97c8ef10c86fee011b99f12b173b4 0fdb26c6202acb33eea938da1a492504035ff8c1 DarkGate malware. Custom packer.
+
+
+
+# Zbot Strings
+
+Provided below are the decrypted strings obtained from the Zbot sample `SyncSuite.exe` (SHA256: DB34E255AA4D9F4E54461571469B9DD53E49FEED3D238B6CFB49082DE0AFB1E4).
+
+### Command help menu
+
+ /? - show help
+ bot_id - show bot id
+ find_process <name>
+ status_process <pid> - get process status
+ kill <pid> - kill process
+ dir [path] - show contents of a directory
+ cd [path] - display/change current directory
+ getfile <filename> - get file from server 'rshell/files'
+ sendfile <filename> - send file to the server 'rshell/uploads'
+ getdll <dllname> - get dll from the server 'rshell/files'
+ rundll <dllname[,dllexport]> - run dll from memory
+ getsc <filename> - get shellcode from server 'rshell/files'
+ runsc <filename> <-A64 or -A32> - run shellcode with the specified architecture
+ exec [--attach-console] [--no-hide] <path> [arguments...]
+ cmd - native command line
+ exit - quit shell
+
+### Status and Error Messages
+
+MH_ERROR_ALREADY_CREATED
+MH_ERROR_ALREADY_INITIALIZED
+MH_ERROR_DISABLED
+MH_ERROR_ENABLED
+MH_ERROR_FUNCTION_NOT_FOUND
+MH_ERROR_MEMORY_ALLOC
+MH_ERROR_MEMORY_PROTECT
+MH_ERROR_MODULE_NOT_FOUND
+MH_ERROR_NOT_CREATED
+MH_ERROR_NOT_EXECUTABLE
+MH_ERROR_NOT_INITIALIZED
+MH_ERROR_UNSUPPORTED_FUNCTION
+MH_OK
+MH_UNKNOWN
+[!] -A32/-A64 mode not specified.
+[!] Bad PE file.
+[!] Bad PE size.
+[!] Can't find module '%s'
+[!] DLL file is empty.
+[!] DLL missing, use 'getdll' for download.
+[!] DLL terminated process.
+[!] File is empty.
+[!] Name of DLL not specified.
+[!] Name of SC not specified.
+[!] SC missing, use 'getsc' for download.
+[!] The process does not exist.
+[%%] %u/%u
+[%%] Total received: %u bytes.
+[*] Current Directory: '%S'
+[*] Downloading...
+[*] Internal Error, try again.
+[*] Sending...
+[*] The file has been downloaded, %u bytes
+[*] The file is empty.
+[+]
+[+] '%s' saved in memory, use 'rundll' for run dll.
+[+] '%s' saved in memory, use 'runsc' for run shellcode.
+[+] DLL loaded, the spawned process will destroy at the end of the shell session or you can force destroy via 'kill' command.
+[+] DLL process spawned pid=%u
+[+] The child process was spawned pid=%u
+[+] The file has been saved as '%s'
+[+] The file saved on the server as 'rshell/uploads/%s'.
+[+] The process for shellcode was spawned pid=%u
+[+] The process is working.
+[+] The process spawned <pid=%u
+[+] The process was terminated.
+[+] Total received: %u bytes.
+[-] <modname> required
+[-] Bad PE file.
+[-] Can't access the process, err=%u
+[-] Can't configure the shellcode process.
+[-] Can't create the process, err=%u
+[-] Can't download '%s'.
+[-] Can't find the path specified.
+[-] Can't get module.
+[-] Can't load DLL.
+[-] Can't read the file '%S'
+[-] Can't save file at '%S'.
+[-] Can't terminate the process.
+[-] Error: can't find export function.
+[-] Failed.
+[-] Internal Error, try again.
+[-] Internal Error: can't load DLL.
+[-] Internal Error: can't set working directory.
+[-] Internal Error: can't spawn DLL process.
+[-] Internal Error: can't spawn process.
+[-] Internal Error: can't spawn the child process.
+[-] Internal Error: unknown error.
+[-] No processes found.
+[-] The process does not exist.
+[-] exec [--attach-console] [--no-hide] <path> [arguments...]
+
+### Libraries
+
+MSIMG32.dll
+Updater.dll
+advapi32.dll
+cabinet.dll
+crypt32.dll
+dnsapi.dll
+ftllib.dll
+ftp.dll
+gdi32.dll
+gdiplus.dll
+iphlpapi.dll
+kernel32.dll
+mpr.dll
+msedge.dll
+msieftp.dll
+ncrypt.dll
+netapi32.dll
+ntdll.dll
+ole32.dll
+oleaut32.dll
+psapi.dll
+rpcrt4.dll
+samlib.dll
+secur32.dll
+sg.dll
+shlwapi.dll
+urlmon.dll
+user32.dll
+userenv.dll
+version.dll
+win32u.dll
+wininet.dll
+winscard.dll
+wldap32.dll
+ws2_32.dll
+wtsapi32.dll
+
+### Hard-coded Commands
+
+rundll32.exe "%s"
+regsvr32.exe /s "%s"
+regsvr32.exe /s "%s" %S
+net config workstation
+ipconfig /all
+
+### WINAPI and NTAPI Functions
+
+GetMessageA
+GetMessageW
+GetProcAddress
+GetProcessHeap
+HeapFree
+LoadLibraryA
+NtAllocateVirtualMemory
+NtClose
+NtCreateFile
+NtCreateThreadEx
+NtCreateUserProcess
+NtGetContextThread
+NtOpenProcess
+NtOpenProcessToken
+NtOpenSection
+NtOpenThread
+NtProtectVirtualMemory
+NtQuerySystemInformation
+NtQueueApcThread
+NtReadVirtualMemory
+NtResumeThread
+NtSetContextThread
+NtUserGetMessage
+NtUserPeekMessage
+NtWriteVirtualMemory
+PeekMessageW
+RtlCreateProcessParametersEx
+RtlGetVersion
+RtlUserThreadStart
+ZwMapViewOfSection
+
+### Executable Names/Paths
+
+C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+C:\Windows\System32\msiexec.exe
+C:\Windows\System32\svchost.exe
+Updater.exe
+\msiexec.exe
+\svchost.exe
+chrome.exe
+explorer.exe
+msedge.exe
+regsvr32.exe
+
+### System Access Control List
+
+S:(ML;CIOI;NRNWNX;;;LW)
+S:(ML;;NRNWNX;;;LW)
+
+### Miscellaneous
+
+ was saved.
+ ~ 
+"%s"
+"%s" %s
+%08X %08X
+%S
+%s
+%s+0x%x
+%s.%s.%s
+%s.%s.%s%s
+%s\tmp_%08x
+%s_%s_%X
+(unknown)
+--attach-console
+--no-hide
+.com
+.dll
+.exe
+.tmp
+/?
+/post.php
+/s "%s"
+0:0
+0x%x %S+%x Code=0x%08X Flags=0x%08X LE=%u(0x%x) EI=%u
+1.1.1.1
+127.0.0.1
+127.0.0.1:%u
+8.8.8.8
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
+Bad PE file downloaded.
+Bad task.
+Basic
+Bye!
+C:\
+C:\Program Files (x86)\Microsoft\Edge\Application
+C:\Windows\SysWOW64
+C:\Windows\System32\ntdll.dll
+Can't create temporary file.
+Can't download the LDR file.
+Can't download the file.
+Can't execute a new loader.
+Can't execute the downloaded file, err=%u
+Can't save file.
+Can't save the file.
+Connection: close
+Content-Length: %u
+DISPLAY
+Execution limit reached.
+GET
+Global\
+HTTP/1.1
+Host: %s
+InstallDate
+Invalid PE file.
+Local\
+OK.
+OriginalFilename
+POST
+POST %s HTTP/1.1
+PT5S
+Principal
+ProxyEnable
+ProxyServer=
+Rand: %s
+S-1-15
+SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings
+Software\Microsoft\
+Software\Microsoft\Windows NT\CurrentVersion
+Software\Microsoft\Windows\CurrentVersion\Run
+The file was executed, pid=%u
+Trigger
+UNKN
+User-Agent: PresidentPutin
+Waiting for the bot to stop failed.
+\*
+\??\
+aeiouy
+bcdfghklmnpqrstvwxz
+bot_id
+bot_module
+br
+cd
+cdn
+cdn.%s.%s
+cmd
+content-length: 
+data_after
+data_before
+data_end
+data_inject
+dir
+div
+dns://
+err=%d
+exec
+execution limit was reached
+exit
+find_process
+get
+getdll
+getfile
+getsc
+h1
+h2
+h3
+h5	
+h6
+hr
+https://
+image/jpeg
+ipv4
+ipv6
+kill
+li
+nbsp;
+pid=%u %s:%s
+pid=%u [no access]
+rax=0x%p, rbx=0x%p, rdx=0x%p, rcx=0x%p, rsi=0x%p, rdi=0x%p, rbp=0x%p, rsp=0x%p
+run
+rundll
+runsc
+script:
+sendfile
+set_url
+sn
+status_process
+td
+tr
+{%08X-%04X-%04X-%08X%08X}
+|$$$}rstuvwxyz{$$$$$$$>?@ABCDEFGHIJKLMNOPQRSTUVW$$$$$$XYZ[\]^_`abcdefghijklmnopq
+¬²x
+
