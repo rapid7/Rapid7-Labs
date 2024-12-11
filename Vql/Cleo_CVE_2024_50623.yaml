@@ -1,8 +1,8 @@
-name: Windows.Detection.Cleo_CVE_2023_34362
+name: Windows.Detection.Cleo_CVE_CVE_2024_50623
 author: Matt Green - @mgreen27
 description: | 
    This is an artifact to detect exploitation of a Cleo critical vulnerability 
-   CVE-2023-34362 observed exploited in the wild. 
+   CVE-2024-50623 observed exploited in the wild. 
    
    The artifact enables detection via:
    
