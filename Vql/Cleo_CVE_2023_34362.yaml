@@ -200,7 +200,7 @@ sources:
   - name: Yara Memory
     query: |
       SELECT * FROM Artifact.Windows.Detection.Yara.Process(
-                        ProcessRegex='java\.exe',
+                        ProcessRegex='javaw\.exe',
                         YaraRule=MemoryYara,
                         NumberOfHits=NumberOfHits,
                         ContextBytes=ContextBytes,
