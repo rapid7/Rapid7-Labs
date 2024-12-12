@@ -8,7 +8,7 @@ description: |
    
    The artifact enables detection via:
    
-   - Disk: Parsing known log filenames
+   - Disk: Parsing known XML filenames
    - USNJ: Searching for known autorun and log file activity.
    - Yara: Java backdoor in memory and logs
    
@@ -176,7 +176,7 @@ sources:
   - precondition:
       SELECT OS From info() where OS = 'windows'
     
-    name: LogFileNames
+    name: XmlFileNames
     query: |
         SELECT OSPath,Size,Mtime,Atime,Ctime,Btime,
             parse_xml(file=OSPath) as XML,
