@@ -8,7 +8,7 @@ description: |
    
    The artifact enables detection via:
    
-   - Disk: Parsing known XML filenames
+   - Disk: Parsing known XML filenames and Log XML files
    - USNJ: Searching for known autorun and log file activity.
    - Yara: Java backdoor in memory and logs
    
@@ -182,9 +182,9 @@ sources:
             parse_xml(file=OSPath) as XML,
             if(condition=Uploadlogs,
                 then= upload(file=OSPath),
-                else= Null ) as UploadLog
+                else= Null ) as UploadXML
         FROM glob(globs=TargetGlob)
-        WHERE OSPath =~ FileNameRegex AND XML
+        WHERE (OSPath =~ FileNameRegex OR OSPath =~ '''\\logs\\''') AND XML
         
   - name: DBGLogFile
     query: |
