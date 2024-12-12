@@ -1,12 +1,14 @@
 name: Windows.Detection.Cleo_CVE_2024_50623
 author: Matt Green - @mgreen27
 description: | 
-   This is an artifact to detect exploitation of a Cleo critical vulnerability 
-   CVE-2024-50623 observed exploited in the wild. 
+   This is an artifact to detect and assist scoping of observed exploitation of 
+   Cleo file transfer software.
+   
+   CVE-2024-50623 and a possible new CVE has been associated with this activity.
    
    The artifact enables detection via:
    
-   - Disk: Parsing known log filenames
+   - Disk: Parsing known XML filenames and Log XML files
    - USNJ: Searching for known autorun and log file activity.
    - Yara: Java backdoor in memory and logs
    
@@ -167,17 +169,31 @@ parameters:
     type: int
   - name: UploadYaraHits
     type: bool
+  - name: Uploadlogs
+    type: bool
 
 sources:
   - precondition:
       SELECT OS From info() where OS = 'windows'
     
-    name: LogFileNames
+    name: XmlFileNames
     query: |
         SELECT OSPath,Size,Mtime,Atime,Ctime,Btime,
-            parse_xml(file=OSPath) as XML 
+            parse_xml(file=OSPath) as XML,
+            if(condition=Uploadlogs,
+                then= upload(file=OSPath),
+                else= Null ) as UploadXML
         FROM glob(globs=TargetGlob)
-        WHERE OSPath =~ FileNameRegex AND XML
+        WHERE (OSPath =~ FileNameRegex OR OSPath =~ '''\\logs\\''') AND XML
+        
+  - name: DBGLogFile
+    query: |
+        SELECT OSPath,Size,Mtime,Atime,Ctime,Btime,
+            if(condition=Uploadlogs,
+                then= upload(file=OSPath),
+                else= Null ) as UploadLog
+        FROM glob(globs=TargetGlob)
+        WHERE OSPath =~ '''\\logs\\.+\.dbg$'''
     
   - name: USNJ
     query: |
@@ -209,6 +225,8 @@ sources:
 
 column_types:
   - name: HitContext
+    type: preview_upload
+  - name: UploadLog
     type: preview_upload
   - name: Mtime
     type: timestamp
