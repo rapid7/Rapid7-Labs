@@ -1,0 +1,74 @@
+name: Windows.Detection.ClickFix
+author: Matt Green - @mgreen27
+description: |
+   This artifact assists detection and triage of ClickFix fake CAPTCHA malware.
+   
+   The artifact checks all users RunMRU for evidence of Clickfix execution.
+   There may be some False positives as Regex has been written to be generic enough 
+   to detect more recent IP only and future variants.
+   
+   The artifact also checks Windows Defender logs for detection notification 
+   and prefetch for the original ClickFix (Powershell loaded by Mshta).
+   
+   Once confirmed, the artifact can be rerun with the CollectTriagePackage switch 
+   enabled to collect a KapeFiles triage package.
+   
+type: CLIENT
+
+parameters:
+   - name: RunMruRegex
+     default: '(powershell|mshta|regsvr32|rundll32).+(https?://|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|tcpclient|\:\:)|reCAPTCHA|not a robot|verification id:'
+     description: Regex to detect ClickFix/Fake CAPTCHA attacks in RunMRU
+     type: regex
+   - name: CollectTriagePackage
+     description: If selected will collect a KapeFiles triage package for triage. Only select AFTER confirming a hit.
+     type: bool
+     
+sources:
+  - precondition:
+      SELECT OS From info() where OS = 'windows'
+
+    query: |
+      SELECT *
+      FROM Artifact.Windows.Timeline.Registry.RunMRU(regexValue=RunMruRegex)
+      
+  - name: Defender
+    query: |
+      SELECT EventTime,Computer,Channel,Provider,EventID,EventRecordID,
+        EventData, Message
+      FROM Artifact.Windows.EventLogs.EvtxHunter(
+            EvtxGlob='%SystemRoot%\\System32\\Winevt\\Logs\\*Defender*.evtx',
+            IocRegex='ClickFix|CAPTCHA'
+        )
+ 
+  - name: PrefetchHunter Powershell from Mshta
+    query: |
+      LET hits = SELECT * FROM Artifact.Windows.Forensics.Prefetch(binaryRegex='mshta\.exe')
+        WHERE FilesAccessed =~ 'powershell\.exe'
+        
+      SELECT * FROM flatten(query={
+                SELECT 
+                    Executable,
+                    Binary,
+                    FilesAccessed as FileAccessed,
+                    Hash,
+                    Version,
+                    LastRunTimes,
+                    RunCount,
+                    PrefetchFileName,
+                    CreationTime,
+                    ModificationTime
+                FROM hits
+            })
+      WHERE FileAccessed =~ 'powershell\.exe$'
+      
+  - name: Triage Package
+    query: |
+      SELECT * 
+      FROM if(condition= CollectTriagePackage,
+                then= { 
+                        SELECT * 
+                        FROM Artifact.Windows.KapeFiles.Targets(
+                            _KapeTriage='Y',
+                            WindowsTimeline='Y') --make sure we grab clipboad
+                })
