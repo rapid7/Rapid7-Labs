@@ -1,0 +1,56 @@
+name: Generic.Detection.TomcatCVE
+author: Matt Green - @mgreen27
+description: |
+   This artifact can be used to scope for evidence of Apache Tomcat exploitation. 
+   
+   The default artifact will look for exceptions observed with exploitation of 
+   Tomcat CVE-2025-24813 however additional Yara Rules can be added for additional 
+   coverage.
+   
+   The artifact will search for known Apache log paths with for a specified yara 
+   rule. The yara scan leverages the gzip accessor which will hit standard logs 
+   and rotated gzip logs.
+   
+   If a hit is observed, next steps would be to search for associated access logs 
+   and correlate the http request with CVE reference.
+   
+   NOTE: Generally regex yara rules are not performant, but we are targeting 
+   specific folders and targeting specifically to extract Date / time for triage.
+   
+type: CLIENT
+
+parameters:
+   - name: TargetGlob
+     default: "/{/var/log/tomcat*/**,/usr/share/tomcat*/logs/**,/opt/tomcat*/logs/**,C:/Program Files/Apache Software Foundation/Tomcat*/**}"
+     description: Tomcat log folder paths
+
+   - name: YaraRule
+     type: yara
+     default: |
+        rule Tomcat_CVE_2025_24813_Session_Deserialization_Exception
+        {
+            meta:
+                author = "Matt Green - @mgreen27"
+                description = "Detects deserialization errors related to Apache Tomcat sessions, including full timestamp"
+                date = "2025-03-21"
+                reference = "https://www.rapid7.com/blog/post/2025/03/19/etr-apache-tomcat-cve-2025-24813-what-you-need-to-know/"
+            
+            strings:
+                $exception_processing = /\n.{10,50} SEVERE \[[^\]]+\] org\.apache\.catalina\.core\.StandardHostValve\.invoke Exception Processing.{0,200}/
+                $session_expire = /\n.{10,50} SEVERE \[[^\]]+\] org\.apache\.catalina\.session\.StoreBase\.processExpires Session:.{0,200}\n/
+        
+            condition:
+                any of them
+        }
+
+sources:
+  - query: |
+      LET target_files = SELECT OSPath FROM glob(globs=TargetGlob)
+    
+      SELECT * FROM foreach(row=target_files, query={
+        SELECT OSPath, Rule,
+            String.Name as HitName,
+            String.Offset as HitOffset,
+            regex_replace(re='\n',replace='',source=format(format='%s',args=[String.Data,])) as HitData
+        FROM yara(files=OSPath,rules=YaraRule,number=9999999,accessor='gzip')
+      })
