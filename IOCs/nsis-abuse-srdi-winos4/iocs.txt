@@ -1,0 +1,41 @@
+
+| SHA256                                                       | Label             | IP              | Port  | Mutex          |
+|--------------------------------------------------------------|-------------------|------------------|-------|----------------|
+| b12c8bf232ea87e37f3a035bb332d63a90b0df65842d06ab00a802800c969229 | Config.ini        | 47.86.28.28      | 18852 | VJANCAVESU223f |
+| 93BA67333EADAA2B8304784FB8E7231561FC251D837BEA688D33B0F39811E8C1 | Config2.ini       | 202.79.168.211   | 443   | VJANCAVESU223f |
+| 485466caf9747153c83d6983b37c743da6b3cdfa1c824706580654fd0045042f | obs.zip           |                  |       |                |
+| e6f7541ec55c1e8e90f139a03f4ef1af1beca4474e7dfd3e91e276914f033dea | LetsVPN zip       |                  |       |                |
+| fad0bd5f512467714f291002a9f1c51266d3bbdca8d5f482f3ad4d3d7c0a7fb0 | Config.ini        | 43.226.125.44    | 18852 | VJANCAVESU223f |
+| e72050fb80f88be57a0f699fdac2d5c36796858aa6cae54ef1229dc9b71343ff | Config2.ini       | 27.122.59.71     | 443   | VJANCAVESU223f |
+| 8efc3e230245bcfad750ca5cebd35f4481bd8495f99a95bac0220a4c885b0dad | Config.ini        | 143.92.63.144    | 18852 |                |
+| a6ccbb4e5644311dddc0f2e113875bc546c110cb49b7f5ef4c98bb6fa38b49b8 | Sogou zip         |                  |       |                |
+| 06244624ccdebc37bb08e69dc2821bbcd0a7692b20d5e0649a6a8dedd2d62152 | Config.ini        | 47.238.125.85    | 18852 | VJANCAVESU223f |
+| 8085dfec9156d545882f9590d364ad26783d4eac4a7af3beab23ab26de61eea2 | Config2.ini       | 202.79.171.133   | 443   | VJANCAVESU223f |
+| 2fc334a8c603aadb5d5751029f0c2e1d4689bd994e9b963e5bb8580203bdcd8a | FlashPlayer zip   |                  |       |                |
+| 54607cfd708dc47ea64442f433030ad493177b868145500c700300c16ff49aa6 | Config.ini        | 43.226.125.44    | 18852 |                |
+| 04e11d92b71a3efeefbd363a3c37379f82e7b43f690d3298809f88a1bb70a619 | Google installer  |                  |       |                |
+| daa089979597d088671c0d8a9f58047d434f0fbb3f358c7b0b92435ebca0ce8e | Config.ini        | 112.213.116.91   | 18852 | VJANCAVESU     |
+| ad20da14a602d2c0adc3c12a5cbb0a1a078eed2194bf1b212c350749ed0679c5 | Config2.ini       | 137.220.229.34   | 18852 | VJANCAVESU223f |
+| 48aa26f8bd9a2c84daac94fe19d047867111209de049a936004d36b6e6b9188d | Telegram zip      |                  |       |                |
+
+| IP               | Port  |
+|------------------|-------|
+| 27.122.59.71     | 443   |
+| 43.226.125.44    | 18852 |
+| 47.238.125.85    | 18852 |
+| 47.86.28.28      | 18852 |
+| 112.213.116.91   | 18852 |
+| 137.220.229.34   | 18852 |
+| 143.92.61.154    | 18852 |
+| 143.92.63.144    | 18852 |
+| 202.79.168.211   | 443   |
+| 202.79.171.133   | 443   |
+| 103.46.185.74    | 443   |
+| 103.46.185.44    |
+| 103.46.185.73    |
+| 112.213.101.139  |
+| 112.213.101.161  |
+| 202.79.173.50    |
+| 202.79.173.54    |
+| 202.79.173.98    |
+| 47.83.184.193    |
