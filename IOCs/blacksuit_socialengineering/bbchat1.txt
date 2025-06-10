@@ -1,0 +1,47 @@
+Russian (original):
+2024-05-23 12:37:16 @usernamegg: будем звонить типа это it отдел компании и мы типа хотим поставить антиспам систему
+English (translated):
+2024-05-23 12:37:16 @usernamegg: we'll call like this is the company's IT department and we want to install an anti-spam system
+
+Russian (original):
+2024-05-26 11:36:58 @usernamegg: далее мы зайдем установим ему ПО для зщиты от спама
+2024-05-26 11:37:54 @usernamegg: вот он увидит такое окно для установки ему нужно будет ввести креды
+2024-05-26 11:38:22 @usernamegg: форму сделай где будет вот такая установка и ввод кред
+2024-05-26 11:39:34 @usernamegg: но и что бы креды прилетали которые он вводит нам сразу в пику и сокс что бы мы поднять могли сразу
+English (translated):
+2024-05-26 11:36:58 @usernamegg: next we'll go and install anti-spam software for him
+2024-05-26 11:37:54 @usernamegg: he will see an installation window like this, he will need to enter his credentials
+2024-05-26 11:38:22 @usernamegg: create a form that includes an installation interface with credential input.
+2024-05-26 11:39:34 @usernamegg: 
+but make it so that the credentials he enters are immediately sent to us, and we can also bring up a SOCKS proxy right away.
+
+Russian (original):
+2024-05-29 08:17:47 @usernamegg: перед этим они заказывают флуд на почту этого человека
+2024-05-29 08:18:24 @usernamegg: потом звонят и говорят типа это it отдел мы заметили что у нас идет жесткая спам атака мы хоти установить всем сотрудникам антиспам защиту
+2024-05-29 08:18:35 @usernamegg: просят сделать подключение к компьютеру
+2024-05-29 08:18:42 @usernamegg: дают им анидеск
+2024-05-29 08:18:59 @usernamegg: они туда ставят софт который выглядит вот так но для установки типа надо ввести еще креды
+2024-05-29 08:19:28 @usernamegg: вот так они получаю тачку и креды
+English (translated):
+2024-05-29 08:17:47 @usernamegg: before that they order spam to this person's email
+2024-05-29 08:18:24 @usernamegg: then they call and say like this is the IT department, we noticed that we are under a severe spam attack, we want to install anti-spam protection for all employees
+2024-05-29 08:18:35 @usernamegg: asking to connect to his computer
+2024-05-29 08:18:42 @usernamegg: give them anydesk
+2024-05-29 08:18:59 @usernamegg: they put software there that looks like this, but to install it you need to enter credentials
+2024-05-29 08:19:28 @usernamegg: that's how they get the computer and credentials
+
+Russian (original):
+2024-06-03 11:08:34 @usernamegg: тут флуд для его почты
+2024-06-03 11:08:35 @usernamegg: тоже баланс есть
+2024-06-03 11:08:51 @usernamegg: потмо что бы был предлог зайти устновить софт для антиспама
+English (translated):
+2024-06-03 11:08:34 @usernamegg: here is a spam for his mail
+2024-06-03 11:08:35 @usernamegg: there is also a balance
+2024-06-03 11:08:51 @usernamegg: because there would be a pretext to go and install anti-spam software
+
+Russian (original):
+2024-06-19 08:52:59 @usernamegg: ты приходишь такой герой говришь у вас спам на нашу компанию спам аттака , надо поставить ПО для антиспама сейчас я к вам подключусь
+2024-06-19 08:53:09 @usernamegg: говоришь ставь эни деск или тимвивер
+English (translated):
+2024-06-19 08:52:59 @usernamegg: you come such a hero, you say you have been spammed, there is a spam attack on our company, we need to install anti-spam software now I'll connect to you
+2024-06-19 08:53:09 @usernamegg: you ask install any desk or teamviewer

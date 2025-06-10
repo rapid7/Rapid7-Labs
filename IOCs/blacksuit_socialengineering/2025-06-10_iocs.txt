@@ -1,0 +1,212 @@
+# Tenants observed sending malicious chat requests. A tenant used by a TA may have multiple display names and/or email addresses, which are regularly adjusted to improve the chances of the attack's success. Names have been redacted where necessary due to TAs impersonating real people and companies. Employee names have been replaced with <first> <last> or <username>. Company names have been replaced with <company>.
+
+DisplayName: IT  SUPPORT | Email: itsupport[@]sappia[.]com[.]br | TenantID: ed00fe61-f21f-478e-a768-9d1e39913242
+DisplayName: Help Desk | Email: helpdeskmanager[@]advancegrindhouse[.]com | TenantID: 9a7e5bbf-7e8d-42c9-b53b-5a77864ac6e4
+DisplayName: support | Email: support[@]ahit[.]com.au | TenantID: a78e75c7-d13a-455a-8447-1f89472451c5
+DisplayName: Help Desk | Email: admin_52[@]teamshea.onmicrosoft[.]com | TenantID: 8cc1b790-522c-45f8-add4-09f444bdf924
+DisplayName: Help Desk | Email: admin_64[@]sarafmail.onmicrosoft[.]com | TenantID: 688cfab2-1e9b-4156-a28c-63a72a633ecb
+DisplayName: Help Desk | Email: admin_74[@]ladminlhelpl.onmicrosoft[.]com | TenantID: 2c42738a-3d17-4dab-883c-528ccd09f3c7
+DisplayName: Help Desk | Email: admin011[@]llllhelpdesklllll.onmicrosoft[.]com | TenantID: 949239ff-8d43-4e32-9c55-46e331bb0b7e
+DisplayName: Help Desk | Email: admin_72[@]naensystem.onmicrosoft[.]com | TenantID: 55b12ef1-9054-459e-9377-9500faa011c4
+DisplayName: HELP              DESK | Email: helpdesk[@]yuwatibhaktismi.sch[.]id | TenantID: 1c7ba17c-4336-4507-9bc3-f95c53558acc
+DisplayName: HELP                           DESK | Email: helpdeskmgmnt[@]empresascec[.]com | TenantID: 75b07796-4ab3-4507-8fda-a57be3105019
+DisplayName: HELP DESK | Email: helpdeskmanager[@]fairviewlodge[.]ie | TenantID: cf260fc5-80e1-4deb-a76c-ebc8d63a06e8
+DisplayName: Help Desk | Email: helpdeskmanager[@]cl10.obecmail[.]org | TenantID: 9c552b8f-699e-47e3-92f1-d4b7aa7d0849
+DisplayName: John Helpdesk | Email: hitesh.prajapati[@]akshar-it[.]com | TenantID: dcaa1151-eec1-48b3-b066-4123ec100370
+DisplayName: Techinical Support | Email: techsupport[@]sma5smg.sch[.]id | TenantID: fb5e27ba-3503-46e6-839b-2ab2de269209
+DisplayName: Tech Support | Email: techsupport[@]itsao[.]edu[.]mx | TenantID: e10a5c5c-6e0c-422b-aa8a-e17d5535c919
+DisplayName: <first> <last> | Email: <username>@pinnacleitsupport.onmicrosoft[.]com | TenantID: 1ae010b2-de5d-4d99-a27a-a17d445d31e0
+DisplayName: Help Desk | Email: admin_53[@]iciciprupartner236.onmicrosoft[.]com | TenantID: b0191176-6b8d-4413-9cc8-87ba4f8f2794
+DisplayName: Help Desk | Email: admin[@]agccongo.onmicrosoft[.]com | TenantID: 31c64075-7026-4166-94b1-9ff666bdea2c
+DisplayName: Help Desk | Email: admin1[@]agccongo.onmicrosoft[.]com | TenantID: 31c64075-7026-4166-94b1-9ff666bdea2c
+DisplayName: Help Desk | Email: admin1[@]uolsinectis863.onmicrosoft[.]com | TenantID: d12c2630-6503-4ffd-a1ea-05ebc3123a2a
+DisplayName: Help Desk | Email: admin111[@]kastwerks093.onmicrosoft[.]com | TenantID: aa4de3d2-82bb-44ee-b3ff-5815768f745f
+DisplayName: Help Desk | Email: admin[@]llllhelpdesklllll.onmicrosoft[.]com | TenantID: 949239ff-8d43-4e32-9c55-46e331bb0b7e
+DisplayName: Help Desk | Email: helpdeskmanager[@]sma5smg.sch[.]id | TenantID: fb5e27ba-3503-46e6-839b-2ab2de269209
+DisplayName: Help Desk | Email: admin_39[@]teamshea.onmicrosoft[.]com | TenantID: 8cc1b790-522c-45f8-add4-09f444bdf924
+DisplayName: Help Desk | Email: admin_1[@]ladminlhelpl.onmicrosoft[.]com | TenantID: 2c42738a-3d17-4dab-883c-528ccd09f3c7
+DisplayName: Help Desk | Email: admin_62[@]qulckhelp.onmicrosoft[.]com | TenantID: 8956c5b3-35cc-4570-a64b-0a46c2330746
+DisplayName: Help Desk | Email: admin_52[@]iciciprupartner236.onmicrosoft[.]com | TenantID: b0191176-6b8d-4413-9cc8-87ba4f8f2794
+DisplayName: Help Desk | Email: admin_41[@]atelierjfa938.onmicrosoft[.]com | TenantID: 046e0d25-767e-42c5-9a07-67e27253b152
+DisplayName: Help Desk | Email: admin[@]powerencry568.onmicrosoft[.]com | TenantID: 6bcd5d6d-7fdd-4bca-88ea-eae84206d2ef
+DisplayName: Help Desk | Email: admin_11[@]eventsartery103.onmicrosoft[.]com | TenantID: 0cc999f6-0f54-445f-9538-27b1cf701c21
+DisplayName: Help Desk | Email: admin_61[@]nateaconsulting.onmicrosoft[.]com | TenantID: c432e1c1-23c2-4be4-9657-30812c2e2d9b
+DisplayName: Help Desk | Email: admin_134[@]nateaconsulting.onmicrosoft[.]com | TenantID: c432e1c1-23c2-4be4-9657-30812c2e2d9b
+DisplayName: Help Desk | Email: admin_2[@]tntheatre674.onmicrosoft[.]com | TenantID: 1f00f25c-b2b9-4757-ad65-b7d6b32b0c1f
+DisplayName: Help Desk | Email: admin1[@]llllhelpadminlll.onmicrosoft[.]com | TenantID: b2c927ec-491e-4bee-843e-db0208ab73ee
+DisplayName: Help Desk | Email: admin_134[@]conference574.onmicrosoft[.]com | TenantID: 8f26989a-ae43-4cc0-8bd3-0918dba32a1c
+DisplayName: Help Desk | Email: admin[@]conference574.onmicrosoft[.]com | TenantID: 8f26989a-ae43-4cc0-8bd3-0918dba32a1c
+DisplayName: Help Desk | Email: admin_1[@]uolsinectis863.onmicrosoft[.]com | TenantID: d12c2630-6503-4ffd-a1ea-05ebc3123a2a
+DisplayName: Help Desk | Email: admin[@]uolsinectis863.onmicrosoft[.]com | TenantID: d12c2630-6503-4ffd-a1ea-05ebc3123a2a
+DisplayName: Help Desk | Email: admin_21[@]solvetys919.onmicrosoft[.]com | TenantID: 5e409e59-44dd-4bba-8180-829ee291dd50
+DisplayName: <company> ITDesk | Email: ithelpdesk@<company>[.]com | TenantID: 3ecd71dc-29df-4c83-9159-736476b447b7
+DisplayName: Help Desk | Email: helpdesk[@]swlaw[.]it[.]com | TenantID: fc34efab-b4d2-4f99-850d-d6167c0cb305
+DisplayName: Customer Care | Email: helpdesk[@]swlaw[.]it[.]com | TenantID: fc34efab-b4d2-4f99-850d-d6167c0cb305
+DisplayName: Tech Support | Email: techsupport[@]dunnanog[.]ie | TenantID: cf260fc5-80e1-4deb-a76c-ebc8d63a06e8
+DisplayName: HELP DESK | Email: helpdeskmng[@]hatahomes[.]ie | TenantID: cf260fc5-80e1-4deb-a76c-ebc8d63a06e8
+DisplayName: John Helpdesk | Email: hr[@]c9its[.]com | TenantID: d46354db-7d96-438f-ac57-a7ee9a612571
+DisplayName: Technical Support | Email: technicalsupport[@]eicherschoolsparwanoo[.]in | TenantID: 6f64d77a-5ec9-45ad-98c8-5523cf0761d0
+DisplayName: John Helpdesk | Email: admin[@]re-elteknik[.]dk | TenantID: 66f5dd2c-7ac3-42ea-88f5-b57d1bebf0e0
+DisplayName: Help Desk | Email: helpdesk[@]aaltabd[.]com | TenantID: cdb02ba1-745e-4c4d-8b05-be5a9b714176
+DisplayName: <first> <last> | Email: supportit[@]corporationservice.onmicrosoft[.]com | TenantID: 16831392-73cf-40e9-b1d3-5a53afe15497
+DisplayName: Dave Helpdesk | Email: supportit[@]corporationservice.onmicrosoft[.]com | TenantID: 16831392-73cf-40e9-b1d3-5a53afe15497
+DisplayName: QUICKASSIST DAYMNE | Email: dave555[@]faeeeton.onmicrosoft[.]com | TenantID: 15c09b12-8f88-4617-80b1-11cc4ecc68b7
+DisplayName: IT_Support[@]southwire[.]com ✅ | Email: ithelpdesksupport[@]faeeeton.onmicrosoft[.]com | TenantID: 15c09b12-8f88-4617-80b1-11cc4ecc68b7
+DisplayName: IT_Support[@]cognex[.]com ✅ | Email: itsupport[@]faeeeton.onmicrosoft[.]com | TenantID: 15c09b12-8f88-4617-80b1-11cc4ecc68b7
+DisplayName: <first>.<last>@cognex[.]com | Email: ithelpdesksupport[@]faeeeton.onmicrosoft[.]com | TenantID: 15c09b12-8f88-4617-80b1-11cc4ecc68b7
+DisplayName: Andrew Helpdesk | Email: andrewhelpdesk[@]helpdesklocal.onmicrosoft[.]com | TenantID: 95ce838a-4e51-42d7-8436-6edacae0d3b9
+DisplayName: Help Desk | Email: helpdeskmanager[@]guateland[.]com[.]gt | TenantID: 8e3459bd-0308-4d31-b983-81d93eac7150
+DisplayName: IT Support | Email: <first><last>@itupdateadministrators.onmicrosoft[.]com | TenantID: 730ea30d-d154-48f8-96fc-adafadb9ffff
+DisplayName: IT Support✔ | Email: support[@]repairserviceweb.onmicrosoft[.]com | TenantID: 5ab81c40-0243-405c-966c-deb34c021e7d
+DisplayName: Finn IT SUPPORT Brandon | Email: webupdat[@]policyupdatecrp.onmicrosoft[.]com | TenantID: 03e6e8b8-ba54-4f2c-85eb-7b84c46926e3
+DisplayName: Help                              Desk | Email: helpdeskmanager[@]c9its[.]com | TenantID: d46354db-7d96-438f-ac57-a7ee9a612571
+DisplayName: HELPDESK | Email: helpdesk[@]faeeeton.onmicrosoft[.]com | TenantID: 15c09b12-8f88-4617-80b1-11cc4ecc68b7
+DisplayName: <first> <last>✅ | Email: helpdesk[@]faeeeton.onmicrosoft[.]com | TenantID: 15c09b12-8f88-4617-80b1-11cc4ecc68b7
+DisplayName: Andrew Helpdesk | Email: andrewhelpdesk[@]deuscapacitaciones[.]cl | TenantID: 95ce838a-4e51-42d7-8436-6edacae0d3b9
+DisplayName: IT SUPPORT ✅ | Email: update[@]cybersecuritydepart.onmicrosoft[.]com | TenantID: 0b3a47d5-e8be-46af-ba05-64d77ec5616d
+DisplayName: Alice Taylor | Email: cs-assist[@]itsupportassistant.onmicrosoft[.]com | TenantID: d02a4bcf-5314-489e-b830-f5939e8af834
+DisplayName: IT SUPPORT ✅ | Email: mike[@]copilotupdatemicrosoft.onmicrosoft[.]com | TenantID: d931463c-ddb7-471e-ae20-d926ca891a29
+DisplayName: supportIT✅ | Email: dave[@]webupdatesupport.onmicrosoft[.]com | TenantID: 8e5ff624-25c7-474d-aa45-e983fb2728a9
+DisplayName: IT Support✅ | Email: <first><last>@systemnotifymoderator.onmicrosoft[.]com | TenantID: e4dc6ef0-8e76-4202-9012-9b346d3c5c11
+DisplayName: <first> <last> | Email: helpdesk[@]itsecurityadm.onmicrosoft[.]com | TenantID: fd520336-fda9-4f6b-bb99-af6fea1a55f0
+DisplayName: <first> <last> IT Support ✅ | Email: csreply[@]teamitsupporting.onmicrosoft[.]com | TenantID: 116a1642-3f83-45e4-a15b-16fdbbbb2e77
+DisplayName: Nous Helpdesk | Email: noushelpdesk[@]ithelpdepartment.onmicrosoft[.]com | TenantID: 95ce838a-4e51-42d7-8436-6edacae0d3b9
+DisplayName: <first> <last> | Email: <first><last>@itupdateadministrator.onmicrosoft[.]com | TenantID: 4f7a3fde-3a3b-4f1a-ae7f-1ad34fa1a870
+DisplayName: IT Support ✔ | Email: <first><last>@itupdateadministrator.onmicrosoft[.]com | TenantID: 4f7a3fde-3a3b-4f1a-ae7f-1ad34fa1a870
+DisplayName: IT Support | Email: ithelpdesk[@]itncorpadministrator.onmicrosoft[.]com | TenantID: bc75a038-ac48-44c7-925c-9ae2de83fe6c
+DisplayName: IT SUPPORT ✅ | Email: <first><last>@itgroupupdatecrp.onmicrosoft[.]com | TenantID: 378c8ccb-dd32-4833-a09b-6a49b442fcd6
+DisplayName: Network Help | Email: support[@]externalwebhelper[.]com | TenantID: 5ab81c40-0243-405c-966c-deb34c021e7d
+DisplayName: IT SUPPORT✅ | Email: copilotupdatecrp[@]noanswerit.onmicrosoft[.]com | TenantID: 91add066-2db2-47f8-ae38-627742d86558
+DisplayName: IT SUPPORT✅ | Email: policyupdate[@]webupdatecrp.onmicrosoft[.]com | TenantID: 485c4c65-2870-4ec0-b0d1-640acd32fbed
+DisplayName: IT SUPPORT✅ | Email: <first><last>@adminystratorsyscrp.onmicrosoft[.]com | TenantID: 07757510-1da0-4a0f-a036-ad9cab8e8cb4
+DisplayName: Andrew helpdesk | Email: itmsa[@]lpcgl[.]com | TenantID: 05c92798-c261-448b-8f3e-66fbd97cebe6
+DisplayName: Samuel Helpdesk | Email: itmsa[@]lpcgl[.]com | TenantID: 05c92798-c261-448b-8f3e-66fbd97cebe6
+DisplayName: Information Technology Support Technician ✅ | Email: <first><last>.<company>@replysupport.onmicrosoft[.]com | TenantID: 4c7aa1ab-257f-4ec8-9819-b26292a77156
+DisplayName: Andrew Helpdesk | Email: andrewhelpdesk[@]smanduatuban.onmicrosoft[.]com | TenantID: 4d826f2e-efd2-4c6a-9851-7167ceed3ff9
+DisplayName: IT SUPPORT ✅ | Email: <first><last>@administratoritdep.onmicrosoft[.]com | TenantID: befa15ce-e18a-4050-b12d-6197df18cc1d
+DisplayName: HELP DESK | Email: helpdeskmanager[@]colegiocanapro[.]edu[.]co | TenantID: b972e2f5-f53c-46fe-902b-b4b3d37d22ba
+DisplayName: <first> <last> (IT SUPPORT) | Email: updateteam[@]updateitpolicy.onmicrosoft[.]com | TenantID: 3744a7a7-df2e-48e0-976e-dfeb16f59e33
+
+# Java RAT C2 via Microsoft OneDrive Apps
+
+TenantID: fafe34de-cf53-484b-98ec-4a080c0ebb79 | AppID: 763a5220-5612-467c-b105-05da362f6f5d | App initially approved from 188.250.164[.]122
+TenantID: 20018c61-8629-459b-b346-d1c050cea120 | AppID: 844ac3a6-493f-4bc1-9887-026aef797950 | App initially approved from 188.250.164[.]122
+
+TenantID: 8b9705c8-fbc1-4add-9595-211913f880d1 | AppID: 81b3b814-cc82-46ba-9085-8595a49a44dd | App initially approved from 166.1.105[.]217
+
+TenantID: 794ad2d6-219c-432e-87f4-1de08381329d | AppID: 3c96a734-af36-4ef7-8303-709a96e4044c | App initially approved from 166.0.210[.]66
+TenantID: b3e921de-587e-482e-b3f7-a98a86d13d78 | AppID: 8d9c8fab-6379-4db0-8575-6253ee2fa1d2 | App intially approved from 166.1.105[.]188
+
+TenantID: fb86146d-dc7c-4a54-8a7c-2009330f4cfa | AppID: 67a49e9e-3c2a-411f-a889-d53a9d95bdb6 | App initially approved from 195.133.42[.]93
+TenantID: 926b76c4-df41-407d-8630-f7ae54eec95a | AppID: ffa06457-f004-440c-b49f-caa30c156092 | App initially approved from 195.133.42[.]106
+
+TenantID: 4a5e024d-c1de-40fb-8a65-656f12f3f625 | AppID: 2e43f7b3-6a4a-4cea-94b8-beb0e19386c9 | App initially approved from 46.183.30[.]103
+TenantID: f193773a-3732-4c0e-805c-ac0022c87ffb | AppID: 942a9cc1-65e8-4965-82d7-e0e65e37fd8c | App initially approved from 45.159.15[.]112
+
+TenantID: 8bc1f51c-e9ee-42db-a7f9-137516cae675 | AppID: e4a5f06f-0693-4ca0-9690-af2990e83b54 | App initially approved from 45.159.13[.]119
+
+# Java RAT C2 via Google Drive Service Accounts
+
+google-upixerahan12[@]stellar-display-455614-u4.iam.gserviceaccount[.]com
+uweyejeca38[@]striking-gadget-455614-q9.iam.gserviceaccount[.]com
+votibacen02[@]chrome-parity-455614-s2.iam.gserviceaccount[.]com
+
+corn19695[@]reliable-jet-457611-j8.iam.gserviceaccount[.]com
+jimt4403[@]glass-cedar-457610-g3.iam.gserviceaccount[.]com
+ditudidazo23[@]ambient-cubist-457607-t1.iam.gserviceaccount[.]com
+
+azevedokofi[@]spiritual-aloe-457012-j7.iam.gserviceaccount[.]com
+ebehosterman[@]applied-grove-457012-s2.iam.gserviceaccount[.]com
+ixodas198966[@]lucid-bebop-457012-g5.iam.gserviceaccount[.]com
+
+# Network Based Indicators
+
+77.221.149[.]58 | Java RAT C2 proxy
+85.209.134[.]4 | Java RAT C2 proxy
+85.209.134[.]50 | Java RAT C2 proxy
+138.124.123[.]24 | Java RAT C2 proxy
+166.1.160[.]24 | Java RAT C2 proxy
+166.1.160[.]153 | Java RAT C2 proxy
+166.88.164[.]249 | Java RAT C2 proxy
+166.88.197[.]178 | Java RAT C2 proxy
+178.236.246[.]254 | Java RAT C2 proxy
+193.29.225[.]11 | Java RAT C2 proxy
+5.252.177[.]249 | Python RAT C2 proxy
+38.134.148[.]20 | Python RAT C2 proxy
+88.119.167[.]239 | Qdoor C2 proxy
+67.207.89[.]61 | Qdoor C2 proxy
+144.202.102[.]186 | Check in server contacted before executing 123.out
+45.32.212[.]196 | C2 for ELF 123.out
+162.243.41[.]75 | C2 for ELF ssl/nossl
+161.35.178[.]91 | SoftEther VPN Bridge server
+149.28.198[.]232 | Payload host
+206.189.224[.]101 | Payload host
+82.118.16[.]49 | Payload host
+157.230.156[.]216 | Payload host
+185.233.166[.]152 | TA controlled SSH server
+194.87.39[.]183 | Payload host
+207.90.237[.]165 | Payload host
+pingbee[.]com | Payload host
+tesets[.]live | Payload host
+andrewjboyd[.]com | Payload host
+1ty[.]me | Used as a link proxy for credential harvester, one time destructible link
+export-wood[.]com | Credential harvester, fake Quick Assist login
+gemex[.]space | Credential harvester, fake Quick Assist login
+katmarsh[.]com | Credential harvester, fake Quick Assist login
+pastebin[.]com | Used as a payload archive link proxy for Java RAT
+utpedupe-my.sharepoint[.]com | Payload archive host, potentially compromised
+nepwhan-my.sharepoint[.]com | Payload archive host, potentially compromised
+camconalepedu-my.sharepoint[.]com | Payload archive host, potentially compromised
+gravav[.]screenconnect[.]com | Malicious ScreenConnect instance
+instance-l4lzcp-relay[.]screenconnect[.]com | Malicious ScreenConnect relay
+d5onlinefile[.]com | C2 domain for update.txt DLL
+whonkinew[.]com | C2 domain for update.pyc
+filedporer4online[.]com | C2 domain for upd.pyc
+downloadp4rfile[.]com | C2 domain for upd2.pyc
+
+# Host Based Indicators
+
+identity.jar | Java credential harvesting module | C675130390B4EE16EA72DEA30807939B1306D373C5B7FFE0CF1D2AFAFFC402B6
+SmartSync-Mail.jar | Early version of the Java RAT | 0296D4497B18083B4997BC34CBD5A01B6B4EA434BA9327BD2B54C2CC37A9653A
+QuickNoteViewer.jar | Early version of the Java RAT | D4C34E7F6B2D728CFEC6CE3D7BF46B9BD22B5A0DD5B4F2C024D22E2EDD83F910
+Clean-Delivery-Mail.jar | Java RAT | 93B16AB143611B38778FB82B55A8E49C76035A6C586DCE6F7C77DD3F21981550
+Dynamic-Inbox-Protector.jar | Java RAT | B2DA21AB962ABC1C8C66E7D2FF2347AF26D52F60DA47E3EC42B3E9324EFD36FC
+Smart-Message-Analyzer.jar | Java RAT | E21081666B5D907123CB6BA93805649EAED8925B40902C5DC42847209B744EC0
+Dynamic_SMTP_Control.zip | Payload archive | 19EEAD4E6FE392BA158822F2355A6F4891FBEAC98DAB0587E19FD3A0725C8E7F
+Dynamic_SMTP_Control.jar | Java RAT | 0C5554AABC54386B182A090782EBEB95F95AC370E2F8F9DF55DA81AFC30B3823
+Email-Focus-Tool.zip | Payload archive | 0bb2a01d1e4df891fb52e19a480b981e90ad2a0db8f1ed98141caab2819e4797
+Email-Focus-Tool.jar | Java RAT | A5E51EE7DE51D3E57DE3425C2D8D168BEE49A3BE389FBB67875C524BA2CF48B4
+Email-Configurator-Expert.zip | Payload archive |
+Email-Configurator-Expert.jar | Java RAT | 970689B8259655AA49F6424372929B58005062ED3B6AF340567DDBDF02B8B1C6
+Auto-Inbox-Manager.zip | Payload archive | 74CA369F18705E0A1F62BED19E33A9D8E4CD631DBD4E476403FA5313E6573363
+Auto-Inbox-Manager.jar | Java RAT | 79B698C4DAAECBE347B426DD2CD4CF22CE18C76DD9B0FDE384F9640937458DE8
+Email-Wizard-Connect.jar | Java RAT | A8D3D3485AB7A9CBAD9B2E280ADCAC5A06CB0819AAFA4F2B78519517B0F5C335
+PackageUpdate_gravav.zip | Payload archive | 2d4052feb94b45f5c00cdc2518ce6ba099a81d9a04a4d9282988c215f3b7819a
+Update.qcow2 | Malicious QEMU virtual disk image containing Windows 7 Ultimate | d11b751371b413d10a52dfa96c246835a09afcd1a3da37e056ed66befd55ad2c
+Update.vbs | Script used to launch QEMU with the Update.qcow2 virtual disk image | C7E3603D04C0452DA1199593322B5A8CA0F6D849CCDD77287D0511C71CEF466F
+socks.exe | Qdoor malware | 073874a38fb63387ab9f9b592dab5e49c6407fb899c11f8b7859334a219aceed
+sclient | SSH private key | 5DDFE0FB2BDF453A8BF6DB7AB120102254E6E3AA4E4AC53E5A2515E91AB8C5B7
+updater.exe | Rust SSH loader. PDB: rust_serverless_killer.pdb | 82026C83D01F6F81F7A00ECA805E451939E4BC6E921E235660D983D719E85A94
+zclient | SSH private key | 450F1829505363449060F6B93022690AB4F467C881911B7586DF68554AD4209F
+w.exe/svvhost.exe/stl.exe | Renamed copy of QEMU, a legitimate emulator | af68dfd0ad3d95ff0869b593289eff4c26f5a6a2793b441010c51da891b58269
+shell64.bin | Test shellcode payload | A28E6BD4C8E081BD14FE40CA46342783F911C5154E83D93E2DF4A6B393100B4B
+testapp.exe | Test Rust PE payload | AE4260FA0698BFD3E0F4527A5AE9F2F6319521188E803D2944B044FC383B736B
+stl.zip | TinyCore VM payload archive containing QEMU and dependencies | D61CBB8FC4841C9590E955B0AF22229A41750AC2A5872F59C2DC0A1D6329EE77
+tc.qcow2 | Malicious QEMU virtual disk image containing TinyCore Linux | 867125FEEA756F97B5C6290B035191771CB965D5F6C71C8B20DE462964A26186
+##_START__##.vbs | Script used to launch QEMU with the tc.cow2 virtual disk image | 824F376FC95E6EAFA5DE44E707D0EBBAB3DA8D64C10C786F0EFF086EA4A2833D
+123.out | ELF malware, executed within a TinyCore VM. | 978A9948D610F0FC842FC5024D3294D1456015A1D74D665D7D504C2030DE8981
+update.txt | Malicious DLL | C774B1D678E13F9CB30FBAB49ACDF879C5A339E3A19039DFE0E9962355A5096C
+update.zip | Payload archive for python remote shell | F666C1B3E706F3969B562E206AD2CFC55318E860284D34A0A7E79B3AB98E0622
+update.pyc | Basic python C2 client (original filename: client.py), contained within update.zip | 368B44FE24BB506B9676A81B050BF8868ACB2856CBFCB5DA107DF5648076C8BA
+update3.zip | Payload archive containing renamed SoftEther VPN bridge server and config | B77F427B9B04B8F99AAE3EDC9B6088F7094FC9482AB5586AE2AA9E17ABF3C43E
+update4.zip | Payload archive containing renamed SoftEther VPN bridge server and config | 812B88F636E164D76900DCC04957638B99BE4FE8C6046E086378FE4E87366A27
+upd.exe | Renamed SoftEther VPN bridge server executable | 9915AD0E855B5321B80198EB28F50C5B1A96D284B26E5836EA7396C426BCE3C1
+upd.zip | Payload archive for python remote shell | 32FED1EC8D729E1D3CD61AC991C896EB12FEF499D5977BAC4D26BC453EF37EC8
+upd.pyc | Basic python C2 client (original filename: client.py), contained within update.zip | 598723F08E0CD4772EA094D3000E4D8438C4C18CB29FBEBA3C88BC99A1DC30B6
+upd2.zip | Payload archive for python remote shell | C5F0B4A833E3E8B7BB8345145ED5BFC427025360CE3EB71D6759B1FF249818C2
+upd2.pyc | Basic python C2 client (original filename: client.py), contained within update.zip | 060FBDC5D261816A0467F790545632DA791D1D3875805DF1AEF1186F14903AED
+updatecomp.zip | TinyCore VM payload archive containing QEMU and dependencies | 30B72E9714B66EC6B0C9A558C504A3648B9CEC74F5F45B1F46F4B3131FF15B8B
+tc.qcow2 | Malicious QEMU virtual disk image containing TinyCore Linux | 22439B706292CA4D51D4AAF5C47D85EFBA559E86B14B32A4211CFE48E1D66B58
+update.vbs | Script used to launch QEMU with the tc.cow2 virtual disk image | 3CF56B3873457444F7A178584856FABD818329E15C5BB9025B184DB3B6730AFC
+nossl | ELF malware executed within the TinyCore VM at boot, multi-threaded socks proxy connector | D61E00FFF0CF718AB6C78DF8A07761097CBD918783F827A349B9487F7ADA2C2F
+ssl | ELF malware executed within the TinyCore VM at boot, multi-threaded socks proxy connector using the OpenSSL library to encrypt traffic | 517E9ABB84CD721514F5A4F11814CE9EA54E7552B88A0F924877A96321DDA68C

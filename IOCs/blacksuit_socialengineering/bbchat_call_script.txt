@@ -1,0 +1,29 @@
+Operator: Hello, my name is ____. I am representing our IT department. I'm calling regarding a current security incident that your company is facing. Do you have a moment to talk? This is an urgent security matter for you and the company.
+Client Response: [Waiting for response]
+Operator: Thank you for your time. Our security team has identified a massive set of spam attacks against our business. These attacks primarily involve the delivery of malware through phishing emails. We have confirmed that these threats are legitimate, which is why we are calling you to check your systems with us.
+Operator: Let me provide some context. Our monitoring tools have identified that these emails are being sent to various targeted addresses, including yours. The emails are crafted to look legitimate, making it easy for recipients to unknowingly click on malicious links or download infected attachments.
+Client Response: [Waiting for response]
+Operator: To ensure our network remains secure, it is crucial to act quickly. First, I need to verify if you have received any spam emails today. We have noticed an influx of spam or suspicious emails in your inbox. These emails might look like they are from known contacts or trusted organizations but contain unusual requests or attachments.
+Client Response: [We are waiting for a response regarding the fact that he received a lot of spam]
+Operator: Thank you for confirming. This is exactly the incident we were referring to. It's important that we take immediate action to prevent any potential damage. We will guide you through a series of steps to secure your system.
+Operator: To proceed with securing your network, we need you to install Anydesk - a legitimate tool. Using this tool will help us analyze your system and remove any potential threats and install the needed anti-spam software. You can verify its authenticity by Googling it. We will not send you any links to ensure your safety. Please follow my instructions to download it from a legitimate website anydesk.com.
+Client Response: [We are waiting for a response on the anik, depending on whether it is installed or not, we say]
+Operator: Please open your web browser and search for Anydesk. Make sure you are downloading it from the official website. If you need assistance finding the correct site, I can help guide you through it.
+Client Response: [We are waiting for a response and will help you install]
+Operator: Once you have found the official website, please download and install the tool. This might take a few moments. If you encounter any issues during the installation process, let me know, and I will assist you.
+Client Response: [We are waiting for a response and will help you install]
+Operator: Once Anydesk is installed, we will need you to grant access to your system through the tool. This access is necessary to help us neutralize the threat and install the needed anti-spam software. Rest assured, everything we do will be transparent, and you will see all the processes we are performing on your system. If you have any suspicions at any point, you can immediately stop the process.
+Client Response: [We gain access, distract him by phone]
+Operator: Now, please open the tool and follow the prompts to grant access. You might need to enter some administrative credentials. This step is crucial for us to conduct a thorough scan and remove any malware that might have been installed.
+Client Response: [We are waiting for a response and will help you install]
+Operator: While the tool is running, I will stay on the line to answer any questions you might have. The scan might take a few minutes, depending on the size of your system and the number of files.
+Client Response: [We are waiting for your response and congratulations]
+Operator: During the scan, you might see various system messages or notifications. Please do not be alarmed. These are normal and indicate that the tool is actively working to detect and remove any threats.
+Client Response: [Waiting for response]
+Operator: If we identify any threats, we will provide instructions on how to remove them. Follow these instructions carefully. If you need any assistance during this process, I am here to help.
+Client Response: [We wait and help while the operator is in anika]
+Operator: Once the malware scan is complete and any threats have been removed, we will need to verify that your system is secure. Please do not open any emails or download any attachments until we have confirmed that your system is clean.
+Client Response: [Waiting for response]
+Operator: Thank you for your cooperation. We appreciate your prompt response to this matter. Together, we can ensure the security of your network and protect your business from these threats. If you have any further questions or concerns, please feel free to ask.
+Client Response: [We are waiting for a response and saying goodbye]
+Operator: Have a secure day, and don't hesitate to reach out if you notice any further issues. Goodbye.
