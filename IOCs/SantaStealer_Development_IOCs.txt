@@ -1,0 +1,82 @@
+
+██████╗  █████╗ ██████╗ ██╗██████╗ ███████╗    ██╗      █████╗ ██████╗ ███████╗
+██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗╚════██║    ██║     ██╔══██╗██╔══██╗██╔════╝
+██████╔╝███████║██████╔╝██║██║  ██║    ██╔╝    ██║     ███████║██████╔╝███████╗
+██╔══██╗██╔══██║██╔═══╝ ██║██║  ██║   ██╔╝     ██║     ██╔══██║██╔══██╗╚════██║
+██║  ██║██║  ██║██║     ██║██████╔╝   ██║      ███████╗██║  ██║██████╔╝███████║
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝      ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝
+
+Indicators of compromise:
+=========================
+
+SantaStealer DLL builds with exported symbols
+---------------------------------------------
+
+MD5: 4374411ebdf9df68802b9ddcfaf86ded 
+SHA-1: 796e9d17d9a45d77d437afea8e7d09ae9db07f5d
+SHA-256: 1a277cba1676478bf3d47bec97edaa14f83f50bdd11e2a15d9e0936ed243fd64
+
+MD5: 7f11cd5af035e97697b369c731689117 
+SHA-1: f0149c266b15aa8e1df020160148b5491b36e3b1
+SHA-256: abbb76a7000de1df7f95eef806356030b6a8576526e0e938e36f71b238580704
+
+MD5: 62163d37b49c9c721b774428ee5ea6bf 
+SHA-1: fa469b615d11c08a598e08199a53dfc5b9dfabb3
+SHA-256: 5db376a328476e670aeefb93af8969206ca6ba8cf0877fd99319fa5d5db175ca
+
+MD5: 4eb502c8afb0771cf7bc4d4a9e5ef702 
+SHA-1: b4985a69cbdf4cadfc2f8f40fcd1d9a3435290ca
+SHA-256: a8daf444c78f17b4a8e42896d6cb085e4faad12d1c1ae7d0e79757e6772bddb9
+
+MD5: 54d65a4e27cc611e994abc155d57d4bc 
+SHA-1: 56f8956a511a5e45d6134b394591ea5067603c7c
+SHA-256: 5c51de7c7a1ec4126344c66c70b71434f6c6710ce1e6d160a668154d461275ac
+
+MD5: 0104e356bddd80ae8b021da6d7bff82c 
+SHA-1: c1c09f477c35781a176fd766f05e037de26111d0
+SHA-256: 48540f12275f1ed277e768058907eb70cc88e3f98d055d9d73bf30aa15310ef3
+
+MD5: 51b0a2d06cf7e93d9f3f192e757a3c6b 
+SHA-1: 5d7e6c0f0c6ef41cf7a6819ee6e97c937f44128a
+SHA-256: 99fd0c8746d5cce65650328219783c6c6e68e212bf1af6ea5975f4a99d885e59
+
+MD5: 28b2ac737e5b463c353820ecebfd03ce 
+SHA-1: 6a5bbc1b0f3d9cdfaf514e50bd29919784d9732f
+SHA-256: ad8777161d4794281c2cc652ecb805d3e6a9887798877c6aa4babfd0ecb631d2
+
+MD5: cdab6959ed830837761218cdb90d649f 
+SHA-1: 0911187597633ea22afdbce56ed8a833760f1c7e
+SHA-256: 73e02706ba90357aeeb4fdcbdb3f1c616801ca1affed0a059728119bd11121a4
+
+MD5: 55f871d7d390790cf68abd107a62da43 
+SHA-1: 40dbb63438c2796fd99dd8952a50de6af769c234
+SHA-256: e04936b97ed30e4045d67917b331eb56a4b2111534648adcabc4475f98456727
+
+MD5: e7cc6a87b8d834e10e05f4ac6a128f65 
+SHA-1: 0972a6df5cd628f6cf49eb9526c311f9a40c0c63
+SHA-256: 66fef499efea41ac31ea93265c04f3b87041a6ae3cd14cd502b02da8cc77cca8
+
+MD5: 7c1a57eb53e07f629b02633a6816df95 
+SHA-1: 710485e5ef5d31ab2edc46bbeb94a913523c7b1a
+SHA-256: 4edc178549442dae3ad95f1379b7433945e5499859fdbfd571820d7e5cf5033c
+
+SantaStealer EXE builds
+-----------------------
+
+MD5: 32588728ebc0e50d8292bbec8b7c12f9 
+SHA-1: 36cd9e19442ac95897a0e17f6a79fabd4686b955
+SHA-256: 926a6a4ba8402c3dd9c33ceff50ac957910775b2969505d36ee1a6db7a9e0c87
+
+MD5: de8b486705f96dd266bfc906ec22d930 
+SHA-1: c12ca0d4e6abc5bf4a4e935c00f1567d812bb955
+SHA-256: 9b017fb1446cdc76f040406803e639b97658b987601970125826960e94e9a1a6
+
+MD5: 80e1be5e0c9a51c2816f69fa6fda7ebe 
+SHA-1: b779df0f8313f6ba1e01dd3724a60c31edd75704
+SHA-256: f81f710f5968fea399551a1fb7a13fad48b005f3c9ba2ea419d14b597401838c
+
+SantaStealer C2s
+----------------
+
+31[.]57[.]38[.]244:6767 (AS 399486)
+80[.]76[.]49[.]114:6767 (AS 399486)
