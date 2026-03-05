@@ -1,0 +1,73 @@
+# ============================================================================
+# BPFDoor Detection Rules
+# Description: Network signatures for BPFDoor ICMP tunneling, lateral movement, 
+# and Magic Packet wake-up sequences across multiple variants.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Section 1: ICMP Tunneling & C2 Handshakes
+# ----------------------------------------------------------------------------
+
+# 1. Hunting the Irregular ICMP Heartbeat (Type 8, Code 1)
+alert icmp $HOME_NET any -> $EXTERNAL_NET any (msg:"MALWARE BPFdoor ICMP Heartbeat Anomaly"; itype:8; icode:1; content:"!\"#$%&'()*+,-./01234567"; depth:32; classtype:trojan-activity; sid:1000001; rev:1;)
+
+# 2. Hunting the ICMP Encrypted Shell Channel ("X:" Signature)
+alert icmp any any -> any any (msg:"MALWARE BPFdoor ICMP C2 Tunnel Signature"; itype:8; content:"X:"; depth:2; classtype:trojan-activity; sid:1000002; rev:1;)
+
+# 3. Catch the Lateral Movement Relay (The 1234 Sequence)
+alert icmp $HOME_NET any -> $HOME_NET any (msg:"MALWARE BPFdoor ICMP Lateral Movement (Hardcoded Seq 1234)"; itype:8; icmp_seq:1234; dsize:28; classtype:trojan-activity; sid:1000003; rev:1;)
+
+# 4. Catch the ICMP Shell Handshake (3458/8543 Initiation & Response)
+alert icmp $EXTERNAL_NET any -> $HOME_NET any (msg:"MALWARE BPFdoor ICMP Shell Handshake Initiation"; itype:8; content:"3458"; depth:4; classtype:trojan-activity; sid:1000004; rev:1;)
+alert icmp $HOME_NET any -> $EXTERNAL_NET any (msg:"MALWARE BPFdoor ICMP Shell Handshake Response"; itype:0; content:"8543"; depth:4; classtype:trojan-activity; sid:1000005; rev:1;)
+
+# ============================================================================
+# HOST-LEVEL HUNTING NOTE:
+# Defenders should utilize tools like auditd or eBPF tracing to monitor for 
+# processes named /usr/libexec/postfix/master making anomalous raw socket 
+# (AF_PACKET) calls or executing /bin/sh.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Section 2: Consolidated Magic Bytes (Variants A, B, C, D & R7 Variant F)
+# ----------------------------------------------------------------------------
+
+# UDP 0x7255 (Shared by TM Variants A, B, C, D & R7 Variant F)
+alert udp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (UDP 0x7255) - Multi-Variant"; content:"|72 55|"; depth:2; offset:0; metadata:service udp; classtype:malware-activity; sid:1000101; rev:1;)
+
+# TCP 0x5293 (Shared by TM Variants A, B, C, D)
+alert tcp any any -> any any (msg:"MALWARE BPFDoor Legacy Magic Packet (TCP 0x5293)"; content:"|52 93|"; depth:2; offset:0; metadata:service tcp; classtype:malware-activity; sid:1000102; rev:1;)
+
+# ICMP 0x7255 (Echo Request - Variants A, B, D & R7 Variant F)
+alert icmp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (ICMP 0x7255 Echo Req) - Multi-Variant"; itype:8; content:"|72 55|"; depth:2; offset:0; metadata:service icmp; classtype:malware-activity; sid:1000103; rev:1;)
+
+# ICMP 0x7255 (IP-Agnostic / Any Type - TM Variant C Evasion)
+alert icmp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (ICMP 0x7255 Any Type) - TM Variant C Evasion"; content:"|72 55|"; depth:2; offset:0; metadata:service icmp; classtype:malware-activity; sid:1000104; rev:1;)
+
+# TCP Offset Evasion 0x39393939 (Shared by TM Variants B, C, D)
+alert tcp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (TCP Offset Evasion) - Variants B/C/D"; content:"|39 39 39 39|"; offset:26; depth:30; metadata:service tcp; classtype:malware-activity; sid:1000105; rev:1;)
+
+# ----------------------------------------------------------------------------
+# Section 3: R7 Variant F (Additional Magic Bytes)
+# ----------------------------------------------------------------------------
+
+# Filter Set 1
+alert udp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (UDP 0x3182) - R7 Variant F"; content:"|31 82|"; depth:2; offset:0; metadata:service udp; classtype:malware-activity; sid:1000106; rev:1;)
+alert icmp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (ICMP 0x1051 Echo Req) - R7 Variant F"; itype:8; content:"|10 51|"; depth:2; offset:0; metadata:service icmp; classtype:malware-activity; sid:1000107; rev:1;)
+alert tcp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (TCP 0x3321) - R7 Variant F"; content:"|33 21|"; depth:2; offset:0; metadata:service tcp; classtype:malware-activity; sid:1000108; rev:1;)
+
+# Filter Set 2
+alert udp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (UDP 0x2048) - R7 Variant F"; content:"|20 48|"; depth:2; offset:0; metadata:service udp; classtype:malware-activity; sid:1000109; rev:1;)
+alert icmp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (ICMP 0x1155 Echo Req) - R7 Variant F"; itype:8; content:"|11 55|"; depth:2; offset:0; metadata:service icmp; classtype:malware-activity; sid:1000110; rev:1;)
+alert tcp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (TCP 0x5433) - R7 Variant F"; content:"|54 33|"; depth:2; offset:0; metadata:service tcp; classtype:malware-activity; sid:1000111; rev:1;)
+
+# Filter Set 3 (TCP 0xDEAD only, UDP/ICMP covered in Section 2)
+alert tcp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (TCP 0xDEAD) - R7 Variant F"; content:"|DE AD|"; depth:2; offset:0; metadata:service tcp; classtype:malware-activity; sid:1000112; rev:1;)
+
+# ----------------------------------------------------------------------------
+# Section 4: TM Variant E (High Fidelity 8-Byte Magic Packet)
+# ----------------------------------------------------------------------------
+
+alert udp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (UDP Inbound) - TM Variant E"; content:"|44 30 CD 9F 5E 14 27 66|"; depth:8; offset:0; metadata:service udp; classtype:malware-activity; sid:1000113; rev:1;)
+alert tcp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (TCP Inbound) - TM Variant E"; content:"|44 30 CD 9F 5E 14 27 66|"; depth:8; offset:0; metadata:service tcp; classtype:malware-activity; sid:1000114; rev:1;)
+alert icmp any any -> any any (msg:"MALWARE BPFDoor Magic Packet (ICMP Inbound) - TM Variant E"; content:"|44 30 CD 9F 5E 14 27 66|"; depth:8; offset:0; metadata:service icmp; classtype:malware-activity; sid:1000115; rev:1;)
