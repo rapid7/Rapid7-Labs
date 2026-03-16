@@ -35,13 +35,9 @@ ntpussl.instanthq.com
 ntpupdate.ddnsgeek.com
 
 
-Related IPs - C2:
+Related IPs - traffic to C2 suspects:
 
-151.101.130.49
-151.101.194.49
-151.101.2.49
-151.101.66.49
-169.254.169.254
+
 185.125.188.54
 185.125.188.55
 185.125.188.57
