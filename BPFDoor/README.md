@@ -6,7 +6,7 @@ BPFDoor is a sophisticated Linux malware that utilizes BPF (Berkeley Packet Filt
 
 ## 🎥 Video Demo
 
-[detect_bpfdoor.mp4](https://raw.githubusercontent.com/rapid7/Rapid7-Labs/refs/heads/main/BPFDoor/detect_bpfdoor.mp4)
+https://youtu.be/rqUdLVBETaM
 
 ---
 
