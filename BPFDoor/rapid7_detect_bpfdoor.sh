@@ -80,7 +80,8 @@ SUSPICIOUS_PROCS=(
 # The ACTUAL physical paths of legitimate daemons. If a process masquerades as one of 
 # the above but isn't running from one of these files, it gets flagged.
 WHITELIST_EXES=(
-  "/sbin/agetty" "/sbin/auditd" "/sbin/mingetty" "/sbin/udevd"
+  "/usr/sbin/agetty" "/usr/sbin/auditd" "/usr/sbin/mingetty" "/usr/sbin/udevd"
+  "/usr/lib/systemd/systemd-journald" "/usr/lib/systemd/systemd-machined" "/sbin/agetty" "/sbin/auditd" "/sbin/mingetty" "/sbin/udevd"
   "/usr/bin/python" "/usr/bin/python2" "/usr/bin/python3"
   "/usr/sbin/tuned" "/usr/lib/polkit-1/polkitd" "/usr/libexec/postfix/pickup"
   "/usr/libexec/postfix/master" "/usr/sbin/NetworkManager"
@@ -96,7 +97,7 @@ SUSPICIOUS_STRINGS=(
   "HISTFILE=/dev/null" "MYSQL_HISTFILE=/dev/null" "ttcompat" ":h:d:l:s:b:t:"
   ":f:wiunomc" ":f:x:wiuoc" "LibTomCrypt 1.17"
   "Private key does not match the public certificate"
-  "I5*AYbs@LdaWbsO" "3458" "8543" "1234"
+  "I5*AYbs@LdaWbsO"
 )
 
 KNOWN_C2_HOSTS=(
@@ -394,7 +395,10 @@ check_raw_and_packet_sockets() {
     
     # Skip if it's this detection script
     [ "$exe_path" == "$SELF_EXE" ] && continue
-
+ #exclude legitimate networking tools
+    if [[ "$exe_path" == *"/NetworkManager"* ]] || [[ "$exe_path" == *"/dhclient"* ]] || [[ "$exe_path" == *"/systemd-networkd"* ]]; then
+      continue
+    fi
     local cmd_line=$(ps -p "$pid" -o args= 2>/dev/null | head -n1)
     
     # If we got here, we found something
@@ -521,8 +525,14 @@ check_process_masquerade() {
     if [ "$is_suspect" -eq 1 ]; then
       local exe="$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "")"
       
-      # Skip if no executable path can be resolved (e.g. kernel threads)
-      [ -z "$exe" ] && continue
+      # FIX: Skip real kernel threads. If the symlink doesn't exist, readlink 
+      # returns the literal string "/proc/$pid/exe".
+      if [[ -z "$exe" ]] || [[ "$exe" == "/proc/$pid/exe" ]]; then
+        # Double-check: Real kernel threads have a completely empty cmdline file
+        if [ ! -s "/proc/$pid/cmdline" ]; then
+          continue 
+        fi
+      fi
 
       local is_whitelisted=0
       for wl in "${WHITELIST_EXES[@]}"; do
@@ -599,13 +609,13 @@ check_kernel_stack() {
   [ "$found" -eq 0 ] && log "SUCCESS" "[9/12] No processes blocking on suspicious packet socket kernel functions"
 }
 
-# ---- Check 10: Deep scan suspicious files (hash, strings, UPX packer) -----
+# ---- Check 12: Deep scan suspicious files (hash, strings, UPX packer) -----
 deep_scan_suspicious_files() {
-  log "INFO" "[10/12] Deep scanning candidate binaries (hash, strings, UPX packing)"
+  log "INFO" "[12/12] Deep scanning candidate binaries (hash, strings, UPX packing)"
   local uniq_files=($(printf "%s\n" "${SUSPICIOUS_FILES_TMP[@]}" | sort -u))
 
   if [ "${#uniq_files[@]}" -eq 0 ]; then
-    log "INFO" "[10/12] No candidate binaries collected for deep scan"
+    log "INFO" "[12/12] No candidate binaries collected for deep scan"
     return
   fi
 
@@ -631,45 +641,97 @@ deep_scan_suspicious_files() {
   done
 }
 
-# ---- Check 11: C2 Connections (DNS Resolving & SS Tracking) ---------------
+# ---- Helper: Check if IP is a globally routable address -------------------
+is_global_ip() {
+  local ip="$1"
+
+  # 1. IPv6 FAST-PATH (Regex Bypass for performance and Bash compatibility)
+  if [[ "$ip" == *":"* ]]; then
+    # Filter common IPv6 sinkholes/local: ::1, ::, fc00::/7, fe80::/10
+    if [[ "$ip" == "::1" ]] || [[ "$ip" == "::" ]] || \
+       [[ "$ip" =~ ^[fF][cCdD] ]] || [[ "$ip" =~ ^[fF][eE][89aAbB] ]]; then
+      return 1
+    fi
+    return 0
+  fi
+
+  # 2. IPv4 CIDR MATH PATH
+  [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]] || return 1
+
+  local IFS='.' nums
+  read -r -a nums <<< "$ip"
+  for o in "${nums[@]}"; do (( o > 255 )) && return 1; done
+  local ipnum=$(( (nums[0] << 24) | (nums[1] << 16) | (nums[2] << 8) | nums[3] ))
+
+  in_cidr() {
+    local IFS='/' parts
+    read -r -a parts <<< "$1"
+    local IFS='.' net
+    read -r -a net <<< "${parts[0]}"
+    local netnum=$(( (net[0] << 24) | (net[1] << 16) | (net[2] << 8) | net[3] ))
+    local mask=$(( 0xFFFFFFFF << (32 - parts[1]) & 0xFFFFFFFF ))
+    (( (ipnum & mask) == (netnum & mask) ))
+  }
+
+  # Non-global ranges per IANA
+  local non_global=(
+    0.0.0.0/8 10.0.0.0/8 100.64.0.0/10 127.0.0.0/8 169.254.0.0/16
+    172.16.0.0/12 192.0.0.0/24 192.0.2.0/24 192.168.0.0/16
+    198.18.0.0/15 198.51.100.0/24 203.0.113.0/24 224.0.0.0/4 240.0.0.0/4
+  )
+
+  for cidr in "${non_global[@]}"; do
+    in_cidr "$cidr" && return 1
+  done
+
+  return 0
+}
+
+# ---- Check 10: C2 Connections (DNS Resolving & SS Tracking) ---------------
 check_c2_connections() {
-  log "INFO" "[11/12] Checking for active connections to known BPFDoor C2 domains"
+  log "INFO" "[10/12] Checking for active connections to known BPFDoor C2 domains"
   local found=0
   
   if ! cmd_exists dig || ! cmd_exists ss; then
-    log "WARN" "[11/12] 'dig' or 'ss' missing; skipping C2 connection checks."
+    log "WARN" "[10/12] 'dig' or 'ss' missing; skipping C2 connection checks."
     return
   fi
 
   for host in "${KNOWN_C2_HOSTS[@]}"; do
-    local ips="$(dig +short "$host" A "$host" AAAA 2>/dev/null || true)"
+    local ips
+    ips="$(dig +short "$host" A "$host" AAAA 2>/dev/null || true)"
     
     for ip in $ips; do
-      if [[ "$ip" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || [[ "$ip" =~ ^[0-9a-fA-F:]+$ && "$ip" =~ .*[:].* ]]; then
-        local ss_output="$(ss -tnp state established dst "$ip" 2>/dev/null || true)"
+      if ! is_global_ip "$ip"; then
+        log "INFO" "Skipping non-global IP for $host: $ip (likely sinkhole/private)"
+        continue
+      fi
+
+      local ss_output
+      ss_output="$(ss -tnp state established dst "$ip" 2>/dev/null || true)"
+      
+      if [ -n "$ss_output" ]; then
+        log "CRITICAL" "Active connection to known BPFDoor C2: $host ($ip)"
+        echo "$ss_output" | tee -a "$LOGFILE"
         
-        if [ -n "$ss_output" ]; then
-          log "CRITICAL" "Active Reverse Shell to BPFDoor C2: $host ($ip)"
-          echo "$ss_output" | tee -a "$LOGFILE"
-          
-          local c2_pids="$(echo "$ss_output" | grep -oP 'pid=\K[0-9]+' | sort -u)"
-          for c2pid in $c2_pids; do
-            is_self "$c2pid" && continue
-            [ -d "/proc/$c2pid" ] || continue
-            local exe="$(readlink -f "/proc/$c2pid/exe" 2>/dev/null || echo "")"
-            [ -n "$exe" ] && mark_suspicious_file "$exe"
-          done
-          found=1
-        fi
+        local c2_pids
+        c2_pids="$(echo "$ss_output" | grep -oP 'pid=\K[0-9]+' | sort -u)"
+        for c2pid in $c2_pids; do
+          is_self "$c2pid" && continue
+          [ -d "/proc/$c2pid" ] || continue
+          local exe
+          exe="$(readlink -f "/proc/$c2pid/exe" 2>/dev/null || echo "")"
+          [ -n "$exe" ] && mark_suspicious_file "$exe"
+        done
+        found=1
       fi
     done
   done
-  [ "$found" -eq 0 ] && log "SUCCESS" "[11/12] No active connections to known C2 domains found"
+  [ "$found" -eq 0 ] && log "SUCCESS" "[10/12] No active connections to known C2 domains found"
 }
-
-# ---- Check 12: Process-Specific Signatures --------------------------------
+# ---- Check 11: Process-Specific Signatures --------------------------------
 check_process_signatures() {
-  log "INFO" "[12/12] Checking specific processes for hardcoded BPFDoor file signatures"
+  log "INFO" "[11/12] Checking specific processes for hardcoded BPFDoor file signatures"
   local found=0
 
   local sig_checks=(
@@ -689,6 +751,7 @@ check_process_signatures() {
     for pid in $pids; do
       is_self "$pid" && continue
       [ -d "/proc/$pid" ] || continue
+      local exe_path=$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "unknown")
       local path="$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "")"
       [ -z "$path" ] && continue
 
@@ -707,32 +770,44 @@ check_process_signatures() {
     done
   done
 
-  [ "$found" -eq 0 ] && log "SUCCESS" "[12/12] No hardcoded process signatures detected"
+  [ "$found" -eq 0 ] && log "SUCCESS" "[11/12] No hardcoded process signatures detected"
 }
-
 # ---- Optional: Basic persistence checks -----------------------------------
 check_persistence() {
   log "INFO" "[-] Basic persistence triage (cron, systemd, rc scripts)"
 
+  # 1. Define the regex ONCE (Safely removed the generic 'bpf' trap)
+  local persist_regex="bpfdoor|dbus-srv|hpasmmld|smartadm|hald-addon-volume"
+
+  # 2. Check Cron
   for file in /etc/crontab /var/spool/cron/* /var/spool/cron/crontabs/*; do
     [ -f "$file" ] || continue
-    if grep -E "bpf|dbus-srv|hpasmmld|smartadm|hald-addon-volume" "$file" 2>/dev/null | grep -q .; then
-      log "ALERT" "Suspicious entry in cron file: $file"
-      grep -E "bpf|dbus-srv|hpasmmld|smartadm|hald-addon-volume" "$file" 2>/dev/null | tee -a "$LOGFILE"
+    if grep -E "$persist_regex" "$file" 2>/dev/null | grep -q .; then
+      log "CRITICAL" "Suspicious persistence entry in cron: $file"
+      grep -HnE "$persist_regex" "$file" >> "$LOGFILE"
     fi
   done
 
+  # 3. Check Systemd
   for dir in /etc/systemd/system /usr/lib/systemd/system /run/systemd/system; do
     [ -d "$dir" ] || continue
-    if grep -rE "bpf|dbus-srv|hpasmmld|smartadm|hald-addon-volume" "$dir" 2>/dev/null | grep -q .; then
-      log "ALERT" "Suspicious pattern in systemd units under $dir"
+    # Grab the exact files that match, instead of blindly alerting on the directory
+    local matches="$(grep -rlE "$persist_regex" "$dir" 2>/dev/null || true)"
+    if [ -n "$matches" ]; then
+      for m in $matches; do
+        log "CRITICAL" "Suspicious persistence pattern found in systemd unit: $m"
+        # Log the exact line of code that triggered it to the report
+        grep -HnE "$persist_regex" "$m" >> "$LOGFILE"
+      done
     fi
   done
 
-  for rc in /etc/rc.local /etc/init.d; do
-    [ -e "$rc" ] || continue
-    if grep -rE "bpf|dbus-srv|hpasmmld|smartadm|hald-addon-volume" "$rc" 2>/dev/null | grep -q .; then
-      log "ALERT" "Suspicious pattern in rc script(s) under $rc"
+  # 4. Check RC / Init scripts
+  for rc in /etc/rc.local /etc/init.d/*; do
+    [ -f "$rc" ] || continue
+    if grep -E "$persist_regex" "$rc" 2>/dev/null | grep -q .; then
+      log "CRITICAL" "Suspicious persistence pattern in rc script: $rc"
+      grep -HnE "$persist_regex" "$rc" >> "$LOGFILE"
     fi
   done
 }
@@ -760,7 +835,7 @@ main() {
 
   echo
   echo -e "${CYAN}[*] Scan complete. Report written to: ${LOGFILE}${NC}"
-  echo -e "${YELLOW}[!] Any CRITICAL or ALERT entries should be investigated promptly.${NC}"
+  echo -e "${YELLOW}[!] Any CRITICAL or ALERT entries should be investigated, considering there could be an acceptable rate of false positives depending on the execution environment.${NC}"
 }
 
 main "$@"
