@@ -25,7 +25,7 @@
 
 set -o pipefail
 
-VERSION="1.1"
+VERSION="1.2"
 HOSTNAME="$(hostname)"
 DATE="$(date +%Y-%m-%d_%H-%M-%S)"
 LOGFILE="bpfdoor_report_${HOSTNAME}_${DATE}.log"
