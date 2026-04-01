@@ -708,7 +708,7 @@ check_c2_connections() {
       fi
 
       local ss_output
-      ss_output="$(ss -tnp state established dst "$ip" 2>/dev/null || true)"
+      ss_output="$(ss -H -tnp state established dst "$ip" 2>/dev/null || true)"
       
       if [ -n "$ss_output" ]; then
         log "CRITICAL" "Active connection to known BPFDoor C2: $host ($ip)"
