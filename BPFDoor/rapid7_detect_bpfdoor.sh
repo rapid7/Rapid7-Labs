@@ -521,14 +521,16 @@ check_process_masquerade() {
       fi
     done
 
-    # 2. Unmask and Verify the suspect against the Whitelist
+   # 2. Unmask and Verify the suspect against the Whitelist
     if [ "$is_suspect" -eq 1 ]; then
-      local exe="$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "")"
+      # Read the exact execution path from the kernel
+      local raw_exe="$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "")"
       
-      # FIX: Skip real kernel threads. If the symlink doesn't exist, readlink 
-      # returns the literal string "/proc/$pid/exe".
-      if [[ -z "$exe" ]] || [[ "$exe" == "/proc/$pid/exe" ]]; then
-        # Double-check: Real kernel threads have a completely empty cmdline file
+      # FIX 1: Strip the " (deleted)" suffix caused by legitimate package updates
+      local exe="${raw_exe%" (deleted)"}"
+      
+      # Skip real kernel threads
+      if [[ -z "$exe" ]] || [[ "$raw_exe" == "/proc/$pid/exe" ]]; then
         if [ ! -s "/proc/$pid/cmdline" ]; then
           continue 
         fi
@@ -536,7 +538,10 @@ check_process_masquerade() {
 
       local is_whitelisted=0
       for wl in "${WHITELIST_EXES[@]}"; do
-        if [ "$exe" = "$wl" ]; then
+        # FIX 2: Canonicalize the whitelist path to account for merged-/usr symlinks
+        local canonical_wl="$(readlink -m "$wl" 2>/dev/null || echo "$wl")"
+        
+        if [ "$exe" = "$canonical_wl" ]; then
           is_whitelisted=1
           break
         fi
@@ -544,7 +549,7 @@ check_process_masquerade() {
 
       # 3. Trap: It's a suspect name, but not running from a whitelisted binary file
       if [ "$is_whitelisted" -eq 0 ]; then
-        log "CRITICAL" "[7/12] Process Masquerading Detected! PID=$pid claims to be '$args' but is actually executing '$exe'"
+        log "CRITICAL" "[7/12] Process Masquerading Detected! PID=$pid claims to be '$args' but is actually executing '$raw_exe'"
         mark_suspicious_file "$exe"
         found=1
       fi
