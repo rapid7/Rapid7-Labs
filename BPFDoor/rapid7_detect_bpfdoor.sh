@@ -25,7 +25,7 @@
 
 set -o pipefail
 
-VERSION="1.1"
+VERSION="1.2"
 HOSTNAME="$(hostname)"
 DATE="$(date +%Y-%m-%d_%H-%M-%S)"
 LOGFILE="bpfdoor_report_${HOSTNAME}_${DATE}.log"
@@ -704,7 +704,7 @@ check_c2_connections() {
 
   for host in "${KNOWN_C2_HOSTS[@]}"; do
     local ips
-    ips="$(dig +short "$host" A "$host" AAAA 2>/dev/null || true)"
+    ips="$(dig +short "$host" A "$host" AAAA 2>/dev/null | grep -E '^[0-9a-fA-F:.]+$' | grep -E '\.|\:'|| true)"
     
     for ip in $ips; do
       if ! is_global_ip "$ip"; then
