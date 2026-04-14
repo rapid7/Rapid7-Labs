@@ -819,8 +819,8 @@ check_persistence() {
 
 # ---- Main ------------------------------------------------------------------
 main() {
-  : > "$LOGFILE"
   require_root
+  : > "$LOGFILE"
   banner
 
   echo -e "\n${CYAN}[*] Running Ultimate BPFDoor triage…${NC}"
