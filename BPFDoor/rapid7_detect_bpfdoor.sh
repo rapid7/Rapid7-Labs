@@ -252,6 +252,16 @@ check_maps_hex() {
   done
 }
 
+# ------ Helper: Check if it is Rapid 7 agent ----------------------------
+is_rapid7_ir_agent() {
+  local pid="$1"
+  local pidprog="$2"
+
+  [[ "$pidprog" == *"ir_agent"* ]] && return 0
+
+  return 1
+}
+
 # ---- Check 1: Mutex / lock files ------------------------------------------
 check_mutex_files() {
   log "INFO" "[1/12] Checking /var/run for suspicious zero-byte mutex/lock files"
@@ -468,6 +478,13 @@ check_suspicious_ports() {
     [[ "$line" =~ ^tcp ]] || continue
     local laddr raddr state pidprog
     read -r _ _ laddr raddr state pidprog <<<"$line"
+
+    local pid="${pidprog%%/*}"
+    [[ "$pid" =~ ^[0-9]+$ ]] || pid=""
+    if is_rapid7_ir_agent "$pid" "$pidprog"; then
+      continue
+    fi
+
     local lport="${laddr##*:}"
     local rport="${raddr##*:}"
 
