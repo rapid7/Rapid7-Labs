@@ -183,13 +183,12 @@ EOF
 
 run_dependency_diagnostics() {
   require_root
-  LOGFILE="$DEPENDENCY_LOGFILE"
-  : > "$LOGFILE"
+  : > "$DEPENDENCY_LOGFILE"
   banner
   log "INFO" "[*] Running standalone dependency diagnostics only"
   check_dependencies
   echo
-  echo -e "${CYAN}[*] Dependency diagnostics complete. Report written to: ${LOGFILE}${NC}"
+  echo -e "${CYAN}[*] Dependency diagnostics complete. Report written to: ${DEPENDENCY_LOGFILE}${NC}"
 }
 
 mark_suspicious_file() {
