@@ -182,6 +182,7 @@ EOF
 }
 
 run_dependency_diagnostics() {
+  require_root
   LOGFILE="$DEPENDENCY_LOGFILE"
   : > "$LOGFILE"
   banner
