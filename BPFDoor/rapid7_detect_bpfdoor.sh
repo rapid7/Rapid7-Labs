@@ -18,7 +18,7 @@
 #   - Suspicious strings & UPX packing in candidate binaries
 #   - Basic persistence checks (cron, systemd, rc scripts)
 #
-# Requires: bash, grep, awk, ps, readlink, stat, ss OR netstat, lsof (optional), strings, find, hexdump, dd, dig (optional)
+# Requires: bash, grep, awk, ps, readlink, stat, strings, find, hexdump, dd, sed, sort, cut, tr, head, ls, pgrep, hostname, date, tee, printf, cat, ss OR netstat, sha256sum (optional), md5sum (optional), dig (optional)
 #
 # This script is best-effort and may produce false positives. Use results as
 # triage input, not as a sole source of truth.
@@ -29,6 +29,7 @@ VERSION="1.2"
 HOSTNAME="$(hostname)"
 DATE="$(date +%Y-%m-%d_%H-%M-%S)"
 LOGFILE="bpfdoor_report_${HOSTNAME}_${DATE}.log"
+DEPENDENCY_LOGFILE="bpfdoor_report_${HOSTNAME}_${DATE}_dependency_diag.log"
 
 # Global script PIDs to exclude from our own checks
 SCRIPT_PID=$$
@@ -167,6 +168,29 @@ cmd_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
+show_usage() {
+  cat <<EOF
+Usage: $0 [--dependency-diagnostics|--dep-diag|--help]
+
+  --dependency-diagnostics, --dep-diag
+      Run dependency diagnostics only and write to:
+      ${DEPENDENCY_LOGFILE}
+
+  --help
+      Show this help text.
+EOF
+}
+
+run_dependency_diagnostics() {
+  LOGFILE="$DEPENDENCY_LOGFILE"
+  : > "$LOGFILE"
+  banner
+  log "INFO" "[*] Running standalone dependency diagnostics only"
+  check_dependencies
+  echo
+  echo -e "${CYAN}[*] Dependency diagnostics complete. Report written to: ${LOGFILE}${NC}"
+}
+
 mark_suspicious_file() {
   local file="$1"
   SUSPICIOUS_FILES_TMP+=("$file")
@@ -179,6 +203,142 @@ is_self() {
     return 0
   fi
   return 1
+}
+
+
+# ---- Helper: Dependency / stage support summary ---------------------------
+check_dependencies() {
+  log "INFO" "[*] Dependency check"
+
+  local core_tools=(
+    bash grep awk ps readlink stat strings find hexdump dd sed sort cut tr head
+    ls pgrep hostname date tee printf cat
+  )
+  local optional_tools=(dig sha256sum md5sum)
+  local core_missing=0
+  local have_ss=0
+  local have_netstat=0
+  local have_dig=0
+  local have_hexdump=0
+
+  log "INFO" "Core tools:"
+  for tool in "${core_tools[@]}"; do
+    if cmd_exists "$tool"; then
+      log "SUCCESS" "Dependency OK: $tool"
+    else
+      log "WARN" "Dependency missing: $tool"
+      core_missing=1
+      [ "$tool" = "hexdump" ] && have_hexdump=0
+    fi
+  done
+
+  log "INFO" "Network tools (one required):"
+  if cmd_exists ss; then
+    log "SUCCESS" "Dependency OK: ss"
+    have_ss=1
+  else
+    log "WARN" "Dependency missing: ss"
+  fi
+
+  if cmd_exists netstat; then
+    log "SUCCESS" "Dependency OK: netstat"
+    have_netstat=1
+  else
+    log "WARN" "Dependency missing: netstat"
+  fi
+
+  log "INFO" "Optional feature tools:"
+  for tool in "${optional_tools[@]}"; do
+    if cmd_exists "$tool"; then
+      log "SUCCESS" "Optional dependency OK: $tool"
+      [ "$tool" = "dig" ] && have_dig=1
+    else
+      log "WARN" "Optional dependency missing: $tool"
+    fi
+  done
+
+  cmd_exists hexdump && have_hexdump=1
+
+  log "INFO" "Stage support summary:"
+
+  local overall="FULL"
+
+  print_stage_status() {
+    local stage="$1"
+    local short_name="$2"
+    local status="$3"
+    local note="$4"
+
+    case "$status" in
+      "FULL") log "SUCCESS" "Stage $(printf '%02d' "$stage") ${short_name}: $note" ;;
+      "PART") log "WARN" "Stage $(printf '%02d' "$stage") ${short_name}: partial support - $note" ;;
+      "SKIP") log "WARN" "Stage $(printf '%02d' "$stage") ${short_name}: skipped - $note" ;;
+    esac
+
+    if [ "$status" = "SKIP" ]; then
+      overall="PARTIAL"
+    elif [ "$status" = "PART" ] && [ "$overall" = "FULL" ]; then
+      overall="PARTIAL"
+    fi
+  }
+
+  print_stage_status 1  "Mutex Files"         "FULL" "ready"
+  print_stage_status 2  "Sysconfig Hooks"     "FULL" "ready"
+
+  if [ "$have_ss" -eq 1 ] && [ "$have_hexdump" -eq 1 ]; then
+    print_stage_status 3 "BPF Filters"        "FULL" "ready"
+  elif [ "$have_ss" -eq 1 ]; then
+    print_stage_status 3 "BPF Filters"        "PART" "BPF filter inspection available; mapped-file hex enrichment disabled (missing hexdump)"
+  else
+    print_stage_status 3 "BPF Filters"        "SKIP" "requires ss"
+  fi
+
+  if { [ "$have_ss" -eq 1 ] || [ -r /proc/net/packet ] || [ -r /proc/net/raw ] || [ -r /proc/net/raw6 ]; } && [ "$have_hexdump" -eq 1 ]; then
+    print_stage_status 4 "Raw/Packet Sockets" "FULL" "ready"
+  elif [ "$have_ss" -eq 1 ] || [ -r /proc/net/packet ] || [ -r /proc/net/raw ] || [ -r /proc/net/raw6 ]; then
+    print_stage_status 4 "Raw/Packet Sockets" "PART" "socket ownership checks available; mapped-file hex enrichment disabled (missing hexdump)"
+  else
+    print_stage_status 4 "Raw/Packet Sockets" "SKIP" "requires ss and/or readable /proc/net packet/raw forensics"
+  fi
+
+  print_stage_status 5  "Env Signatures"      "FULL" "ready"
+
+  if [ "$have_ss" -eq 1 ] || [ "$have_netstat" -eq 1 ]; then
+    print_stage_status 6 "Suspicious Ports"   "FULL" "ready"
+  else
+    print_stage_status 6 "Suspicious Ports"   "SKIP" "requires ss or netstat"
+  fi
+
+  print_stage_status 7  "Process Masquerade"  "FULL" "ready"
+  print_stage_status 8  "Deleted Binaries"    "FULL" "ready"
+
+  if [ "$have_hexdump" -eq 1 ]; then
+    print_stage_status 9 "Kernel Stack"       "FULL" "ready"
+  else
+    print_stage_status 9 "Kernel Stack"       "PART" "kernel stack tracing available; mapped-file hex enrichment disabled (missing hexdump)"
+  fi
+
+  if [ "$have_dig" -eq 1 ] && [ "$have_ss" -eq 1 ]; then
+    print_stage_status 10 "C2 Connections"    "FULL" "ready"
+  else
+    print_stage_status 10 "C2 Connections"    "SKIP" "requires dig and ss"
+  fi
+
+  print_stage_status 11 "Process Signatures"  "FULL" "ready"
+
+  if cmd_exists sha256sum || cmd_exists md5sum; then
+    print_stage_status 12 "Deep Scan"         "FULL" "ready"
+  else
+    print_stage_status 12 "Deep Scan"         "PART" "string and UPX checks available; hash IOC matching disabled (missing sha256sum/md5sum)"
+  fi
+
+  print_stage_status 13 "Persistence"         "FULL" "ready"
+
+  if [ "$core_missing" -eq 0 ] && [ "$overall" = "FULL" ]; then
+    log "SUCCESS" "Dependency summary: FULL support. All required tooling for the current script path is available."
+  else
+    log "WARN" "Dependency summary: PARTIAL support. Some stages will degrade or skip based on the missing tools shown above."
+  fi
 }
 
 # ---- Helper: Hash check ---------------------------------------------------
@@ -843,4 +1003,14 @@ main() {
   echo -e "${YELLOW}[!] Any CRITICAL or ALERT entries should be investigated, considering there could be an acceptable rate of false positives depending on the execution environment.${NC}"
 }
 
-main "$@"
+case "${1:-}" in
+  --dependency-diagnostics|--dep-diag)
+    run_dependency_diagnostics
+    ;;
+  --help|-h)
+    show_usage
+    ;;
+  *)
+    main "$@"
+    ;;
+esac
