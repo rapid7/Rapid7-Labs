@@ -427,7 +427,7 @@ check_env_vars() {
     local pid="${pid_dir##*/}"
     is_self "$pid" && continue
     
-    local env="$(tr '\0' '\n' < "$pid_dir/environ" 2>/dev/null || true)"
+    local env="$(tr '\0' '\n' 2>/dev/null < "$pid_dir/environ" || true)"
     [ -z "$env" ] && continue
 
     if echo "$env" | grep -qx "HOME=/tmp" \
