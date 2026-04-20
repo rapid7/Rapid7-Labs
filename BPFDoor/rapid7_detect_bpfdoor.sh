@@ -29,7 +29,7 @@ VERSION="1.2"
 HOSTNAME="$(hostname)"
 DATE="$(date +%Y-%m-%d_%H-%M-%S)"
 LOGFILE="bpfdoor_report_${HOSTNAME}_${DATE}.log"
-DEPENDENCY_LOGFILE="bpfdoor_report_${HOSTNAME}_${DATE}_dependency_diag.log"
+DEPENDENCY_LOGFILE="bpfdoor_report_dependency_diag_${HOSTNAME}_${DATE}.log"
 
 # Global script PIDs to exclude from our own checks
 SCRIPT_PID=$$
