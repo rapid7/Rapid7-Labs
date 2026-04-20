@@ -110,6 +110,68 @@ SUSPICIOUS_PORTS_RANGE_END=43390
 SUSPICIOUS_PORT_SINGLE=8000
 
 SUSPICIOUS_FILES_TMP=()
+EXCLUDE_PROCESS_NAMES=()
+
+SELF_PID=$$
+SELF_EXE="$(readlink -f /proc/$$/exe 2>/dev/null || echo "")"
+
+print_usage() {
+  cat <<'EOF'
+Usage: rapid7_detect_bpfdoor.sh [OPTIONS]
+
+Options:
+  --exclude-process <name|file>   Exclude connections owned by the named process.
+                                  If the argument is a readable file, each line is
+                                  treated as a process name to exclude.
+  -h, --help                      Show this help message and exit.
+EOF
+}
+
+add_excluded_processes() {
+  local value="$1"
+
+  if [ -r "$value" ] && [ -f "$value" ]; then
+    while IFS= read -r name || [ -n "$name" ]; do
+      name="${name%%$'\r'}"
+      name="${name## }"
+      name="${name%% }"
+      [ -z "$name" ] && continue
+      EXCLUDE_PROCESS_NAMES+=("$name")
+    done < "$value"
+    return
+  fi
+
+  EXCLUDE_PROCESS_NAMES+=("$value")
+}
+
+parse_args() {
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --exclude-process)
+        if [ -z "$2" ] || [[ "$2" == --* ]]; then
+          echo "[!] --exclude-process requires a process name or file path" >&2
+          print_usage
+          exit 1
+        fi
+        add_excluded_processes "$2"
+        shift 2
+        ;;
+      --exclude-process=*)
+        add_excluded_processes "${1#*=}"
+        shift
+        ;;
+      -h|--help)
+        print_usage
+        exit 0
+        ;;
+      *)
+        echo "[!] Unknown option: $1" >&2
+        print_usage
+        exit 1
+        ;;
+    esac
+  done
+}
 
 # ---- Logging helpers -------------------------------------------------------
 log() {
@@ -548,14 +610,12 @@ check_raw_and_packet_sockets() {
 
   for pid in $unique_pids; do
     # Self-exclusion
-    [ "$pid" -eq "$SELF_PID" ] 2>/dev/null && continue
+    is_self "$pid" && continue
     [ -d "/proc/$pid" ] || continue
 
     local exe_path=$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "unknown")
-    
-    # Skip if it's this detection script
-    [ "$exe_path" == "$SELF_EXE" ] && continue
- #exclude legitimate networking tools
+
+    # exclude legitimate networking tools
     if [[ "$exe_path" == *"/NetworkManager"* ]] || [[ "$exe_path" == *"/dhclient"* ]] || [[ "$exe_path" == *"/systemd-networkd"* ]]; then
       continue
     fi
@@ -587,7 +647,7 @@ check_env_vars() {
     local pid="${pid_dir##*/}"
     is_self "$pid" && continue
     
-    local env="$(tr '\0' '\n' < "$pid_dir/environ" 2>/dev/null || true)"
+    local env="$(tr '\0' '\n' 2>/dev/null < "$pid_dir/environ" || true)"
     [ -z "$env" ] && continue
 
     if echo "$env" | grep -qx "HOME=/tmp" \
@@ -610,6 +670,26 @@ check_env_vars() {
 }
 
 # ---- Check 6: Ports historically used by BPFDoor --------------------------
+is_excluded_process() {
+  local pid="$1"
+  [ -d "/proc/$pid" ] || return 1
+
+  if [ "${#EXCLUDE_PROCESS_NAMES[@]}" -eq 0 ]; then
+    return 1
+  fi
+
+  local comm="$(ps -p "$pid" -o comm= 2>/dev/null | tr -d ' ' || true)"
+  local exe="$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "")"
+  local base_exe="$(basename "$exe")"
+
+  for name in "${EXCLUDE_PROCESS_NAMES[@]}"; do
+    if [ "$comm" = "$name" ] || [ "$base_exe" = "$name" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
 check_suspicious_ports() {
   log "INFO" "[6/12] Checking TCP ports ${SUSPICIOUS_PORTS_RANGE_START}-${SUSPICIOUS_PORTS_RANGE_END} and ${SUSPICIOUS_PORT_SINGLE}"
   local net_out=""
@@ -634,12 +714,31 @@ check_suspicious_ports() {
     [[ "$lport" =~ ^[0-9]+$ ]] || lport=0
     [[ "$rport" =~ ^[0-9]+$ ]] || rport=0
 
-    if { [ "$lport" -ge "$SUSPICIOUS_PORTS_RANGE_START" ] && [ "$lport" -le "$SUSPICIOUS_PORTS_RANGE_END" ]; } \
-       || { [ "$rport" -ge "$SUSPICIOUS_PORTS_RANGE_START" ] && [ "$rport" -le "$SUSPICIOUS_PORTS_RANGE_END" ]; } \
-       || [ "$lport" -eq "$SUSPICIOUS_PORT_SINGLE" ] \
-       || [ "$rport" -eq "$SUSPICIOUS_PORT_SINGLE" ]; then
-      matches+="$line"$'\n'
+    if ! { [ "$lport" -ge "$SUSPICIOUS_PORTS_RANGE_START" ] && [ "$lport" -le "$SUSPICIOUS_PORTS_RANGE_END" ]; } \
+       && ! { [ "$rport" -ge "$SUSPICIOUS_PORTS_RANGE_START" ] && [ "$rport" -le "$SUSPICIOUS_PORTS_RANGE_END" ]; } \
+       && [ "$lport" -ne "$SUSPICIOUS_PORT_SINGLE" ] \
+       && [ "$rport" -ne "$SUSPICIOUS_PORT_SINGLE" ]; then
+      continue
     fi
+
+    local pid=""
+    if echo "$line" | grep -q 'pid='; then
+      pid="$(echo "$line" | grep -oP 'pid=\K[0-9]+' | head -n1)"
+    else
+      pid="$(echo "$line" | awk '{print $7}' | cut -d/ -f1)"
+    fi
+
+    local proc_name=""
+    if [[ "$pid" =~ ^[0-9]+$ ]]; then
+      proc_name="$(ps -p "$pid" -o comm= 2>/dev/null | tr -d ' ' || true)"
+    fi
+
+    if [[ "$pid" =~ ^[0-9]+$ ]] && is_excluded_process "$pid"; then
+      log "INFO" "[6/12] Skipping excluded process PID $pid${proc_name:+ ($proc_name)} on suspicious port range"
+      continue
+    fi
+
+    matches+="$line"$'\n'
   done <<< "$net_out"
 
   if [ -z "$matches" ]; then
@@ -979,6 +1078,7 @@ check_persistence() {
 
 # ---- Main ------------------------------------------------------------------
 main() {
+  parse_args "$@"
   require_root
   : > "$LOGFILE"
   banner
