@@ -121,7 +121,7 @@ Options:
   --exclude-process <name|file>   Exclude connections owned by the named process.
                                   If the argument is a readable file, each line is
                                   treated as a process name to exclude.
-  --dependency-diagnostics, --dep-diag
+  --dependency-diagnostics
                                   Run dependency diagnostics only and write to:
                                   ${DEPENDENCY_LOGFILE}
   -h, --help                      Show this help message and exit.
@@ -161,7 +161,7 @@ parse_args() {
         add_excluded_processes "${1#*=}"
         shift
         ;;
-      --dependency-diagnostics|--dep-diag)
+      --dependency-diagnostics)
         RUN_DEPENDENCY_DIAGNOSTICS=1
         shift
         ;;
