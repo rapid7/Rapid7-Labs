@@ -450,14 +450,12 @@ check_raw_and_packet_sockets() {
 
   for pid in $unique_pids; do
     # Self-exclusion
-    [ "$pid" -eq "$SELF_PID" ] 2>/dev/null && continue
+    is_self "$pid" && continue
     [ -d "/proc/$pid" ] || continue
 
     local exe_path=$(readlink -f "/proc/$pid/exe" 2>/dev/null || echo "unknown")
-    
-    # Skip if it's this detection script
-    [ "$exe_path" == "$SELF_EXE" ] && continue
- #exclude legitimate networking tools
+
+    # exclude legitimate networking tools
     if [[ "$exe_path" == *"/NetworkManager"* ]] || [[ "$exe_path" == *"/dhclient"* ]] || [[ "$exe_path" == *"/systemd-networkd"* ]]; then
       continue
     fi
