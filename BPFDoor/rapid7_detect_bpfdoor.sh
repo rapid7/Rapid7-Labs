@@ -112,9 +112,6 @@ SUSPICIOUS_PORT_SINGLE=8000
 SUSPICIOUS_FILES_TMP=()
 EXCLUDE_PROCESS_NAMES=()
 
-SELF_PID=$$
-SELF_EXE="$(readlink -f /proc/$$/exe 2>/dev/null || echo "")"
-
 print_usage() {
   cat <<'EOF'
 Usage: rapid7_detect_bpfdoor.sh [OPTIONS]
