@@ -111,6 +111,7 @@ SUSPICIOUS_PORT_SINGLE=8000
 
 SUSPICIOUS_FILES_TMP=()
 EXCLUDE_PROCESS_NAMES=()
+RUN_DEPENDENCY_DIAGNOSTICS=0
 
 print_usage() {
   cat <<'EOF'
@@ -120,6 +121,9 @@ Options:
   --exclude-process <name|file>   Exclude connections owned by the named process.
                                   If the argument is a readable file, each line is
                                   treated as a process name to exclude.
+  --dependency-diagnostics, --dep-diag
+                                  Run dependency diagnostics only and write to:
+                                  ${DEPENDENCY_LOGFILE}
   -h, --help                      Show this help message and exit.
 EOF
 }
@@ -155,6 +159,10 @@ parse_args() {
         ;;
       --exclude-process=*)
         add_excluded_processes "${1#*=}"
+        shift
+        ;;
+      --dependency-diagnostics|--dep-diag)
+        RUN_DEPENDENCY_DIAGNOSTICS=1
         shift
         ;;
       -h|--help)
@@ -225,19 +233,6 @@ require_root() {
 
 cmd_exists() {
   command -v "$1" >/dev/null 2>&1
-}
-
-show_usage() {
-  cat <<EOF
-Usage: $0 [--dependency-diagnostics|--dep-diag|--help]
-
-  --dependency-diagnostics, --dep-diag
-      Run dependency diagnostics only and write to:
-      ${DEPENDENCY_LOGFILE}
-
-  --help
-      Show this help text.
-EOF
 }
 
 run_dependency_diagnostics() {
@@ -1076,6 +1071,12 @@ check_persistence() {
 # ---- Main ------------------------------------------------------------------
 main() {
   parse_args "$@"
+
+  if [ "$RUN_DEPENDENCY_DIAGNOSTICS" -eq 1 ]; then
+    run_dependency_diagnostics
+    return 0
+  fi
+
   require_root
   : > "$LOGFILE"
   banner
@@ -1100,14 +1101,4 @@ main() {
   echo -e "${YELLOW}[!] Any CRITICAL or ALERT entries should be investigated, considering there could be an acceptable rate of false positives depending on the execution environment.${NC}"
 }
 
-case "${1:-}" in
-  --dependency-diagnostics|--dep-diag)
-    run_dependency_diagnostics
-    ;;
-  --help|-h)
-    show_usage
-    ;;
-  *)
-    main "$@"
-    ;;
-esac
+main "$@"
