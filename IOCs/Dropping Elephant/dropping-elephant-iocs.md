@@ -18,7 +18,8 @@
 
 ```
 chinagreenenergy.org                   Staging / delivery server (HTTPS) — LNK downloader
-gcl-power.org                          C2 hostname (HTTPS/443)  
+gcl-power.org                          C2 hostname (HTTPS/443)\
+gcl-cn.org                             Can be related by BANNER_0_HASH-HOST=1afcf060c85a431a22adb4f2e3154c2b
 /prjozifvkpkfhkr/                      C2 URI — registration/check-in 
 /prjozifvkpkfhkr/gedhagammgjvvva/      C2 URI — command poll 
 /prjozifvkpkfhkr/spxbjdhxtapivrk/      C2 URI — screenshot exfil 
