@@ -36,6 +36,7 @@ Currently, this repository offers:
 - **Sigma Rules**: Detailed Sigma rules for threat detection. See [Sigma](./Sigma) folder.
 - **Yara Rules**: Yara rules for identifying malware patterns. See [Yara](./Yara) folder.
 - **Indicators of Compromise**: A comprehensive list of IOCs associated with various threats. See [IOCs](./IOCs) folder.
+- **AttackerKB Assessment Archive**: A frozen snapshot of the community vulnerability assessments published on AttackerKB, archived here as Markdown ahead of the platform's sunset. See [AttackerKB](./AttackerKB) folder.
 
 ## Contribution Guidelines
 
