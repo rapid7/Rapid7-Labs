@@ -1,0 +1,46 @@
+Webworm NtMonitor VPN - IoCs
+============================
+
+IoC: 90e70c0b04ecb9dfa1d5c60fe7de901846ebf0b54754ea12dde1ccb77623a6e8
+Kind: SHA-256
+Comment: Self-contained NtMonitor executable
+
+IoC: 4532584e9c35e03bcaa97d475eefc373d0aa9baf6a628776b4acef23cd10f222
+Kind: SHA-256
+Comment: setting.conf found in a public source
+
+IoC: b12d5e345b013d363d13340f9423503d89180e0fd5d9f48fc50bd89d2276e6f7
+Kind: SHA-256
+Comment: setting.conf found in a public source
+
+IoC: 216.238.108[.]22
+Kind: IPv4
+Comment: C2 found in decrypted configuration (public)
+
+IoC: AS 20473
+Kind: AS
+Comment: AS belonging to “The Constant Company, LLC” associated with various Webworm activity
+
+IoC: /update/picture.cgi
+Kind: URL path
+Comment: Renamed HTTP endpoint
+
+IoC: /update/alive.cgi
+Kind: URL path
+Comment: Renamed HTTP endpoint
+
+IoC: %TEMP%\@setting.conf
+Kind: Filepath
+Comment: Location of plaintext configuration
+
+IoC: Software\SoftEther Project\NtMonitor VPN
+Kind: Registry key pattern
+Comment: Partially rebranded from SoftEther VPN
+
+IoC: NtMonitor VPN
+Kind: String in PE
+Comment: Threat actor’s name for the tool
+
+IoC: C:\Users\Administrator\Desktop\SoftEtherVPN_Stable\SoftEtherVPN_Stable\SoftEtherVPN_Stable\src\DebugFiles\pdb\x64_Release\vpnbridge.pdb
+Kind: String in PE
+Comment: PDB path
